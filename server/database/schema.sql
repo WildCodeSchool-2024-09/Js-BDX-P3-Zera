@@ -1,21 +1,86 @@
-create table user (
+create table registers (
   id int unsigned primary key auto_increment not null,
   email varchar(255) not null unique,
-  password varchar(255) not null
+  password varchar(64) not null
 );
 
-create table item (
+create table clients (
   id int unsigned primary key auto_increment not null,
-  title varchar(255) not null,
-  user_id int unsigned not null,
-  foreign key(user_id) references user(id)
+  registers_id int unsigned not null,
+  foreign key(registers_id) references registers(id)
 );
 
-insert into user(id, email, password)
-values
-  (1, "jdoe@mail.com", "123456");
+create table admins (
+  id int unsigned primary key auto_increment not null,
+  registers_id int unsigned not null,
+  foreign key(registers_id) references registers(id)
+);
 
-insert into item(id, title, user_id)
-values
-  (1, "Stuff", 1),
-  (2, "Doodads", 1);
+create table contains (
+  id int unsigned primary key auto_increment not null,
+  name varchar(255) not null
+);
+
+create table books (
+  id int unsigned primary key auto_increment not null,
+  resume text not null,
+  illu varchar(255) not null,
+  contains_id int unsigned not null,
+  foreign key(contains_id) references contains(id)
+);
+
+create table books_clients (
+  id int unsigned primary key auto_increment not null,
+  date timestamp,
+  price decimal not null,
+  books_id int unsigned not null,
+  foreign key(books_id) references books(id),
+  clients_id int unsigned not null,
+  foreign key(clients_id) references clients(id)
+);
+
+create table links (
+  id int unsigned primary key auto_increment not null,
+  text text not null,
+  path varchar(255) not null
+); 
+
+create table episodes (
+  id int unsigned primary key auto_increment not null,
+  is_free boolean default false,
+  to_register boolean default false,
+  books_id int unsigned not null,
+  foreign key(books_id) references books(id),
+  contains_id int unsigned not null,
+  foreign key(contains_id) references contains(id)
+);
+
+create table episodes_links (
+  episodes_id int unsigned not null,
+  foreign key(episodes_id) references episodes(id),
+  links_id int unsigned not null,
+  foreign key(links_id) references links(id)
+);
+
+create table illu (
+  id int unsigned primary key auto_increment not null,
+  url varchar(255) not null,
+  episodes_id int unsigned not null,
+  foreign key(episodes_id) references episodes(id)
+);
+
+
+create table paragraphs (
+  id int unsigned primary key auto_increment not null,
+  content text not null,
+  episodes_id int unsigned not null,
+  foreign key(episodes_id) references episodes(id)
+);
+
+create table save (
+  date timestamp,
+  episodes_id int unsigned not null,
+  foreign key(episodes_id) references episodes(id),
+  clients_id int unsigned not null,
+  foreign key(clients_id) references clients(id)
+);
