@@ -2,25 +2,24 @@ import databaseClient from "../../../database/client";
 
 import type { Result, Rows } from "../../../database/client";
 
-type Item = {
+type Client = {
   id: number;
-  title: string;
-  user_id: number;
+  registers_id: number;
 };
 
-class ItemRepository {
+class ClientRepository {
   // The C of CRUD - Create operation
 
-  async create(item: Omit<Item, "id">) {
+  async create(client: Omit<Client, "id">) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await databaseClient.query<Result>(
-      ` 
-        INSERT INTO items 
-            (title, user_id) 
-        VALUES 
-            (?, ?)"
-        `,
-      [item.title, item.user_id],
+      `
+      INSERT INTO admin 
+          (register_id) 
+      VALUES 
+          (?)
+     `,
+      [client.registers_id],
     );
 
     // Return the ID of the newly inserted item
@@ -32,20 +31,20 @@ class ItemRepository {
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await databaseClient.query<Rows>(
-      "select * from Item where id = ?",
+      "select * from Client where id = ?",
       [id],
     );
 
     // Return the first row of the result, which represents the item
-    return rows[0] as Item;
+    return rows[0] as Client;
   }
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await databaseClient.query<Rows>("select * from item");
+    const [rows] = await databaseClient.query<Rows>("select * from clients");
 
     // Return the array of items
-    return rows as Item[];
+    return rows as Client[];
   }
 
   // The U of CRUD - Update operation
@@ -63,4 +62,4 @@ class ItemRepository {
   // }
 }
 
-export default new ItemRepository();
+export default new ClientRepository();
