@@ -16,9 +16,9 @@ class IlluRepository {
     const [result] = await databaseClient.query<Result>(
       `
         INSERT INTO illus 
-            (resume, illu, contains_id) 
+            (url,episodes_id) 
         VALUES 
-            (?, ?, ?)
+            (?, ?)
         `,
       [illu.url, illu.episodes_id],
     );
@@ -55,7 +55,7 @@ class IlluRepository {
     const updatedRows = await databaseClient.query<Rows>(
       `
         UPDATE illus,
-        SET resume = ?, illu = ?, contains_id = ?
+        SET url = ?, episodes_id = ?
         WHERE id = ? 
         `,
       [illu.url, illu.episodes_id, illu.id],

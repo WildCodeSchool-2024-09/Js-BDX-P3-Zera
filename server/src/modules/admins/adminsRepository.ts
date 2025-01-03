@@ -7,7 +7,7 @@ type Admin = {
   register_id: number;
 };
 
-class AdminsRepository {
+class AdminRepository {
   // The C of CRUD - Create operation
 
   async create(admin: Omit<Admin, "id">) {
@@ -62,4 +62,4 @@ class AdminsRepository {
   // }
 }
 
-export default new AdminsRepository();
+export default new AdminRepository();

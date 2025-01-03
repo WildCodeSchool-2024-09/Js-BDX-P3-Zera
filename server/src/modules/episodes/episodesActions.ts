@@ -54,8 +54,9 @@ const add: RequestHandler = async (req, res, next) => {
   try {
     // Extract the episode data from the request body
     const newepisode = {
-      resume: req.body.resume,
-      illu: req.body.illu,
+      is_free: req.body.is_free,
+      to_register: req.body.to_register,
+      books_id: req.body.books_id,
       contains_id: req.body.contains_id,
     };
 

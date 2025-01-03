@@ -25,6 +25,16 @@ router.delete("/api/books/:id", booksActions.delete);
 
 /* ************************************************************************* */
 
+import adminsActions from "./modules/admins/adminsAction";
+
+router.get("/api/admins", adminsActions.browse);
+router.get("/api/admins/:id", adminsActions.read);
+router.put("/api/admins/:id", adminsActions.edit);
+router.post("/api/admins", adminsActions.add);
+router.delete("/api/admins/:id", adminsActions.delete);
+
+/* ************************************************************************* */
+
 import clientsAction from "./modules/clients/clientsAction";
 
 router.get("/api/clients", clientsAction.browse);

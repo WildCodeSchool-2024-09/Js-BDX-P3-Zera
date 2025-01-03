@@ -7,10 +7,10 @@ import illusRepository from "./illusRepository";
 const browse: RequestHandler = async (req, res, next) => {
   try {
     // Fetch all books
-    const illu = await illusRepository.readAll();
+    const illus = await illusRepository.readAll();
 
     // Respond with the illu in JSON format
-    res.json(illu);
+    res.json(illus);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);

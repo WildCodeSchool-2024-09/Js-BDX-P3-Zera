@@ -17,9 +17,9 @@ class ParagraphRepository {
     const [result] = await databaseClient.query<Result>(
       `
         INSERT INTO paragraphs 
-            (resume, illu, contains_id) 
+            (content, episodes_id) 
         VALUES 
-            (?, ?, ?)
+            (?, ?)
         `,
       [paragraph.content, paragraph.episodes_id],
     );
