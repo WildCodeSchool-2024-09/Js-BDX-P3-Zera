@@ -1,4 +1,4 @@
-import LoginForm from "./logingForm";
+import LoginForm from "../login/logingForm";
 import { useLoginForm } from "./useLogingForm";
 
 function LoginPage() {
@@ -8,18 +8,22 @@ function LoginPage() {
     handleEmailChange,
     handlePasswordChange,
     handleSubmit,
+    handleForgotPasswordClick,
+    handleCreateAccountClick,
   } = useLoginForm();
 
   return (
-    <div className="login-page">
+    <main className="login-page">
       <LoginForm
         email={email}
         password={password}
         onEmailChange={handleEmailChange}
         onPasswordChange={handlePasswordChange}
         onSubmit={handleSubmit}
+        onForgotPasswordClick={handleForgotPasswordClick}
+        onCreateAccountClick={handleCreateAccountClick}
       />
-    </div>
+    </main>
   );
 }
 

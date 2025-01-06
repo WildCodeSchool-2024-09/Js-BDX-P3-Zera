@@ -16,11 +16,17 @@ export function useLoginForm() {
     e.preventDefault();
   };
 
+  const handleForgotPasswordClick = () => {};
+
+  const handleCreateAccountClick = () => {};
+
   return {
     email,
     password,
     handleEmailChange,
     handlePasswordChange,
     handleSubmit,
+    handleForgotPasswordClick,
+    handleCreateAccountClick,
   };
 }
