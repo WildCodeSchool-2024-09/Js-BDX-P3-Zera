@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.user-icon {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s, color 0.2s;
+  order: 1;
+}
+
+.user-icon:hover {
+  transform: scale(1.1);
+  color: #aaa;
+}
+
+.dark-mode-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s, color 0.2s;
+  order: 2;
+}
+
+.dark-mode-button:hover {
+  transform: scale(1.1);
+  color: #aaa;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
