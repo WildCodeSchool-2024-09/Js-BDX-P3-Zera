@@ -1,85 +1,26 @@
 .footer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px 20px;
   background-color: #333;
   color: white;
-  position: relative;
 }
 
-.menu-button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  transition: transform 0.2s, color 0.2s;
-  margin-bottom: 15px;
-}
 
-.menu-button:hover {
-  transform: scale(1.1);
-}
-
-.menu-nav {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #444;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  padding: 10px;
-  z-index: 1000;
-  display: none;
-}
-
-.menu-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.footer-nav {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 20px; 
 }
 
-.menu-link {
+.footer-link {
   color: white;
   text-decoration: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  transition: background-color 0.2s, color 0.2s;
+  font-size: 24px;
+  transition: color 0.2s, transform 0.2s;
 }
 
-.menu-link:hover {
-  background-color: #555;
-  color: #ddd;
-}
-
-.menu-inline {
-  display: none;
-  gap: 15px;
-  justify-content: center;
-}
-
-.menu-inline .menu-link {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-@media (min-width: 768px) {
-  .menu-button {
-    display: none;
-  }
-
-  .menu-inline {
-    display: flex;
-  }
-
-  .menu-nav {
-    display: none !important;
-  }
+.footer-link:hover {
+  color: #aaa;
+  transform: scale(1.1);
 }

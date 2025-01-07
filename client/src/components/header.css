@@ -5,6 +5,25 @@
   padding: 10px 20px;
   background-color: #333;
   color: white;
+  position: relative;
+}
+
+.nav-buttons {
+  display: none; 
+  gap: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #555;
+  color: #ddd;
 }
 
 .user-icon {
@@ -14,12 +33,59 @@
   cursor: pointer;
   color: white;
   transition: transform 0.2s, color 0.2s;
-  order: 1;
 }
 
 .user-icon:hover {
   transform: scale(1.1);
   color: #aaa;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  display: block; 
+}
+
+.menu-button:hover {
+  transform: scale(1.1);
+  color: #aaa;
+}
+
+.burger-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #444;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-link {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-link:hover {
+  background-color: #555;
+  color: #ddd;
 }
 
 .dark-mode-button {
@@ -29,7 +95,6 @@
   cursor: pointer;
   color: white;
   transition: transform 0.2s, color 0.2s;
-  order: 2;
 }
 
 .dark-mode-button:hover {
@@ -37,7 +102,32 @@
   color: #aaa;
 }
 
+
 body.dark-mode {
   background-color: #121212;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .nav-buttons {
+    display: none; 
+  }
+
+  .menu-button {
+    display: block; 
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-buttons {
+    display: flex; 
+  }
+
+  .menu-button {
+    display: none; 
+  }
+
+  .burger-menu {
+    display: none;
+  }
 }
