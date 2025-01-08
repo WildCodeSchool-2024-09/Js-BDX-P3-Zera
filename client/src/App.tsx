@@ -1,10 +1,15 @@
 import "./App.css";
-import LoginPage from "./pages/login/logingPage";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <LoginPage />
+      <header>
+        <h1>Perdu dans ZERA</h1>
+      </header>
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 }

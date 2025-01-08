@@ -1,12 +1,8 @@
-interface LoginFormProps {
-  email: string;
-  password: string;
-  onEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: (e: React.FormEvent) => void;
-  onForgotPasswordClick: () => void;
-  onCreateAccountClick: () => void;
-}
+import InputField from "../../components/form/InputField";
+import PasswordInput from "../../components/form/PasswordInput";
+import "../../components/Variables.css";
+import { Link } from "react-router-dom";
+import styles from "./loginForm.module.css";
 
 function LoginForm({
   email,
@@ -14,61 +10,40 @@ function LoginForm({
   onEmailChange,
   onPasswordChange,
   onSubmit,
-  onForgotPasswordClick,
-  onCreateAccountClick,
+  forgotPasswordLink,
+  createAccountLink,
 }: LoginFormProps) {
   return (
-    <form onSubmit={onSubmit} className="login-form">
-      <fieldset>
-        <legend>Connexion</legend>
-        <label htmlFor="email" className="login-form-label">
-          Email
-        </label>
-        <input
-          type="email"
+    <article className={styles.card}>
+      <form onSubmit={onSubmit} className={styles.formContent}>
+        <h1>Connexion</h1>
+        <InputField
           id="email"
           value={email}
           onChange={onEmailChange}
-          className="login-form-input"
+          label="Email *"
+          type="email"
           placeholder="Entrez votre email"
           required
         />
-
-        <label htmlFor="password" className="login-form-label">
-          Mot de passe
-        </label>
-        <input
-          type="password"
+        <PasswordInput
           id="password"
           value={password}
           onChange={onPasswordChange}
-          className="login-form-input"
-          placeholder="Votre mot de passe"
-          required
+          label="Mot de passe *"
+          placeholder="Entrez votre mot de passe"
         />
-
-        <button type="submit" className="login-form-button">
-          Se connecter
-        </button>
-      </fieldset>
-
-      <nav>
-        <button
-          type="button"
-          className="forgot-password-button"
-          onClick={onForgotPasswordClick}
-        >
-          Mot de passe oublié
-        </button>
-        <button
-          type="button"
-          className="create-account-button"
-          onClick={onCreateAccountClick}
-        >
-          Créer un compte
-        </button>
-      </nav>
-    </form>
+        <button type="submit">Se connecter</button>
+        <nav className={styles.formNav}>
+          <Link to={forgotPasswordLink} className={styles.link}>
+            Mot de passe oublié
+          </Link>
+          <Link to={createAccountLink} className={styles.link}>
+            Créer un compte
+          </Link>
+        </nav>
+      </form>
+    </article>
   );
 }
 

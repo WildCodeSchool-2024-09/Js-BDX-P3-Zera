@@ -1,7 +1,7 @@
 create table registers (
   id int unsigned primary key auto_increment not null,
   email varchar(255) not null unique,
-  password varchar(64) not null
+  password varchar(255) not null
 );
 
 create table clients (
@@ -78,7 +78,7 @@ create table paragraphs (
 );
 
 create table save (
-  date timestamp,
+  default current_timestamp,
   episodes_id int unsigned not null,
   foreign key(episodes_id) references episodes(id),
   clients_id int unsigned not null,
