@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
@@ -25,10 +26,28 @@ function Header() {
       </button>
 
       <nav className="nav-buttons">
-        <a href="#accueil" className="nav-link">Accueil</a>
-        <a href="#profil" className="nav-link">Profil</a>
-        <a href="#charger" className="nav-link">Charger</a>
-        <a href="#boutique" className="nav-link">Boutique</a>
+        <ul className="nav-list">
+          <li>
+            <Link to="/accueil" className="nav-link">
+              Accueil
+            </Link>
+          </li>
+          <li>
+            <Link to="/profil" className="nav-link">
+              Profil
+            </Link>
+          </li>
+          <li>
+            <Link to="/charger" className="nav-link">
+              Charger
+            </Link>
+          </li>
+          <li>
+            <Link to="/boutique" className="nav-link">
+              Boutique
+            </Link>
+          </li>
+        </ul>
       </nav>
 
       <button
@@ -43,10 +62,26 @@ function Header() {
       {menuOpen && (
         <nav className="burger-menu">
           <ul className="menu-list">
-            <li><a href="#accueil" className="menu-link">Accueil</a></li>
-            <li><a href="#profil" className="menu-link">Profil</a></li>
-            <li><a href="#charger" className="menu-link">Charger</a></li>
-            <li><a href="#boutique" className="menu-link">Boutique</a></li>
+            <li>
+              <Link to="/accueil" className="menu-link">
+                Accueil
+              </Link>
+            </li>
+            <li>
+              <Link to="/profil" className="menu-link">
+                Profil
+              </Link>
+            </li>
+            <li>
+              <Link to="/charger" className="menu-link">
+                Charger
+              </Link>
+            </li>
+            <li>
+              <Link to="/boutique" className="menu-link">
+                Boutique
+              </Link>
+            </li>
           </ul>
         </nav>
       )}
@@ -64,3 +99,4 @@ function Header() {
 }
 
 export default Header;
+

@@ -1,26 +1,37 @@
+@import '../components/Variables.css';
+
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
+  padding: 0.63rem 1.25rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--text-font);
 }
-
 
 .footer-nav {
   display: flex;
-  gap: 20px; 
+  gap: var(--spacing-medium, 1.25rem);
 }
 
 .footer-link {
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
-  font-size: 24px;
+  font-size: var(--text-size, 1.3rem);
+  font-family: var(--text-font);
   transition: color 0.2s, transform 0.2s;
 }
 
 .footer-link:hover {
-  color: #aaa;
+  color: var(--secondary-color);
   transform: scale(1.1);
 }
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    gap: var(--spacing-small, 0.5rem);
+  }
+}
+
