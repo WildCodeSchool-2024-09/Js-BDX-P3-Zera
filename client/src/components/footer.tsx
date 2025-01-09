@@ -1,4 +1,5 @@
 import "./Footer.css";
+import "../components/Variables.css";
 
 function Footer() {
   return (
@@ -13,7 +14,6 @@ function Footer() {
         <a href="#instagram" className="footer-link" aria-label="Instagram">
           📸 Instagram
         </a>
-      
       </nav>
     </footer>
   );

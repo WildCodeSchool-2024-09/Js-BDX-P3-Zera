@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Header.css";
+import "../components/Variables.css";
+import "./header.css";
 
 function Header() {
   const [darkMode, setDarkMode] = useState(false);
@@ -99,4 +100,3 @@ function Header() {
 }
 
 export default Header;
-
