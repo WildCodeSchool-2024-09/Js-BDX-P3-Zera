@@ -27,8 +27,10 @@ function PasswordInput({
 
   return (
     <>
-      <h2 className={styles.label}>{label}</h2>
-      <section className={styles.inputContainer}>
+      <main className={styles.inputContainer}>
+        <label htmlFor={id} className={styles.label}>
+          {label}
+        </label>
         <input
           type={showPassword ? "text" : "password"}
           id={id}
@@ -45,7 +47,7 @@ function PasswordInput({
         >
           {showPassword ? "Cacher" : "Afficher"}
         </button>
-      </section>
+      </main>
     </>
   );
 }

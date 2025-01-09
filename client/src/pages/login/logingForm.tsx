@@ -15,8 +15,8 @@ function LoginForm({
 }: LoginFormProps) {
   return (
     <article className={styles.card}>
+      <h1>Connexion</h1>
       <form onSubmit={onSubmit} className={styles.formContent}>
-        <h1>Connexion</h1>
         <InputField
           id="email"
           value={email}

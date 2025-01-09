@@ -9,23 +9,24 @@ function ForgotPasswordForm({
   onSubmit,
 }: ForgotPasswordFormProps) {
   return (
-    <form onSubmit={onSubmit} className={styles.forgotPasswordForm}>
+    <>
       <h1>Mot de passe oublié</h1>
+      <form onSubmit={onSubmit} className={styles.forgotPasswordForm}>
+        <InputField
+          id="email"
+          label="Email *"
+          type="email"
+          value={email}
+          onChange={onEmailChange}
+          placeholder="Entrez votre email"
+          required
+        />
 
-      <InputField
-        id="email"
-        label="Email *"
-        type="email"
-        value={email}
-        onChange={onEmailChange}
-        placeholder="Entrez votre email"
-        required
-      />
-
-      <button type="submit" className={styles.button}>
-        Envoyer le lien de réinitialisation
-      </button>
-    </form>
+        <button type="submit" className={styles.button}>
+          Envoyer le lien de réinitialisation
+        </button>
+      </form>
+    </>
   );
 }
 

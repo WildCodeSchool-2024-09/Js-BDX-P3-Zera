@@ -11,7 +11,7 @@ function LoginPage() {
   } = useLoginForm();
 
   return (
-    <main className="login-page">
+    <main className="loginPage">
       <LoginForm
         email={email}
         password={password}

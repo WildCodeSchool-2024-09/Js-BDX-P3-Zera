@@ -21,7 +21,7 @@ function InputField({
   required = false,
 }: InputFieldProps) {
   return (
-    <section className={styles.inputField}>
+    <main className={styles.inputField}>
       <label htmlFor={id} className={styles.label}>
         {label}
       </label>
@@ -34,7 +34,7 @@ function InputField({
         placeholder={placeholder}
         required={required}
       />
-    </section>
+    </main>
   );
 }
 
