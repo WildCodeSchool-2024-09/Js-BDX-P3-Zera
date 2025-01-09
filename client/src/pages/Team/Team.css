@@ -27,6 +27,7 @@ section {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  letter-spacing: .5rem;
 }
 
 .team-member {
@@ -89,6 +90,7 @@ h2 {
   margin-bottom: 1rem;
   margin-top: 1rem;
   font-family: var(--title-font);
+  letter-spacing: .3rem;
 }
 
 p {
