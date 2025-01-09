@@ -1,0 +1,34 @@
+@import url("./Variables.css");
+
+.play-button {
+  border: 0.15rem solid;
+  padding: 1rem 3.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.7s ease;
+  letter-spacing: 0;
+  text-decoration: none;
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  box-shadow: 0 0 15px var(--secondary-color);
+  font-family: "VT323", serif;
+  width: 10rem;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px var(--secondary-color);
+}
+
+.play-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px var(--color-boxshadow);
+}
+
+@media screen and (min-width: 600px) {
+  .play-button {
+    width: 15rem;
+    text-align: center;
+  }
+}
