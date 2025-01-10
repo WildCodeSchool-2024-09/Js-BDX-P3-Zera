@@ -9,7 +9,6 @@ body {
   color: var(--text-color);
   display: flex;
   flex-direction: column;
-  justify-content: flex;
 }
 
 section {
@@ -47,20 +46,19 @@ section {
   display: flex;
   align-items: center;
   border-radius: 12rem;
-  border: solid var(--secondary-color);
   margin-top: 5rem;
 }
 
 .pierre-image {
   width: 18rem;
-  border-radius: 12rem;
   border: solid var(--secondary-color);
+  object-fit: cover;
+  border-radius: 12rem;
 }
 
 .dev-image {
   width: 18rem;
   border-radius: 12rem;
-  border: solid var(--secondary-color);
 }
 
 .logo-container {
@@ -89,6 +87,11 @@ section {
 h2 {
   margin-bottom: 1rem;
   margin-top: 1rem;
+  font-family: var(--title-font);
+  letter-spacing: .3rem;
+}
+
+h3 {
   font-family: var(--title-font);
   letter-spacing: .3rem;
 }

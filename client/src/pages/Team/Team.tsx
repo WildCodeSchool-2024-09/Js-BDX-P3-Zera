@@ -3,16 +3,17 @@ import "../../../src/components/Variables.css";
 import instagramImage from "../../../src/assets/images/instagram.png";
 import jonathanImage from "../../../src/assets/images/jonathan.png";
 import linkedinImage from "../../../src/assets/images/linkedin.png";
-import pierreImage from "../../../src/assets/images/pierre.jpeg";
+import pierreImage from "../../../src/assets/images/pierre.png";
 
 function Team() {
   return (
     <>
-      <h1 className="team-title">Team</h1>
       <section>
+        <h1 className="team-title">Team</h1>
         <article className="team-member">
           <img src={jonathanImage} alt="Jonathan" className="jonathan-image" />
           <h2>Jonathan</h2>
+          <h3>(aka Jojo Kourtex)</h3>
           <section className="logo-container">
             <a
               href="https://www.linkedin.com/in/jonathan-courteix/"
@@ -42,12 +43,14 @@ function Team() {
             </a>
           </section>
           <p>
-            Passionné d’univers multiples et de récits immersifs, Jonathan vous
-            invite à plonger dans un monde où l’imaginaire s’épanouit à la
-            croisée des chemins entre science-fiction futuriste et Far West
-            sauvage. Quand il n’est pas perdu dans ses mondes imaginaires,
-            Jonathan aime partager sa passion pour les récits interactifs, où le
-            lecteur est toujours le véritable héros.
+            Auteur de bande dessinées, peintre et également auteur. Il est
+            notamment le dessinateur de la bande dessinée Histoire de la
+            Martinique. Perdu dans ZERA est son premier livre interactif. Il a
+            imaginé le scénario et les univers de l’aventure de A à Z tout en
+            s’inspirant des livres et des jeux vidéos de son enfance. Zera est
+            né de son envie de vulgariser les termes de l’informatique et de
+            l’internet pour les enfants à travers une aventure loufoque et
+            originale.
           </p>
         </article>
 
@@ -83,11 +86,14 @@ function Team() {
             </a>
           </section>
           <p>
-            Passionné par l’esthétique rétrofuturiste et les atmosphères
-            cinématographiques, [Nom du Designer] a mis son talent au service de
-            ce livre interactif, où chaque illustration et chaque élément
-            graphique transportent le lecteur dans une fusion unique entre
-            science-fiction futuriste et Far West.
+            llustrateur et enseignant en arts graphiques. Pierre puise son
+            inspiration dans la musique, ainsi que dans les illustrations et les
+            bandes dessinées vintages des années 60 à 90. Toujours en quête de
+            nouvelles techniques à explorer, il prend plaisir à peindre autant
+            qu’à travailler sur ordinateur. Pierre collabore avec de nombreux
+            artistes et réalise des commandes pour de nombreux artistes
+            notamment de la scène reggae Dub européenne. L’artiste a réalisé le
+            Logo de l’application !
           </p>
         </article>
 
