@@ -6,12 +6,17 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Define item-related routes
-import itemActions from "./modules/item/itemActions";
+// Define adminAction-related routes
 
-router.get("/api/items", itemActions.browse);
-router.get("/api/items/:id", itemActions.read);
-router.post("/api/items", itemActions.add);
+/* ************************************************************************* */
+
+import adminAction from "./modules/admins/adminAction";
+
+router.get("/api/admin", adminAction.browse);
+router.get("/api/admin/:id", adminAction.read);
+router.post("/api/admin", adminAction.add);
+router.put("/api/admin/:id", adminAction.edit);
+router.delete("/api/admin/:id", adminAction.remove);
 
 /* ************************************************************************* */
 
