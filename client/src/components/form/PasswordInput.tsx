@@ -27,7 +27,7 @@ function PasswordInput({
 
   return (
     <>
-      <main className={styles.inputContainer}>
+      <fieldset className={styles.inputContainer}>
         <label htmlFor={id} className={styles.label}>
           {label}
         </label>
@@ -47,7 +47,7 @@ function PasswordInput({
         >
           {showPassword ? "Cacher" : "Afficher"}
         </button>
-      </main>
+      </fieldset>
     </>
   );
 }
