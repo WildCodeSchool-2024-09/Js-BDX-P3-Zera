@@ -5,7 +5,7 @@ function ForgotPasswordPage() {
   const { email, handleEmailChange, handleSubmit } = useForgotPasswordForm();
 
   return (
-    <main className="forgotPasswordPage">
+    <>
       <p>
         Entrez votre adresse email pour recevoir un lien de réinitialisation.
       </p>
@@ -14,7 +14,7 @@ function ForgotPasswordPage() {
         onEmailChange={handleEmailChange}
         onSubmit={handleSubmit}
       />
-    </main>
+    </>
   );
 }
 

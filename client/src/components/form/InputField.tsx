@@ -21,7 +21,7 @@ function InputField({
   required = false,
 }: InputFieldProps) {
   return (
-    <fieldset className={styles.inputField}>
+    <>
       <label htmlFor={id} className={styles.label}>
         {label}
       </label>
@@ -34,7 +34,7 @@ function InputField({
         placeholder={placeholder}
         required={required}
       />
-    </fieldset>
+    </>
   );
 }
 

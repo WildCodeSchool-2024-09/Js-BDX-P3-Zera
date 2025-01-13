@@ -11,17 +11,15 @@ function LoginPage() {
   } = useLoginForm();
 
   return (
-    <main className="loginPage">
-      <LoginForm
-        email={email}
-        password={password}
-        onEmailChange={handleEmailChange}
-        onPasswordChange={handlePasswordChange}
-        onSubmit={handleSubmit}
-        forgotPasswordLink="/mot-de-passe-oublie"
-        createAccountLink="/inscription"
-      />
-    </main>
+    <LoginForm
+      email={email}
+      password={password}
+      onEmailChange={handleEmailChange}
+      onPasswordChange={handlePasswordChange}
+      onSubmit={handleSubmit}
+      forgotPasswordLink="/mot-de-passe-oublie"
+      createAccountLink="/inscription"
+    />
   );
 }
 

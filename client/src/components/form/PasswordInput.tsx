@@ -24,30 +24,27 @@ function PasswordInput({
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
-
   return (
     <>
-      <fieldset className={styles.inputContainer}>
-        <label htmlFor={id} className={styles.label}>
-          {label}
-        </label>
-        <input
-          type={showPassword ? "text" : "password"}
-          id={id}
-          value={value}
-          onChange={onChange}
-          className={styles.input}
-          placeholder={placeholder}
-          required={required}
-        />
-        <button
-          type="button"
-          onClick={togglePasswordVisibility}
-          className={styles.toggleButton}
-        >
-          {showPassword ? "Cacher" : "Afficher"}
-        </button>
-      </fieldset>
+      <label htmlFor={id} className={styles.label}>
+        {label}
+      </label>
+      <input
+        type={showPassword ? "text" : "password"}
+        id={id}
+        value={value}
+        onChange={onChange}
+        className={styles.input}
+        placeholder={placeholder}
+        required={required}
+      />
+      <button
+        type="button"
+        onClick={togglePasswordVisibility}
+        className={styles.toggleButton}
+      >
+        {showPassword ? "Cacher" : "Afficher"}
+      </button>
     </>
   );
 }

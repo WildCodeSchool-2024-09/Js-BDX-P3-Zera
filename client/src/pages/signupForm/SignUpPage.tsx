@@ -15,18 +15,16 @@ export default function SignUpPage() {
   } = useSignupForm();
 
   return (
-    <main>
-      <SignupForm
-        email={email}
-        confirmEmail={confirmEmail}
-        password={password}
-        confirmPassword={confirmPassword}
-        onEmailChange={handleEmailChange}
-        onConfirmEmailChange={handleConfirmEmailChange}
-        onPasswordChange={handlePasswordChange}
-        onConfirmPasswordChange={handleConfirmPasswordChange}
-        onSubmit={handleSubmit}
-      />
-    </main>
+    <SignupForm
+      email={email}
+      confirmEmail={confirmEmail}
+      password={password}
+      confirmPassword={confirmPassword}
+      onEmailChange={handleEmailChange}
+      onConfirmEmailChange={handleConfirmEmailChange}
+      onPasswordChange={handlePasswordChange}
+      onConfirmPasswordChange={handleConfirmPasswordChange}
+      onSubmit={handleSubmit}
+    />
   );
 }
