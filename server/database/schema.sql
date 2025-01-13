@@ -1,3 +1,4 @@
+
 create table users (
   id int unsigned primary key auto_increment not null,
   email varchar(255) not null unique,
@@ -16,6 +17,7 @@ create table admins (
   users_id int unsigned not null,
   foreign key(users_id) references users(id)
   ON DELETE CASCADE
+
 );
 
 create table contains (
@@ -46,6 +48,7 @@ create table links (
   text text not null,
   path varchar(255) not null
 ); 
+
 
 create table episodes (
   id int unsigned primary key auto_increment not null,
@@ -85,3 +88,4 @@ create table save (
   clients_id int unsigned not null,
   foreign key(clients_id) references clients(id)
 );
+
