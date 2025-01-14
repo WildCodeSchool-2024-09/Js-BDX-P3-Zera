@@ -4,6 +4,7 @@ import instagramImage from "../../../src/assets/images/instagram.png";
 import jonathanImage from "../../../src/assets/images/jonathan.png";
 import linkedinImage from "../../../src/assets/images/linkedin.png";
 import pierreImage from "../../../src/assets/images/pierre.png";
+import devImage from "../../../src/assets/images/dev.jpg";
 
 function Team() {
   return (
@@ -98,11 +99,7 @@ function Team() {
         </article>
 
         <article className="team-member">
-          <img
-            src={jonathanImage}
-            alt="L'équipe de développement"
-            className="dev-image"
-          />
+          <img src={devImage} alt="Les Dev" className="dev-image" />
           <header>
             <h2>L'équipe de dev</h2>
           </header>
