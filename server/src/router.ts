@@ -18,6 +18,15 @@ router.post("/api/admin", adminAction.add);
 router.put("/api/admin/:id", adminAction.edit);
 router.delete("/api/admin/:id", adminAction.remove);
 
+import booksActions from "./modules/books/booksActions";
+
+router.get("/api/books", booksActions.browse);
+router.get("/api/books/:id", booksActions.read);
+router.post("/api/books", booksActions.add);
+router.put("/api/books/:id", booksActions.edit);
+router.delete("/api/books/:id", booksActions.remove);
+
+
 /* ************************************************************************* */
 import userAction from "./modules/users/userAction";
 
