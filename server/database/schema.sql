@@ -1,3 +1,4 @@
+
 create table users (
   id int unsigned primary key auto_increment not null,
   email varchar(255) not null unique,
@@ -8,12 +9,21 @@ create table clients (
   id int unsigned primary key auto_increment not null,
   users_id int unsigned not null,
   foreign key(users_id) references users(id)
+  ON DELETE CASCADE
+
 );
 
 create table admins (
   id int unsigned primary key auto_increment not null,
   users_id int unsigned not null,
   foreign key(users_id) references users(id)
+  ON DELETE CASCADE
+);
+
+create table contains (
+  id int unsigned primary key auto_increment not null,
+  name varchar(255) not null
+
 );
 
 create table books (
@@ -38,6 +48,7 @@ create table choices (
   text text not null,
   path varchar(255) not null
 ); 
+
 
 create table episodes (
   id int unsigned primary key auto_increment not null,
