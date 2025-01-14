@@ -1,10 +1,10 @@
 import "./Team.css";
 import "../../../src/components/Variables.css";
+import devImage from "../../../src/assets/images/dev.jpg";
 import instagramImage from "../../../src/assets/images/instagram.png";
 import jonathanImage from "../../../src/assets/images/jonathan.png";
 import linkedinImage from "../../../src/assets/images/linkedin.png";
 import pierreImage from "../../../src/assets/images/pierre.png";
-import devImage from "../../../src/assets/images/dev.jpg";
 
 function Team() {
   return (
