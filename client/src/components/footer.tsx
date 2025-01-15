@@ -11,18 +11,18 @@ function Footer() {
           href="#linkedin"
           target="_blank"
           rel="noreferrer"
-          className="footer-link"
+          className="footer-icon"
         >
-          <img src={linkedinImage} alt="LinkedIn" className="footer-icon" />
+          <img src={linkedinImage} alt="Bouton LinkedIn" />
         </a>
         <a
           href="#instagram"
-          className="footer-link"
           target="_blank"
           rel="noreferrer"
           aria-label="Instagram"
+          className="footer-icon"
         >
-          <img src={instagramImage} alt="Instagram" className="footer-icon" />
+          <img src={instagramImage} alt="Bouton Instagram" />
         </a>
       </nav>
     </footer>

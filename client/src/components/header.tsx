@@ -57,13 +57,13 @@ function Header() {
         type="button"
         onClick={toggleMenu}
         className={`menu-button ${menuOpen ? "open" : ""}`}
-        aria-label="Toggle navigation menu"
+        aria-label="Déroulement menu burger"
       >
         ☰
       </button>
 
       {menuOpen && (
-        <section className="burger-menu">
+        <nav className="burger-menu">
           <ul className="menu-list">
             <li>
               <Link to="/accueil" className="menu-link">
@@ -86,14 +86,14 @@ function Header() {
               </Link>
             </li>
           </ul>
-        </section>
+        </nav>
       )}
 
       <button
         type="button"
         onClick={toggleDarkMode}
         className="dark-mode-button"
-        aria-label="Bouton mode sombre"
+        aria-label="Ce bouton permet de passer sur le mode sombre/mode clair au clic. Par défaut sur le mode clair"
       >
         {darkMode ? (
           <img src={dayMode} alt="bouton mode clair" className="header-icon" />
