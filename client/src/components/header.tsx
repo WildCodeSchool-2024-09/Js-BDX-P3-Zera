@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../components/Variables.css";
+import "../assets/images/imageProfil.png";
+import nightMode from "../assets/images/mode-sombre.png";
+import dayMode from "../assets/images/mode-jour.png";
 import "./header.css";
 
 function Header() {
@@ -21,11 +24,13 @@ function Header() {
       <button
         type="button"
         className="user-icon"
-        aria-label="Toggle profile menu"
-      >
-        🧑
+        aria-label="bouton du profil">
+            <img
+          src="../assets/images/imageProfil.png"
+          alt="Image de profil"
+          className="profile-image"
+        />
       </button>
-
       <nav className="nav-buttons">
         <ul className="nav-list">
           <li>
@@ -61,7 +66,7 @@ function Header() {
       </button>
 
       {menuOpen && (
-        <nav className="burger-menu">
+        <section className="burger-menu">
           <ul className="menu-list">
             <li>
               <Link to="/accueil" className="menu-link">
@@ -84,16 +89,16 @@ function Header() {
               </Link>
             </li>
           </ul>
-        </nav>
+        </section>
       )}
 
       <button
         type="button"
         onClick={toggleDarkMode}
         className="dark-mode-button"
-        aria-label="Toggle dark mode"
+        aria-label="Bouton mode sombre"
       >
-        {darkMode ? "🌙" : "☀️"}
+        {darkMode ? <img src={dayMode} alt="bouton mode clair" className="header-icon" /> : <img src={nightMode} alt="bouton mode sombre" className="header-icon" />}
       </button>
     </header>
   );

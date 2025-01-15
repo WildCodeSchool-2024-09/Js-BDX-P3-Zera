@@ -1,8 +1,8 @@
 import "./Footer.css";
 import "../components/Variables.css";
-import linkedinImage from "../assets/images/linkedin.png";
-import twitterImage from "../assets/images/twitter.jpg";
 import instagramImage from "../assets/images/instagram.png";
+import linkedinImage from "../assets/images/linkedin.png";
+
 
 function Footer() {
   return (
@@ -13,26 +13,8 @@ function Footer() {
           target="_blank"
           rel="noreferrer"
           className="footer-link"
-          aria-label="Linkedin Profile"
         >
-          <img
-            src={linkedinImage}
-            alt="LinkedIn"
-            className="footer-icon"
-          />
-        </a>
-        <a
-          href="#X"
-          className="footer-link"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="X"
-        >
-          <img
-            src={twitterImage} 
-            alt="X"
-            className="footer-icon"
-          />
+          <img src={linkedinImage} alt="LinkedIn" className="footer-icon" />
         </a>
         <a
           href="#instagram"
@@ -41,11 +23,7 @@ function Footer() {
           rel="noreferrer"
           aria-label="Instagram"
         >
-          <img
-            src={instagramImage} 
-            alt="Instagram"
-            className="footer-icon"
-          />
+          <img src={instagramImage} alt="Instagram" className="footer-icon" />
         </a>
       </nav>
     </footer>
@@ -53,4 +31,3 @@ function Footer() {
 }
 
 export default Footer;
-

@@ -19,7 +19,7 @@
   justify-content: center;
   color: var(--text-color);
   text-decoration: none;
-  font-size: var(--text-size, 1.3rem); 
+  font-size: var(--text-size, 1.3rem);
   font-family: var(--text-font);
   transition: transform 0.2s;
 }
@@ -29,12 +29,12 @@
 }
 
 .footer-icon {
-  width: 2.5rem; 
-  height: 2.5rem; 
+  width: 2.5rem;
+  height: 2.5rem;
   display: block;
-  border-radius: 50%; 
-  object-fit: cover; 
-  overflow: hidden; 
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -55,9 +55,7 @@
   }
 
   .footer-icon {
-    width: 1.88rem; 
+    width: 1.88rem;
     height: 1.88rem;
   }
 }
-
-
