@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../components/Variables.css";
 import "../assets/images/imageProfil.png";
-import nightMode from "../assets/images/mode-sombre.png";
 import dayMode from "../assets/images/mode-jour.png";
+import nightMode from "../assets/images/mode-sombre.png";
 import "./header.css";
 
 function Header() {
@@ -21,13 +21,10 @@ function Header() {
 
   return (
     <header className="header">
-      <button
-        type="button"
-        className="user-icon"
-        aria-label="bouton du profil">
-            <img
+      <button type="button" className="user-icon" aria-label="bouton du profil">
+        <img
           src="../assets/images/imageProfil.png"
-          alt="Image de profil"
+          alt="avatar de profil"
           className="profile-image"
         />
       </button>
@@ -98,7 +95,15 @@ function Header() {
         className="dark-mode-button"
         aria-label="Bouton mode sombre"
       >
-        {darkMode ? <img src={dayMode} alt="bouton mode clair" className="header-icon" /> : <img src={nightMode} alt="bouton mode sombre" className="header-icon" />}
+        {darkMode ? (
+          <img src={dayMode} alt="bouton mode clair" className="header-icon" />
+        ) : (
+          <img
+            src={nightMode}
+            alt="bouton mode sombre"
+            className="header-icon"
+          />
+        )}
       </button>
     </header>
   );
