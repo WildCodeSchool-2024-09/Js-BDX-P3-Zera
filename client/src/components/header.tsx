@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../components/Variables.css";
-import "../assets/images/imageProfil.png";
+import profileImage from "../assets/images/imageProfil.png";
 import dayMode from "../assets/images/mode-jour.png";
 import nightMode from "../assets/images/mode-sombre.png";
 import "./header.css";
@@ -23,9 +23,9 @@ function Header() {
     <header className="header">
       <button type="button" className="user-icon" aria-label="bouton du profil">
         <img
-          src="../assets/images/imageProfil.png"
-          alt="avatar de profil"
+          src={profileImage} 
           className="profile-image"
+          alt="avatar profil"
         />
       </button>
       <nav className="nav-buttons">
@@ -93,7 +93,7 @@ function Header() {
         type="button"
         onClick={toggleDarkMode}
         className="dark-mode-button"
-        aria-label="Ce bouton permet de passer sur le mode sombre/mode clair au clic. Par défaut sur le mode clair"
+        aria-label="Ce bouton permet de passer sur le mode sombre."
       >
         {darkMode ? (
           <img src={dayMode} alt="bouton mode clair" className="header-icon" />

@@ -29,14 +29,20 @@
 }
 
 .footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.footer-icon img {
   width: 2.5rem;
   height: 2.5rem;
-  display: block;
   border-radius: 50%;
   object-fit: cover;
-  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .footer-icon:hover {
   transform: scale(1.1);
@@ -58,4 +64,10 @@
     width: 1.88rem;
     height: 1.88rem;
   }
+  
+  .footer-icon img {
+    width: 1.88rem;
+    height: 1.88rem;
+  }
+
 }
