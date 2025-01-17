@@ -4,7 +4,7 @@ body {
   background-color: var(--text-color);
 }
 
-.app main {
+.App main {
   text-align: center;
   padding: 1.25rem;
 }
