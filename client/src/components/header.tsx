@@ -19,38 +19,60 @@ function Header() {
     setMenuOpen(!menuOpen);
   };
 
+  const NavigationLinks = ({ isMobile = false }) => (
+    <ul className={isMobile ? "menu-list" : "nav-list"}>
+      <li>
+        <Link 
+          to="/accueil" 
+          className={isMobile ? "menu-link" : "nav-link"}
+          onClick={() => isMobile && setMenuOpen(false)}
+        >
+          Accueil
+        </Link>
+      </li>
+      <li>
+        <Link 
+          to="/profil" 
+          className={isMobile ? "menu-link" : "nav-link"}
+          onClick={() => isMobile && setMenuOpen(false)}
+        >
+          Profil
+        </Link>
+      </li>
+      <li>
+        <Link 
+          to="/charger" 
+          className={isMobile ? "menu-link" : "nav-link"}
+          onClick={() => isMobile && setMenuOpen(false)}
+        >
+          Charger
+        </Link>
+      </li>
+      <li>
+        <Link 
+          to="/boutique" 
+          className={isMobile ? "menu-link" : "nav-link"}
+          onClick={() => isMobile && setMenuOpen(false)}
+        >
+          Boutique
+        </Link>
+      </li>
+    </ul>
+  );
+
   return (
     <header className="header">
-      <button type="button" className="user-icon" aria-label="bouton du profil">
-        <img
-          src={profileImage} 
-          className="profile-image"
-          alt="avatar profil"
+      <button type="button" className="user-icon">
+        <figure 
+          className="profile-image" 
+          role="img" 
+          aria-label="Photo de profil"
+          style={{ backgroundImage: `url(${profileImage})` }}
         />
       </button>
+
       <nav className="nav-buttons">
-        <ul className="nav-list">
-          <li>
-            <Link to="/accueil" className="nav-link">
-              Accueil
-            </Link>
-          </li>
-          <li>
-            <Link to="/profil" className="nav-link">
-              Profil
-            </Link>
-          </li>
-          <li>
-            <Link to="/charger" className="nav-link">
-              Charger
-            </Link>
-          </li>
-          <li>
-            <Link to="/boutique" className="nav-link">
-              Boutique
-            </Link>
-          </li>
-        </ul>
+        <NavigationLinks />
       </nav>
 
       <button
@@ -64,28 +86,7 @@ function Header() {
 
       {menuOpen && (
         <nav className="burger-menu">
-          <ul className="menu-list">
-            <li>
-              <Link to="/accueil" className="menu-link">
-                Accueil
-              </Link>
-            </li>
-            <li>
-              <Link to="/profil" className="menu-link">
-                Profil
-              </Link>
-            </li>
-            <li>
-              <Link to="/charger" className="menu-link">
-                Charger
-              </Link>
-            </li>
-            <li>
-              <Link to="/boutique" className="menu-link">
-                Boutique
-              </Link>
-            </li>
-          </ul>
+          <NavigationLinks isMobile={true} />
         </nav>
       )}
 
@@ -98,11 +99,7 @@ function Header() {
         {darkMode ? (
           <img src={dayMode} alt="bouton mode clair" className="header-icon" />
         ) : (
-          <img
-            src={nightMode}
-            alt="bouton mode sombre"
-            className="header-icon"
-          />
+          <img src={nightMode} alt="bouton mode sombre" className="header-icon" />
         )}
       </button>
     </header>
