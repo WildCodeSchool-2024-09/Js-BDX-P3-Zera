@@ -22,8 +22,8 @@ function Header() {
   const NavigationLinks = ({ isMobile = false }) => (
     <ul className={isMobile ? "menu-list" : "nav-list"}>
       <li>
-        <Link 
-          to="/accueil" 
+        <Link
+          to="/accueil"
           className={isMobile ? "menu-link" : "nav-link"}
           onClick={() => isMobile && setMenuOpen(false)}
         >
@@ -31,8 +31,8 @@ function Header() {
         </Link>
       </li>
       <li>
-        <Link 
-          to="/profil" 
+        <Link
+          to="/profil"
           className={isMobile ? "menu-link" : "nav-link"}
           onClick={() => isMobile && setMenuOpen(false)}
         >
@@ -40,8 +40,8 @@ function Header() {
         </Link>
       </li>
       <li>
-        <Link 
-          to="/charger" 
+        <Link
+          to="/charger"
           className={isMobile ? "menu-link" : "nav-link"}
           onClick={() => isMobile && setMenuOpen(false)}
         >
@@ -49,8 +49,8 @@ function Header() {
         </Link>
       </li>
       <li>
-        <Link 
-          to="/boutique" 
+        <Link
+          to="/boutique"
           className={isMobile ? "menu-link" : "nav-link"}
           onClick={() => isMobile && setMenuOpen(false)}
         >
@@ -63,9 +63,9 @@ function Header() {
   return (
     <header className="header">
       <button type="button" className="user-icon">
-        <figure 
-          className="profile-image" 
-          role="img" 
+        <figure
+          className="profile-image"
+          role="img"
           aria-label="Photo de profil"
           style={{ backgroundImage: `url(${profileImage})` }}
         />
@@ -99,7 +99,11 @@ function Header() {
         {darkMode ? (
           <img src={dayMode} alt="bouton mode clair" className="header-icon" />
         ) : (
-          <img src={nightMode} alt="bouton mode sombre" className="header-icon" />
+          <img
+            src={nightMode}
+            alt="bouton mode sombre"
+            className="header-icon"
+          />
         )}
       </button>
     </header>
