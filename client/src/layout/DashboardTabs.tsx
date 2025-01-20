@@ -3,6 +3,7 @@ import { Tab } from "../components/Dashboard/Common/Tab";
 import TabList from "../components/Dashboard/Common/TabList";
 import { EpisodePage } from "../components/Dashboard/Episode/EpisodePage";
 import { GlossaryPage } from "../components/Dashboard/Glossary/GlossaryPage";
+import "Dashboard.css";
 
 export const DashboardTabs = () => {
   return (
