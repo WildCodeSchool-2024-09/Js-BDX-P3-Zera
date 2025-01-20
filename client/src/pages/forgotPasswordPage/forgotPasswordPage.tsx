@@ -1,5 +1,5 @@
 import ForgotPasswordForm from "../forgotPasswordPage/forgotPasswordForm";
-import { useForgotPasswordForm } from "./useForgotPasswordForm";
+import { useForgotPasswordForm } from "./useForgotPasswordForm.ts";
 
 function ForgotPasswordPage() {
   const { email, handleEmailChange, handleSubmit } = useForgotPasswordForm();

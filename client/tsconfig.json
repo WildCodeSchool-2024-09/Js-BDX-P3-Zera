@@ -20,6 +20,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "../../../../projet-perso/projet-1/my-first-project/src/components/Dashboard/Dashboard.tsx",
+    "../../../../projet-perso/projet-1/my-first-project/src/components/Tab"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
