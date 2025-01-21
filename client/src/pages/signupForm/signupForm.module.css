@@ -1,6 +1,7 @@
-h1 {
+.titleSignup {
   margin: 0;
   padding: .5rem;
+  text-align: center;
 }
 
 .label {

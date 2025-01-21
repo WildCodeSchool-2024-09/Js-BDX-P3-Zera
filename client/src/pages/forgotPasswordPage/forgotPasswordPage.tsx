@@ -1,4 +1,5 @@
 import ForgotPasswordForm from "../forgotPasswordPage/forgotPasswordForm";
+import styles from "./forgotPasswordForm.module.css";
 import { useForgotPasswordForm } from "./useForgotPasswordForm.ts";
 
 function ForgotPasswordPage() {
@@ -6,7 +7,7 @@ function ForgotPasswordPage() {
 
   return (
     <>
-      <p>
+      <p className={styles.forgotText}>
         Entrez votre adresse email pour recevoir un lien de réinitialisation.
       </p>
       <ForgotPasswordForm

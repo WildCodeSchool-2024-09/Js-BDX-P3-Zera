@@ -16,7 +16,7 @@ function SignupForm({
 }: SignupFormProps) {
   return (
     <>
-      <h1>Inscription</h1>
+      <h1 className={styles.titleSignup}>Inscription</h1>
       <form onSubmit={onSubmit} className={styles.signupForm}>
         <InputField
           id="email"

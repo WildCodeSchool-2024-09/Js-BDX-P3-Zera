@@ -15,7 +15,7 @@ function LoginForm({
 }: LoginFormProps) {
   return (
     <article className={styles.loginCard}>
-      <h1>Connexion</h1>
+      <h1 className={styles.titleLogin}>Connexion</h1>
       <form onSubmit={onSubmit} className={styles.loginFormContent}>
         <InputField
           id="email"
@@ -32,6 +32,7 @@ function LoginForm({
           onChange={onPasswordChange}
           label="Mot de passe *"
           placeholder="Entrez votre mot de passe"
+          required
         />
         <button type="submit" className={styles.loginButton}>
           Se connecter
