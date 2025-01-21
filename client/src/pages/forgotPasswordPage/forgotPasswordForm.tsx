@@ -1,5 +1,5 @@
 import styles from "./forgotPasswordForm.module.css";
-import "../../components/Variables.css";
+import "../../styles/Variables.css";
 import InputField from "../../components/form/InputField";
 import type { ForgotPasswordFormProps } from "../../types/ForgotPasswordProps";
 
@@ -10,7 +10,7 @@ function ForgotPasswordForm({
 }: ForgotPasswordFormProps) {
   return (
     <>
-      <h1>Mot de passe oublié</h1>
+      <h1 className={styles.forgotPasswordTitle}>Mot de passe oublié</h1>
       <form onSubmit={onSubmit} className={styles.forgotPasswordForm}>
         <InputField
           id="email"
@@ -22,7 +22,7 @@ function ForgotPasswordForm({
           required
         />
 
-        <button type="submit" className={styles.button}>
+        <button type="submit" className={styles.forgotPasswordFormButton}>
           Envoyer le lien de réinitialisation
         </button>
       </form>

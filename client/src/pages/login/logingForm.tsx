@@ -1,6 +1,6 @@
 import InputField from "../../components/form/InputField";
 import PasswordInput from "../../components/form/PasswordInput";
-import "../../components/Variables.css";
+import "../../styles/Variables.css";
 import { Link } from "react-router-dom";
 import styles from "./loginForm.module.css";
 
@@ -14,9 +14,9 @@ function LoginForm({
   createAccountLink,
 }: LoginFormProps) {
   return (
-    <article className={styles.card}>
+    <article className={styles.loginCard}>
       <h1>Connexion</h1>
-      <form onSubmit={onSubmit} className={styles.formContent}>
+      <form onSubmit={onSubmit} className={styles.loginFormContent}>
         <InputField
           id="email"
           value={email}
@@ -33,12 +33,14 @@ function LoginForm({
           label="Mot de passe *"
           placeholder="Entrez votre mot de passe"
         />
-        <button type="submit">Se connecter</button>
-        <nav className={styles.formNav}>
-          <Link to={forgotPasswordLink} className={styles.link}>
+        <button type="submit" className={styles.loginButton}>
+          Se connecter
+        </button>
+        <nav className={styles.loginFormNav}>
+          <Link to={forgotPasswordLink} className={styles.loginLink}>
             Mot de passe oublié
           </Link>
-          <Link to={createAccountLink} className={styles.link}>
+          <Link to={createAccountLink} className={styles.loginLink}>
             Créer un compte
           </Link>
         </nav>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import type { TabListProps, TabProps } from "../../../types/Tab";
+
 const TabList = ({ children, defaultTab }: TabListProps) => {
   const [activeTab, setActiveTab] = useState<string>(defaultTab || "");
 

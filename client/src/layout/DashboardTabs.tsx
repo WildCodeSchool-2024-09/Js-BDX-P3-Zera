@@ -3,20 +3,23 @@ import { Tab } from "../components/Dashboard/Common/Tab";
 import TabList from "../components/Dashboard/Common/TabList";
 import { EpisodePage } from "../components/Dashboard/Episode/EpisodePage";
 import { GlossaryPage } from "../components/Dashboard/Glossary/GlossaryPage";
-import "../styles/DashBoad.css";
+import { AppProvider } from "../providers/AppProvider";
+import "./DashBoard.module.css";
 
 export const DashboardTabs = () => {
   return (
-    <TabList defaultTab="books">
-      <Tab id="books" label="Livres">
-        <BookPage />
-      </Tab>
-      <Tab id="episodes" label="Épisodes">
-        <EpisodePage />
-      </Tab>
-      <Tab id="glossary" label="Glossaire">
-        <GlossaryPage />
-      </Tab>
-    </TabList>
+    <AppProvider>
+      <TabList defaultTab="books">
+        <Tab id="books" label="Livres">
+          <BookPage />
+        </Tab>
+        <Tab id="episodes" label="Épisodes">
+          <EpisodePage />
+        </Tab>
+        <Tab id="glossary" label="Glossaire">
+          <GlossaryPage />
+        </Tab>
+      </TabList>
+    </AppProvider>
   );
 };

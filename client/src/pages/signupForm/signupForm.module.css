@@ -38,7 +38,7 @@ h1 {
   text-decoration: underline;
 }
 
-.button {
+.signupButton {
   display: block;
   margin: 0 auto;
   padding: 0.7rem;
@@ -51,6 +51,6 @@ h1 {
   cursor: pointer;
 }
 
-.button:hover {
+.signupButton:hover {
   background-color: var(--primary-color);
 }

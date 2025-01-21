@@ -1,16 +1,20 @@
 import PlayButton from "../components/PlayButton";
 import RestartButton from "../components/RestartButton";
-import "../assets/styles/homePage.css";
+import styles from "../styles/Homepage.module.css";
 
 export default function HomePage() {
   return (
-    <main>
-      <div className="image">
-        <img src="/src/assets/images/herobook.png" alt="" />
+    <main className={styles.mainContainer}>
+      <div className={styles.imageContainer}>
+        <img
+          src="/src/assets/images/herobook.png"
+          alt=""
+          className={styles.heroImage}
+        />
       </div>
-      <section>
-        <h2>Résumé</h2>
-        <p>
+      <section className={styles.contentSection}>
+        <h2 className={styles.title}>Résumé</h2>
+        <p className={styles.description}>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum
           velit dignissimos modi, ullam maiores neque eum, molestias incidunt
           voluptates cum tenetur quisquam quos deserunt, omnis eligendi autem.
@@ -24,7 +28,7 @@ export default function HomePage() {
           laudantium in ipsa omnis quae, qui rem?
         </p>
       </section>
-      <div className="button">
+      <div className={styles.buttonContainer}>
         <PlayButton />
         <RestartButton />
       </div>

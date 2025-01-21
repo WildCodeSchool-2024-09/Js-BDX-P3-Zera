@@ -7,6 +7,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import HomePage from "./components/Homepage.tsx";
+import { DashboardTabs } from "./layout/DashboardTabs.tsx";
 import Team from "./pages/Team/Team.tsx";
 import ForgotPasswordPage from "./pages/forgotPasswordPage/forgotPasswordPage";
 import LoginPage from "./pages/login/logingPage.tsx";
@@ -25,10 +27,12 @@ import SignUpPage from "./pages/signupForm/SignUpPage.tsx";
 const router = createBrowserRouter([
   {
     // The root path
+    path: "/",
     element: <App />,
     children: [
       {
         path: "/",
+        element: <HomePage />,
       },
       {
         path: "/connexion",
@@ -45,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/Team",
         element: <Team />,
+      },
+      {
+        path: "/dashboard",
+        element: <DashboardTabs />,
       },
     ], // Renders the App component for the home page
   },

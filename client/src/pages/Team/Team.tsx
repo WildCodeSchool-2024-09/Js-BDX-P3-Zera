@@ -1,5 +1,6 @@
-import "./Team.css";
-import "../../../src/components/Variables.css";
+import styles from "./Team.module.css";
+import "../../styles/Variables.css";
+import devImage from "../../../src/assets/images/dev.jpg";
 import instagramImage from "../../../src/assets/images/instagram.png";
 import jonathanImage from "../../../src/assets/images/jonathan.png";
 import linkedinImage from "../../../src/assets/images/linkedin.png";
@@ -9,36 +10,40 @@ function Team() {
   return (
     <>
       <section>
-        <h1 className="team-title">Team</h1>
-        <article className="team-member">
-          <img src={jonathanImage} alt="Jonathan" className="jonathan-image" />
+        <h1 className={styles.teamTitle}>Team</h1>
+        <article className={styles.teamMember}>
+          <img
+            src={jonathanImage}
+            alt="Jonathan"
+            className={styles.jonathanImage}
+          />
           <h2>Jonathan</h2>
           <h3>(aka Jojo Kourtex)</h3>
-          <section className="logo-container">
+          <section className={styles.logoContainer}>
             <a
               href="https://www.linkedin.com/in/jonathan-courteix/"
               target="_blank"
               rel="noopener noreferrer"
-              className="menu-link"
+              className={styles.menuLink}
               aria-label="Profil LinkedIn de Jonathan"
             >
               <img
                 src={linkedinImage}
                 alt="LinkedIn"
-                className="linkedin-logo"
+                className={styles.linkedinLogo}
               />
             </a>
             <a
               href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="menu-link"
+              className={styles.menuLink}
               aria-label="Profil Instagram de Jonathan"
             >
               <img
                 src={instagramImage}
                 alt="Instagram"
-                className="instagram-logo"
+                className={styles.instagramLogo}
               />
             </a>
           </section>
@@ -54,34 +59,38 @@ function Team() {
           </p>
         </article>
 
-        <article className="team-member">
-          <img src={pierreImage} alt="Le Designer" className="pierre-image" />
+        <article className={styles.teamMember}>
+          <img
+            src={pierreImage}
+            alt="Le Designer"
+            className={styles.pierreImage}
+          />
           <h2>Le designer</h2>
-          <section className="logo-container">
+          <section className={styles.logoContainer}>
             <a
               href="https://www.linkedin.com/in/jonathan-courteix/"
               target="_blank"
               rel="noopener noreferrer"
-              className="menu-link"
+              className={styles.menuLink}
               aria-label="Profil LinkedIn du designer"
             >
               <img
                 src={linkedinImage}
                 alt="LinkedIn"
-                className="linkedin-logo"
+                className={styles.linkedinLogo}
               />
             </a>
             <a
               href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="menu-link"
+              className={styles.menuLink}
               aria-label="Profil Instagram du designer"
             >
               <img
                 src={instagramImage}
                 alt="Instagram"
-                className="instagram-logo"
+                className={styles.instagramLogo}
               />
             </a>
           </section>
@@ -97,40 +106,36 @@ function Team() {
           </p>
         </article>
 
-        <article className="team-member">
-          <img
-            src={jonathanImage}
-            alt="L'équipe de développement"
-            className="dev-image"
-          />
+        <article className={styles.teamMember}>
+          <img src={devImage} alt="Les Dev" className={styles.devImage} />
           <header>
             <h2>L'équipe de dev</h2>
           </header>
-          <section className="logo-container">
+          <section className={styles.logoContainer}>
             <a
               href="https://www.linkedin.com/in/jonathan-courteix/"
               target="_blank"
               rel="noopener noreferrer"
-              className="menu-link"
+              className={styles.menuLink}
               aria-label="Profil LinkedIn de l'équipe de développement"
             >
               <img
                 src={linkedinImage}
                 alt="LinkedIn"
-                className="linkedin-logo"
+                className={styles.linkedinLogo}
               />
             </a>
             <a
               href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="menu-link"
+              className={styles.menuLink}
               aria-label="Profil Instagram de l'équipe de développement"
             >
               <img
                 src={instagramImage}
                 alt="Instagram"
-                className="instagram-logo"
+                className={styles.instagramLogo}
               />
             </a>
           </section>

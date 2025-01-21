@@ -1,5 +1,5 @@
 import styles from "./signupForm.module.css";
-import "../../components/Variables.css";
+import "../../styles/Variables.css";
 import InputField from "../../components/form/InputField";
 import PasswordInput from "../../components/form/PasswordInput";
 
@@ -53,7 +53,7 @@ function SignupForm({
           placeholder="Confirmez votre mot de passe"
           required
         />
-        <button type="submit" className={styles.button}>
+        <button type="submit" className={styles.signupButton}>
           S'inscrire
         </button>
       </form>

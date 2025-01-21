@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import "../assets/styles/playButton.css";
+import styles from "../styles/playButton.module.css";
 
 export default function PlayButton() {
   return (
-    <Link className="play-button" to={"/game"}>
+    <Link className={styles.playButton} to={"/game"}>
       Jouer
     </Link>
   );
