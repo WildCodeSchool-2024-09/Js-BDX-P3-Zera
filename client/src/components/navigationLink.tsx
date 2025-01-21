@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 type NavigationLinksProps = {
   isMobile?: boolean;
-  closeMenu?: () => void; 
+  closeMenu?: () => void;
 };
 
 function NavigationLinks({
