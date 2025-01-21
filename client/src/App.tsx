@@ -6,10 +6,8 @@ function App() {
   return (
     <>
       <Header />
-      <main>
-        <h1>Bienvenue !</h1>
-        <p>Affichage test.</p>
-      </main>
+
+      
       <Footer />
     </>
   );
