@@ -7,8 +7,7 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-/* ************************************************************************* */
-// Client routes
+// Define item-related routes
 router.get("/api/clients", clientActions.browse);
 router.get("/api/clients/:id", clientActions.read);
 router.put("/api/clients/:id", clientActions.edit);

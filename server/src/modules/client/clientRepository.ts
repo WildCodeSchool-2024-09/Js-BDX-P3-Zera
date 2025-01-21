@@ -62,7 +62,9 @@ class ClientRepository {
   }
 
   async readAll(): Promise<Client[]> {
-    const [rows] = await databaseClient.query<Rows>("SELECT email FROM users");
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT email FROM users INNER JOIN clients ON clients.users_id = users.id",
+    );
     return rows as Client[];
   }
 
