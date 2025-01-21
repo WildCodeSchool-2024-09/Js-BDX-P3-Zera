@@ -47,18 +47,19 @@ section {
   align-items: center;
   border-radius: 12rem;
   margin-top: 5rem;
+  border: 5px solid var(--secondary-color);
 }
 
 .pierre-image {
   width: 18rem;
-  border: solid var(--secondary-color);
+  border: 5px solid var(--secondary-color);
   object-fit: cover;
   border-radius: 12rem;
 }
 
 .dev-image {
-  width: 18rem;
-  border-radius: 12rem;
+  border-radius: 50%;
+  border: 5px solid var(--secondary-color);
 }
 
 .logo-container {
