@@ -1,16 +1,17 @@
 import Footer from "../src/components/footer";
 import Header from "../src/components/header";
 import "./App.css";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Header />
+      <header>
+        <h1>Perdu dans ZERA</h1>
+      </header>
       <main>
-        <h1>Bienvenue !</h1>
-        <p>Affichage test.</p>
+        <Outlet />
       </main>
-      <Footer />
     </>
   );
 }
