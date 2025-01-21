@@ -1,4 +1,4 @@
-create table registers (
+create table users (
   id int unsigned primary key auto_increment not null,
   email varchar(255) not null unique,
   password varchar(64) not null
@@ -6,14 +6,15 @@ create table registers (
 
 create table clients (
   id int unsigned primary key auto_increment not null,
-  registers_id int unsigned not null,
-  foreign key(registers_id) references registers(id)
+  users_id int unsigned not null,
+  foreign key(users_id) references users(id)
+  ON DELETE CASCADE
 );
 
 create table admins (
   id int unsigned primary key auto_increment not null,
-  registers_id int unsigned not null,
-  foreign key(registers_id) references registers(id)
+  users_id int unsigned not null,
+  foreign key(users_id) references users(id)
 );
 
 create table contains (
