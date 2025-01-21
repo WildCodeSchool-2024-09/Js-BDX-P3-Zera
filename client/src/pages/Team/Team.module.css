@@ -11,7 +11,7 @@ body {
   flex-direction: column;
 }
 
-section {
+.teamSection {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -64,42 +64,42 @@ section {
   border: 5px solid var(--secondary-color);
 }
 
-.logoContainer {
+.teamLogoContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: .6rem;
 }
 
-.linkedinLogo,
-.instagram-logo {
+.teamLinkedinLogo,
+.teamInstagramLogo {
   width: 2rem;
   height: 2rem;
   margin: 1rem;
   transition: transform 0.3s ease-in-out;
 }
 
-.linkedinLogo:hover {
+.teamLinkedinLogo:hover {
   transform: scale(1);
 }
 
-.instagramLogo:hover {
+.teamInstagramLogo:hover {
   transform: scale(1);
 }
 
-h2 {
+.teamName {
   margin-bottom: 1rem;
   margin-top: 1rem;
   font-family: var(--title-font);
   letter-spacing: .3rem;
 }
 
-h3 {
+.pseudoTeam {
   font-family: var(--title-font);
   letter-spacing: .3rem;
 }
 
-p {
+.textTeam {
   font-family: var(--text-font);
   font-size: var(--text-size);
   line-height: var(--line-height);
@@ -109,7 +109,7 @@ p {
 }
 
 @media (min-width: 620px) {
-  section {
+  .teamSection {
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -149,21 +149,21 @@ p {
     margin-top: 7rem;
   }
 
-  p {
+  .textTeam {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 
-  .linkedinLogo,
-  .instagram-logo {
+  .teamLinkedinLogo,
+  .teamInstagramLogo {
     transition: transform 0.3s ease-in-out;
   }
 
-  .linkedinLogo:hover {
+  .teamLinkedinLogo:hover {
     transform: scale(1.2);
   }
 
-  .instagramLogo:hover {
+  .teamInstagramLogo:hover {
     transform: scale(1.2);
   }
 }

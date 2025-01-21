@@ -9,7 +9,7 @@ import pierreImage from "../../../src/assets/images/pierre.png";
 function Team() {
   return (
     <>
-      <section>
+      <section className={styles.teamSection}>
         <h1 className={styles.teamTitle}>Team</h1>
         <article className={styles.teamMember}>
           <img
@@ -17,37 +17,37 @@ function Team() {
             alt="Jonathan"
             className={styles.jonathanImage}
           />
-          <h2>Jonathan</h2>
-          <h3>(aka Jojo Kourtex)</h3>
-          <section className={styles.logoContainer}>
+          <h2 className={styles.teamName}>Jonathan</h2>
+          <h3 className={styles.pseudoTeam}>(aka Jojo Kourtex)</h3>
+          <section className={styles.teamLogoContainer}>
             <a
               href="https://www.linkedin.com/in/jonathan-courteix/"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.menuLink}
+              className={styles.teamMenuLink}
               aria-label="Profil LinkedIn de Jonathan"
             >
               <img
                 src={linkedinImage}
                 alt="LinkedIn"
-                className={styles.linkedinLogo}
+                className={styles.teamLinkedinLogo}
               />
             </a>
             <a
               href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.menuLink}
+              className={styles.teamMenuLink}
               aria-label="Profil Instagram de Jonathan"
             >
               <img
                 src={instagramImage}
                 alt="Instagram"
-                className={styles.instagramLogo}
+                className={styles.teamInstagramLogo}
               />
             </a>
           </section>
-          <p>
+          <p className={styles.textTeam}>
             Auteur de bande dessinées, peintre et également auteur. Il est
             notamment le dessinateur de la bande dessinée Histoire de la
             Martinique. Perdu dans ZERA est son premier livre interactif. Il a
@@ -65,36 +65,36 @@ function Team() {
             alt="Le Designer"
             className={styles.pierreImage}
           />
-          <h2>Le designer</h2>
-          <section className={styles.logoContainer}>
+          <h2 className={styles.teamName}>Le designer</h2>
+          <section className={styles.teamLogoContainer}>
             <a
               href="https://www.linkedin.com/in/jonathan-courteix/"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.menuLink}
+              className={styles.teamMenuLink}
               aria-label="Profil LinkedIn du designer"
             >
               <img
                 src={linkedinImage}
                 alt="LinkedIn"
-                className={styles.linkedinLogo}
+                className={styles.teamLinkedinLogo}
               />
             </a>
             <a
               href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.menuLink}
+              className={styles.teamMenuLink}
               aria-label="Profil Instagram du designer"
             >
               <img
                 src={instagramImage}
                 alt="Instagram"
-                className={styles.instagramLogo}
+                className={styles.teamInstagramLogo}
               />
             </a>
           </section>
-          <p>
+          <p className={styles.textTeam}>
             llustrateur et enseignant en arts graphiques. Pierre puise son
             inspiration dans la musique, ainsi que dans les illustrations et les
             bandes dessinées vintages des années 60 à 90. Toujours en quête de
@@ -109,37 +109,37 @@ function Team() {
         <article className={styles.teamMember}>
           <img src={devImage} alt="Les Dev" className={styles.devImage} />
           <header>
-            <h2>L'équipe de dev</h2>
+            <h2 className={styles.teamName}>L'équipe de dev</h2>
           </header>
-          <section className={styles.logoContainer}>
+          <section className={styles.teamLogoContainer}>
             <a
               href="https://www.linkedin.com/in/jonathan-courteix/"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.menuLink}
+              className={styles.teamMenuLink}
               aria-label="Profil LinkedIn de l'équipe de développement"
             >
               <img
                 src={linkedinImage}
                 alt="LinkedIn"
-                className={styles.linkedinLogo}
+                className={styles.teamLinkedinLogo}
               />
             </a>
             <a
               href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.menuLink}
+              className={styles.teamMenuLink}
               aria-label="Profil Instagram de l'équipe de développement"
             >
               <img
                 src={instagramImage}
                 alt="Instagram"
-                className={styles.instagramLogo}
+                className={styles.teamInstagramLogo}
               />
             </a>
           </section>
-          <p>
+          <p className={styles.textTeam}>
             L’aventure prend une nouvelle dimension grâce à l'équipe de
             développeurs web, composée de Thomas, Julien, Florian et Roxanne.
             Ils ont donné vie à cet univers interactif sous la forme d’un jeu
