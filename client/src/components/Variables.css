@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("/fonts/my-font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #990000;
+  --secondary-color: #ffcc00;
+  --background-color: #000033;
+  --text-color: #ffffcc;
+
+  --text-font: "Nunito Sans", sans-serif;
+  --line-height: 1.6;
+  --text-size: 1.3rem;
+  --title-size: 2rem;
+  --box-shadow-blue: 0 0 5px #007bff80;
+  --box-shadow-black: inset 0 1px 3px #0000001a;
+}
