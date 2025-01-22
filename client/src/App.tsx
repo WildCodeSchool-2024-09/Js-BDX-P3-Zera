@@ -1,15 +1,17 @@
-import "./App.css";
 import { Outlet } from "react-router-dom";
+import Footer from "../src/components/footer";
+import Header from "../src/components/header";
+import "./App.css";
 
 function App() {
   return (
     <>
-      <header>
-        <h1>Perdu dans ZERA</h1>
-      </header>
+      <Header />
+      <h1>Perdu dans ZERA</h1>
       <main>
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }
