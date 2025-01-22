@@ -4,7 +4,7 @@ fieldset {
   margin: 0;
 }
 
-.label {
+.inputLabel {
   display: block;
   font-size: var(--text-size);
   font-weight: bold;
@@ -12,7 +12,7 @@ fieldset {
   color: var(--text-color);
 }
 
-.input {
+.inputField {
   width: 95%;
   padding: 0.5rem;
   font-size: 1rem;
@@ -22,12 +22,12 @@ fieldset {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.input:focus {
+.inputField:focus {
   border-color: var(--primary-color);
   box-shadow: var(--box-shadow);
   outline: none;
 }
 
-.input::placeholder {
+.inputField::placeholder {
   color: var(--text-color);
 }
