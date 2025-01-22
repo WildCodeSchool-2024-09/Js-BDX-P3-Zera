@@ -24,7 +24,7 @@ class GlossaryRepository {
   // The Rs of CRUD - Read operations
   async read(id: number) {
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT title, definition
+      `SELECT title, definition, id
       FROM glossary 
      WHERE glossary.id = ?`,
       [id],
