@@ -26,7 +26,7 @@ function PasswordInput({
   };
   return (
     <>
-      <label htmlFor={id} className={styles.label}>
+      <label htmlFor={id} className={styles.passwordLabel}>
         {label}
       </label>
       <input
@@ -34,14 +34,14 @@ function PasswordInput({
         id={id}
         value={value}
         onChange={onChange}
-        className={styles.input}
+        className={styles.passwordInput}
         placeholder={placeholder}
         required={required}
       />
       <button
         type="button"
         onClick={togglePasswordVisibility}
-        className={styles.toggleButton}
+        className={styles.passwordToggleButton}
       >
         {showPassword ? "Cacher" : "Afficher"}
       </button>
