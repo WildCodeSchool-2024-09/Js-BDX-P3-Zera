@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.glossary-title {
+  font-size: var(--title-size);
+  font-family: var(--title-font);
+  text-align: center;
+  letter-spacing: .5rem;
+  margin-bottom: 3rem;
+}
+
+p {
+  font-family: var(--text-font);
+  font-size: var(--text-size);
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
