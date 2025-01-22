@@ -63,8 +63,13 @@ class AdminRepository {
     return rows[0] as Admin;
   }
 
-  async readAll() {
-    const [rows] = await databaseClient.query<Rows>("SELECT * FROM users");
+  async readAll(): Promise<Admin[]> {
+    const [rows] = await databaseClient.query<Rows>(
+      `SELECT 
+        email 
+      FROM users 
+      INNER JOIN clients ON clients.users_id = users.id`,
+    );
     return rows as Admin[];
   }
 
@@ -73,7 +78,7 @@ class AdminRepository {
     const [result] = await databaseClient.query<Result>(
       `
         UPDATE users 
-        SET email = ? 
+        SET email = ? , password = ? 
         WHERE id = (
             SELECT users_id
             FROM admins
@@ -96,7 +101,7 @@ class AdminRepository {
             WHERE id = ?)`,
       [id],
     );
-    return result.affectedRows > 0;
+    return result.affectedRows;
   }
 }
 

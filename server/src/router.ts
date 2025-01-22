@@ -19,12 +19,13 @@ router.put("/api/admin/:id", adminAction.edit);
 router.delete("/api/admin/:id", adminAction.remove);
 
 /* ************************************************************************* */
-import userAction from "./modules/users/userAction";
 
-router.get("/api/user", userAction.browse);
-router.get("/api/user/:id", userAction.read);
-router.post("/api/user", userAction.add);
-router.put("/api/user/:id", userAction.edit);
-router.delete("/api/user/:id", userAction.remove);
+import episodesActions from "./modules/episodes/episodesActions";
+
+router.get("/api/books/:books_id/episodes/", episodesActions.browse);
+router.get("/api/books/:books_id/episodes/:id", episodesActions.read);
+router.post("/api/books/:books_id/episodes", episodesActions.add);
+router.put("/api/books/:books_id/episodes/:id", episodesActions.edit);
+router.delete("/api/books/:books_id/episodes/:id", episodesActions.remove);
 
 export default router;
