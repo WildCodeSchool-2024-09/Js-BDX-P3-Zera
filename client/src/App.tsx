@@ -6,12 +6,12 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Header/>
-        <h1>Perdu dans ZERA</h1>
+      <Header />
+      <h1>Perdu dans ZERA</h1>
       <main>
-        <Outlet/>
+        <Outlet />
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }

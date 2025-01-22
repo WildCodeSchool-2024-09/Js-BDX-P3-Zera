@@ -1,0 +1,59 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+h1 {
+  font-size: var(--title-size);
+  line-height: var(--line-height);
+  color: var(--text-color);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: .3em;
+  font-size: var(--text-size);
+  font-weight: normal;
+  font-family: var(--text-font);
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--primary-color);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  border-radius: 8px;
+  padding: 1.5em;
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.formNav,
+a {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  color: var(--text-color);
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: var(--background-color);
+  }
+}

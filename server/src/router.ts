@@ -7,7 +7,6 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-
 /* ************************************************************************* */
 // Client routes
 router.get("/api/clients", clientActions.browse);
@@ -24,7 +23,6 @@ router.get("/api/books/:id", booksActions.read);
 router.post("/api/books", booksActions.add);
 router.put("/api/books/:id", booksActions.edit);
 router.delete("/api/books/:id", booksActions.remove);
-
 
 /* ************************************************************************* */
 

@@ -1,0 +1,33 @@
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.label {
+  display: block;
+  font-size: var(--text-size);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.input {
+  width: 95%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
+  box-shadow: var(--box-shadow-black);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+  border-color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--text-color);
+}
