@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Footer from "../src/components/footer";
 import Header from "../src/components/header";
 import "./App.css";
@@ -5,12 +6,12 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Header />
+      <Header/>
+        <h1>Perdu dans ZERA</h1>
       <main>
-        <h1>Bienvenue !</h1>
-        <p>Affichage test.</p>
+        <Outlet/>
       </main>
-      <Footer />
+      <Footer/>
     </>
   );
 }
