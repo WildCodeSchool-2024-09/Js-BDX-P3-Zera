@@ -1,0 +1,130 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.63rem 1.25rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--text-font);
+  position: relative;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  left: 1rem;
+}
+
+.nav-list {
+  display: none;
+}
+
+.nav-link,
+.menu-link {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.31rem 0.63rem;
+  border-radius: 0.19rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover,
+.menu-link:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.burger-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--background-color);
+  border-radius: 0.31rem;
+  padding: 0.63rem;
+  z-index: 1000;
+  width: 90%;
+  max-width: 18.75rem;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-link {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 600px) {
+  .nav-buttons {
+    position: static;
+    left: auto;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: var(--spacing-medium, 1.25rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .menu-button,
+  .burger-menu {
+    display: none;
+  }
+}
+
+.user-icon,
+.dark-mode-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--secondary-color);
+}
+
+.header-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
