@@ -56,7 +56,7 @@ function Team() {
         <article className={styles.teamMember}>
           <img src={pierreImage} alt="" className={styles.pierreImage} />
           <h2 className={styles.teamName}>Le designer</h2>
-          <div className={styles.teamLogoContainer}>
+          <nav className={styles.teamLogoContainer}>
             <a
               href="https://www.linkedin.com/in/jonathan-courteix/"
               target="_blank"
@@ -81,7 +81,7 @@ function Team() {
                 className={styles.teamInstagramLogo}
               />
             </a>
-          </div>
+          </nav>
           <p className={styles.textTeam}>
             llustrateur et enseignant en arts graphiques. Pierre puise son
             inspiration dans la musique, ainsi que dans les illustrations et les
@@ -96,10 +96,8 @@ function Team() {
 
         <article className={styles.teamMember}>
           <img src={devImage} alt="Les Dev" className={styles.devImage} />
-          <header>
-            <h2 className={styles.teamName}>L'équipe de dev</h2>
-          </header>
-          <div className={styles.teamLogoContainer}>
+          <h2 className={styles.teamName}>L'équipe de dev</h2>
+          <nav className={styles.teamLogoContainer}>
             <a
               href="https://www.linkedin.com/in/jonathan-courteix/"
               target="_blank"
@@ -124,7 +122,7 @@ function Team() {
                 className={styles.teamInstagramLogo}
               />
             </a>
-          </div>
+          </nav>
           <p className={styles.textTeam}>
             L’aventure prend une nouvelle dimension grâce à l'équipe de
             développeurs web, composée de Thomas, Julien, Florian et Roxanne.

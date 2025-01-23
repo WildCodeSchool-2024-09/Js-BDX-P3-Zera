@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import Team from "./pages/Team/Team.tsx";
 import ForgotPasswordPage from "./pages/forgotPasswordPage/forgotPasswordPage";
 import LoginPage from "./pages/login/logingPage.tsx";
 import SignUpPage from "./pages/signupForm/SignUpPage.tsx";
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/mot-de-passe-oublie",
         element: <ForgotPasswordPage />,
+      },
+      {
+        path: "/team",
+        element: <Team />,
       },
     ], // Renders the App component for the home page
   },
