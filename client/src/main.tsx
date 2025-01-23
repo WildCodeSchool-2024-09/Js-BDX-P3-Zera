@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import ForgotPasswordPage from "./pages/forgotPasswordPage/forgotPasswordPage";
+import LecturePage from "./pages/lecturePage/Lecturepage";
 import LoginPage from "./pages/login/logingPage";
 import SignUpPage from "./pages/signupForm/SignUpPage";
 
@@ -41,6 +42,10 @@ import SignUpPage from "./pages/signupForm/SignUpPage";
         {
           path: "/mot-de-passe-oublie",
           element: <ForgotPasswordPage />,
+        },
+        {
+          path: "/lecture",
+          element: <LecturePage />,
         },
       ], // Renders the App component for the home page
     },
