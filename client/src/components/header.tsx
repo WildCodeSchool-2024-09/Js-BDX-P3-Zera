@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../components/Variables.css";
 import profileImage from "../assets/images/imageProfil.png";
-//import NavigationLinks from "./navigationLink";//
+import NavigationLinks from "../components/navLinks";
 import "./header.css";
 
 function Header() {
@@ -21,7 +21,7 @@ function Header() {
         />
       </button>
 
-      <nav className="nav-buttons">{/* <NavigationLinks /> */}</nav>
+      <nav className="nav-buttons">{<NavigationLinks/>}</nav>
 
       <button
         type="button"
@@ -34,7 +34,7 @@ function Header() {
 
       {menuOpen && (
         <nav className="burger-menu">
-          {/* <NavigationLinks isMobile={true} closeMenu={toggleMenu} /> */}
+          {<NavigationLinks isMobile={true} closeMenu={toggleMenu} />}
         </nav>
       )}
     </header>
