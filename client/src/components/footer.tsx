@@ -20,7 +20,7 @@ function Footer() {
           rel="noreferrer"
           className="footer-icon"
         >
-          <img src={linkedinImage} alt="redirige vers la page Linkedin " />
+          {<img src={linkedinImage} alt="redirige vers la page Linkedin " />}
         </a>
         <a
           href="#instagram"
@@ -28,7 +28,7 @@ function Footer() {
           rel="noreferrer"
           className="footer-icon"
         >
-          <img src={instagramImage} alt="redirige vers la page Instagram" />
+          {<img src={instagramImage} alt="redirige vers la page Instagram" />}
         </a>
       </nav>
       <button type="button" className="scroll-to-top" onClick={scrollToTop}>
