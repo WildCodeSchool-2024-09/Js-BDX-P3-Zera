@@ -21,7 +21,7 @@ function Header() {
         />
       </button>
 
-      <nav className="nav-buttons">{<NavigationLinks/>}</nav>
+      <nav className="nav-buttons">{<NavigationLinks />}</nav>
 
       <button
         type="button"
