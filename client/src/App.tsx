@@ -1,4 +1,5 @@
-import "./App.css";
+import "./styles/Global.css";
+import "./styles/Variables.css";
 import { Outlet } from "react-router-dom";
 
 function App() {

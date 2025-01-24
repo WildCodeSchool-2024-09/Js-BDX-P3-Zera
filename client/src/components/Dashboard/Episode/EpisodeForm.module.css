@@ -1,0 +1,18 @@
+.EpisodeForm {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.paragraphList {
+  margin: 1rem 0;
+}
+
+.paragraphItem {
+  margin-bottom: 1rem;
+}
+
+.choiceSection {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--secondary-color);
+}

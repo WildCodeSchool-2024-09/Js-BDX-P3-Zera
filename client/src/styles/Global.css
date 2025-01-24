@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-family: var(--text-font);
+  font-size: var(--text-size);
+  margin-left: .5rem;
+  margin-right: .5rem;
+}

@@ -1,7 +1,6 @@
-import styles from "./signupForm.module.css";
-import "../../components/Variables.css";
 import InputField from "../../components/form/InputField";
 import PasswordInput from "../../components/form/PasswordInput";
+import styles from "./signupForm.module.css";
 
 function SignupForm({
   email,

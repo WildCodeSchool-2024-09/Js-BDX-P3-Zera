@@ -1,5 +1,4 @@
 import "./Team.css";
-import "../../../src/components/Variables.css";
 import devImage from "../../../src/assets/images/dev.jpg";
 import instagramImage from "../../../src/assets/images/instagram.png";
 import jonathanImage from "../../../src/assets/images/jonathan.png";
