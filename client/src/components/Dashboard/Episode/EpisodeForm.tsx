@@ -190,7 +190,15 @@ export const EpisodeForm = ({
             {paragraph.id > 1 && (
               <button
                 type="button"
-                onClick={() => removeParagraph(paragraph.id)}
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      "Êtes-vous sûr de vouloir supprimer ce paragraphe ?",
+                    )
+                  ) {
+                    removeParagraph(paragraph.id);
+                  }
+                }}
                 className={styles.removeButton}
               >
                 Supprimer
@@ -243,8 +251,15 @@ export const EpisodeForm = ({
             </select>
             <button
               type="button"
-              onClick={() => removeChoice(index)}
-              className={styles.removeButton}
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Êtes-vous sûr de vouloir supprimer ce choix ?",
+                  )
+                ) {
+                  removeChoice(index);
+                }
+              }}
             >
               Supprimer
             </button>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../components/Variables.css";
 import profileImage from "../assets/images/imageProfil.png";
 import NavigationLinks from "../components/navLinks";
 import "./header.css";

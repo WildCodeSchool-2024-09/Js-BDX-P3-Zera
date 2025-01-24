@@ -1,5 +1,4 @@
 import "./footer.css";
-import "../components/Variables.css";
 import instagramImage from "../assets/images/instagram.png";
 import linkedinImage from "../assets/images/linkedin.png";
 
