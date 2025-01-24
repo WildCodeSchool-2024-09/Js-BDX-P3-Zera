@@ -10,8 +10,8 @@ import App from "./App";
 import { DashboardTabs } from "./layout/DashboardTabs.tsx";
 import Team from "./pages/Team/Team";
 import ForgotPasswordPage from "./pages/forgotPasswordPage/forgotPasswordPage";
-import LoginPage from "./pages/login/logingPage.tsx";
-import SignUpPage from "./pages/signupForm/SignUpPage.tsx";
+import LoginPage from "./pages/login/logingPage";
+import SignUpPage from "./pages/signupForm/SignUpPage";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
