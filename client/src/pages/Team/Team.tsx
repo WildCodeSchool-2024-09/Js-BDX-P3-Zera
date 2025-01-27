@@ -15,7 +15,7 @@ function Team() {
           <img src={jonathanImage} alt="" className={styles.jonathanImage} />
           <h2 className={styles.teamName}>Jonathan</h2>
           <h3 className={styles.pseudoTeam}>(aka Jojo Kourtex)</h3>
-          <div className={styles.teamLogoContainer}>
+          <nav className={styles.teamLogoContainer}>
             <a
               href="https://www.linkedin.com/in/jonathan-courteix/"
               target="_blank"
@@ -40,7 +40,7 @@ function Team() {
                 className={styles.teamInstagramLogo}
               />
             </a>
-          </div>
+          </nav>
           <p className={styles.textTeam}>
             Auteur de bande dessinées, peintre et également auteur. Il est
             notamment le dessinateur de la bande dessinée Histoire de la
