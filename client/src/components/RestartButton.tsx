@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../assets/styles/restartButton.css";
+import "../styles/restartButton.css";
 export default function RestartButton() {
   return (
     <Link className="restart-button" to={""}>

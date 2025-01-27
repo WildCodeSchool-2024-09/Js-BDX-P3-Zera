@@ -342,16 +342,19 @@ Le Web3 ou Web 3.0 est un terme utilisé pour désigner l'idée d'un web décent
 
 `
     .trim()
-    .replace(/\n\s*\n/g, "</p><p>");
+    .replace(/\n\s*\n/g, "\n\n");
+
+  const paragraphs = formattedText
+    .split("\n\n")
+    .map((paragraph, index) => (
+      <p key={`${paragraph.substring(0, 10)}-${index}`}>{paragraph}</p>
+    ));
 
   return (
     <>
-      <h1 className="glossary-title">Glossary</h1>
-      <section>
-        <article className="glossary-text">
-          {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
-          <div dangerouslySetInnerHTML={{ __html: formattedText }} />
-        </article>
+      <section className="section-glossary">
+        <h1 className="glossary-title">Glossary</h1>
+        <article className="glossary-text">{paragraphs}</article>
       </section>
     </>
   );

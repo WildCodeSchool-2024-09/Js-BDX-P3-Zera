@@ -7,7 +7,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import Glossary from "./pages/Glossary/Glossary";
 import ForgotPasswordPage from "./pages/forgotPasswordPage/forgotPasswordPage";
+import HomePage from "./pages/homePage/Homepage";
 import LoginPage from "./pages/login/logingPage";
 import SignUpPage from "./pages/signupForm/SignUpPage";
 
@@ -28,7 +30,16 @@ import SignUpPage from "./pages/signupForm/SignUpPage";
       element: <App />,
       children: [
         {
+          path: "/glossaire",
+          element: <Glossary />,
+        },
+        {
+          path: "/mot-de-passe-oublie",
+          element: <ForgotPasswordPage />,
+        },
+        {
           path: "/",
+          element: <HomePage />,
         },
         {
           path: "/connexion",
@@ -37,10 +48,6 @@ import SignUpPage from "./pages/signupForm/SignUpPage";
         {
           path: "/inscription",
           element: <SignUpPage />,
-        },
-        {
-          path: "/mot-de-passe-oublie",
-          element: <ForgotPasswordPage />,
         },
       ], // Renders the App component for the home page
     },
