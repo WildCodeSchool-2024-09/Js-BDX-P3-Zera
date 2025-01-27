@@ -22,7 +22,7 @@ function InputField({
 }: InputFieldProps) {
   return (
     <>
-      <label htmlFor={id} className={styles.label}>
+      <label htmlFor={id} className={styles.inputLabel}>
         {label}
       </label>
       <input
@@ -30,7 +30,7 @@ function InputField({
         id={id}
         value={value}
         onChange={onChange}
-        className={styles.input}
+        className={styles.inputField}
         placeholder={placeholder}
         required={required}
       />
