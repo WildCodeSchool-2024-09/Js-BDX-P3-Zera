@@ -5,37 +5,41 @@ import styles from "./homePage.module.css";
 export default function HomePage() {
   return (
     <main className={styles.main}>
-      <img src="src/assets/images/herobook.png" alt="" />
+      <img src="/src/assets/images/ZERA_image_d'acueil.svg" alt="" />
       <section className={styles.sectionHomePage}>
-        <h2 className={styles.heading}>Résumé</h2>
+        <h2 className={styles.heading}>Bienvenue dans ZERA</h2>
         <p className={styles.paragraph}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum
-          velit dignissimos modi, ullam maiores neque eum, molestias incidunt
-          voluptates cum tenetur quisquam quos deserunt, omnis eligendi autem.
-          Quasi amet rerum ut totam architecto, beatae laborum, saepe fugit
-          maxime odio quod libero. Dignissimos asperiores voluptatum dolorum
-          unde est! Nam ipsa, delectus amet dignissimos quam culpa nostrum a
-          aperiam dolorum. A, minima aut voluptatum aliquid suscipit illo cum
-          sit? Consequatur minima nostrum aliquam aut saepe! Facere ut deleniti
-          dolore repellendus, repellat recusandae, quis fuga unde ducimus
-          quaerat eius doloribus aspernatur. Dolorem hic ex molestias deleniti
-          laudantium in ipsa omnis quae, qui rem? Lorem ipsum dolor sit, amet
-          consectetur adipisicing elit. Labore autem vel, cum asperiores nobis
-          laudantium ex, ea hic aut iusto necessitatibus repellendus recusandae
-          doloribus excepturi. Eaque quidem qui repellat explicabo consequatur
-          illum, incidunt totam autem atque assumenda voluptas. Voluptas
-          quibusdam quasi vel fugit voluptatibus? Dignissimos, quasi illum. Hic
-          velit, reiciendis cumque doloribus veritatis ea odio perspiciatis
-          tempora amet quia similique corrupti quod fuga recusandae. Iure
-          repellat consequuntur eaque ab saepe tempora repudiandae voluptate
-          inventore necessitatibus a, deleniti, culpa ipsum dolores ex facere
-          error modi doloribus rem libero magni id! Libero tempore animi ex
-          natus porro! Dolores id praesentium natus laboriosam. Quisquam quas
+          Zera ? Un monde virtuel imaginé par l’auteur. Tu vas littéralement
+          être propulsé dans cette autre réalité. Relève le défi et incarne ton
+          propre personnage à l’intérieur du métavers. Tu auras la possibilité
+          de vivre des aventures dans différentes maps et différentes époques.
+          Que ce soit seul ou accompagné de ton petit frère, dans l’univers du
+          Far West ou dans la Cybercité, ta mission sera de réussir à quitter à
+          quitter le jeu sain et sauf ! Pour cela,tu vas rencontrer de nombreux
+          personnages, mener des quêtes plus insolites les unes que les autres
+          et tu ne pourras t’en remettre qu’à ton instinct et à un peu de hasard
+          ! Perdu dans Zera est un livre intéractif dont tu es le héros, à
+          chaque fin d’épisode tu pourras choisir la suite du récit. Alors
+          essaye de faire le bon choix … Richement illustré par l’auteur, le
+          livre est également accompagné d’un glossaire pour te familiariser
+          avec le vocabulaire du Web 3 et de l’informatique.
         </p>
-        <nav className={styles.buttonscontainer}>
-          <PlayButton />
-          <RestartButton />
-        </nav>
+        <section className={styles.secondSection}>
+          <h3 className={styles.titleStart}>
+            Es-tu prêt pour entrer dans Zera ?
+          </h3>
+          <p className={styles.paragraphStart}>
+            Tu es sur le point de démarrer une aventure dont tu es le héros à
+            l’intérieur du métavers. Tu peux commencer ta lecture tout de suite,
+            mais nous te conseillons de te créer un compte gratuit afin de
+            pouvoir accéder à plusieurs fins de l'histoire ainsi qu'à des
+            fonctionnalités avancées pour profiter au maximum de ta lecture !
+          </p>
+          <nav className={styles.buttonscontainer}>
+            <PlayButton />
+            <RestartButton />
+          </nav>
+        </section>
       </section>
     </main>
   );
