@@ -17,7 +17,7 @@ function Header() {
       <Link className="user-icon" to={"/inscription"}>
         <img
           src={profileImage}
-          alt="Accéder au profil utilisateur"
+          alt="Redirige vers connexion ou création de compte"
           className="profile-image"
         />
       </Link>
