@@ -1,24 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  display: flex;
-  flex-direction: column;
-}
-
-section {
+.teamSection {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
 
-.team-title {
+.teamTitle {
   font-size: var(--title-size);
   font-family: var(--title-font);
   text-align: center;
@@ -29,75 +16,77 @@ section {
   letter-spacing: .5rem;
 }
 
-.team-member {
+.teamMember {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.team-member img {
+.teamMember img {
   max-width: 80%;
   height: auto;
 }
 
-.jonathan-image {
+.jonathanImage {
   width: 22rem;
   display: flex;
   align-items: center;
   border-radius: 12rem;
   margin-top: 5rem;
   border: 5px solid var(--secondary-color);
+  border: 5px solid var(--secondary-color);
 }
 
-.pierre-image {
+.pierreImage {
   width: 18rem;
+  border: 5px solid var(--secondary-color);
   border: 5px solid var(--secondary-color);
   object-fit: cover;
   border-radius: 12rem;
 }
 
-.dev-image {
+.devImage {
   border-radius: 50%;
   border: 5px solid var(--secondary-color);
 }
 
-.logo-container {
+.teamLogoContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: .6rem;
 }
 
-.linkedin-logo,
-.instagram-logo {
+.teamLinkedinLogo,
+.teamInstagramLogo {
   width: 2rem;
   height: 2rem;
   margin: 1rem;
   transition: transform 0.3s ease-in-out;
 }
 
-.linkedin-logo:hover {
+.teamLinkedinLogo:hover {
   transform: scale(1);
 }
 
-.instagram-logo:hover {
+.teamInstagramLogo:hover {
   transform: scale(1);
 }
 
-h2 {
+.teamName {
   margin-bottom: 1rem;
   margin-top: 1rem;
   font-family: var(--title-font);
   letter-spacing: .3rem;
 }
 
-h3 {
+.pseudoTeam {
   font-family: var(--title-font);
   letter-spacing: .3rem;
 }
 
-p {
+.textTeam {
   font-family: var(--text-font);
   font-size: var(--text-size);
   line-height: var(--line-height);
@@ -107,7 +96,7 @@ p {
 }
 
 @media (min-width: 620px) {
-  section {
+  .teamSection {
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -116,16 +105,16 @@ p {
     width: 100%;
   }
 
-  .team-member:first-of-type {
+  .teamMember:first-of-type {
     order: 1;
     transform: translateY(-33px);
   }
 
-  .team-member:nth-of-type(3) {
+  .teamMember:nth-of-type(3) {
     order: 3;
   }
 
-  .team-member {
+  .teamMember {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -135,33 +124,33 @@ p {
     margin-top: 5rem;
   }
 
-  .jonathan-image {
+  .jonathanImage {
     margin-top: 5rem;
   }
 
-  .pierre-image {
+  .pierreImage {
     margin-top: 7rem;
   }
 
-  .dev-image {
+  .devImage {
     margin-top: 7rem;
   }
 
-  p {
+  .textTeam {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 
-  .linkedin-logo,
-  .instagram-logo {
+  .teamLinkedinLogo,
+  .teamInstagramLogo {
     transition: transform 0.3s ease-in-out;
   }
 
-  .linkedin-logo:hover {
+  .teamLinkedinLogo:hover {
     transform: scale(1.2);
   }
 
-  .instagram-logo:hover {
+  .teamInstagramLogo:hover {
     transform: scale(1.2);
   }
 }
