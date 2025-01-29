@@ -1,5 +1,4 @@
 import PlayButton from "../../components/PlayButton";
-import RestartButton from "../../components/RestartButton";
 import styles from "./homePage.module.css";
 
 export default function HomePage() {
@@ -37,7 +36,6 @@ export default function HomePage() {
           </p>
           <nav className={styles.buttonscontainer}>
             <PlayButton />
-            <RestartButton />
           </nav>
         </section>
       </section>

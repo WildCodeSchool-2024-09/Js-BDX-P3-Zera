@@ -21,9 +21,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.teamMember img {
   max-width: 80%;
   height: auto;
 }
@@ -35,12 +32,10 @@
   border-radius: 12rem;
   margin-top: 5rem;
   border: 5px solid var(--secondary-color);
-  border: 5px solid var(--secondary-color);
 }
 
 .pierreImage {
   width: 18rem;
-  border: 5px solid var(--secondary-color);
   border: 5px solid var(--secondary-color);
   object-fit: cover;
   border-radius: 12rem;

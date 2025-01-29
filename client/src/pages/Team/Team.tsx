@@ -8,8 +8,7 @@ import pierreImage from "../../../src/assets/images/pierre.png";
 
 function Team() {
   return (
-    <>
-      <section className={styles.teamSection}>
+      <main className={styles.teamSection}>
         <h1 className={styles.teamTitle}>Team</h1>
         <article className={styles.teamMember}>
           <img src={jonathanImage} alt="" className={styles.jonathanImage} />
@@ -130,8 +129,7 @@ function Team() {
             mobile captivant.
           </p>
         </article>
-      </section>
-    </>
+      </main>
   );
 }
 
