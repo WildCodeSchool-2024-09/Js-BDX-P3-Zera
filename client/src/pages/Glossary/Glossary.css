@@ -1,16 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url("../../components//Variables.css");
 
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
+.section-glossary {
   display: flex;
   flex-direction: column;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  width: 90%;
+  margin: auto;
 }
 
 .glossary-title {
@@ -21,9 +15,10 @@ body {
   margin-bottom: 3rem;
 }
 
-p {
+.glossary-text {
   font-family: var(--text-font);
   font-size: var(--text-size);
   margin-left: .5rem;
   margin-right: .5rem;
+  color: var(--text-color);
 }

@@ -13,7 +13,7 @@ function NavigationLinks({
     <ul className={isMobile ? "menu-list" : "nav-list"}>
       <li>
         <Link
-          to="/accueil"
+          to="/"
           className={isMobile ? "menu-link" : "nav-link"}
           onClick={() => isMobile && closeMenu && closeMenu()}
         >

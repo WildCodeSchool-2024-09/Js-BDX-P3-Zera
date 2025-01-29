@@ -7,9 +7,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
-import HomePage from "./components/Homepage.tsx";
+import Glossary from "./pages/Glossary/Glossary";
 import Team from "./pages/Team/Team.tsx";
 import ForgotPasswordPage from "./pages/forgotPasswordPage/forgotPasswordPage";
+import HomePage from "./pages/homePage/Homepage";
 import LoginPage from "./pages/login/logingPage";
 import SignUpPage from "./pages/signupForm/SignUpPage";
 
@@ -23,11 +24,20 @@ import SignUpPage from "./pages/signupForm/SignUpPage";
 
 // Create router configuration with routes
 // You can add more routes as you build out your app!
+
 const router = createBrowserRouter([
   {
     // The root path
     element: <App />,
     children: [
+      {
+        path: "/glossaire",
+        element: <Glossary />,
+      },
+      {
+        path: "/mot-de-passe-oublie",
+        element: <ForgotPasswordPage />,
+      },
       {
         path: "/",
         element: <HomePage />,
@@ -41,17 +51,13 @@ const router = createBrowserRouter([
         element: <SignUpPage />,
       },
       {
-        path: "/mot-de-passe-oublie",
-        element: <ForgotPasswordPage />,
-      },
-      {
         path: "/team",
         element: <Team />,
       },
-    ],
+    ], // Renders the App component for the home page
   },
-]); // Renders the App component for the home page
-
+  // Try adding a new route! For example, "/about" with an About component
+]);
 // Try adding a new route! For example, "/about" with an About component
 
 /* ************************************************************************* */
