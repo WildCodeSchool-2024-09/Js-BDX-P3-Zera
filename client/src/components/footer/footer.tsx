@@ -14,7 +14,7 @@ function Footer() {
     <footer className={styles.footer}>
       <nav className={styles.footerNav}>
         <a
-          href="#linkedin"
+          href="https://www.linkedin.com/company/perdu-dans-zera/"
           target="_blank"
           rel="noreferrer"
           className={styles.footerIcon}

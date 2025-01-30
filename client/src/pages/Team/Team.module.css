@@ -21,32 +21,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.teamMember img {
   max-width: 80%;
   height: auto;
 }
 
 .jonathanImage {
-  width: 22rem;
-  display: flex;
-  align-items: center;
-  border-radius: 12rem;
+  width: 18rem;
   margin-top: 5rem;
   border: 5px solid var(--secondary-color);
-  border: 5px solid var(--secondary-color);
+  border-radius: 12rem;
 }
 
 .pierreImage {
   width: 18rem;
-  border: 5px solid var(--secondary-color);
   border: 5px solid var(--secondary-color);
   object-fit: cover;
   border-radius: 12rem;
 }
 
 .devImage {
+  width: 18rem;
   border-radius: 50%;
   border: 5px solid var(--secondary-color);
 }
@@ -91,8 +85,6 @@
   font-size: var(--text-size);
   line-height: var(--line-height);
   margin-bottom: 5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 @media (min-width: 620px) {

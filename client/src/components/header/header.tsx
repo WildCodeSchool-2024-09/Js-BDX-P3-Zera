@@ -3,6 +3,7 @@ import "./header.css";
 import profileImage from "../../assets/images/imageProfil.png";
 import NavigationLinks from "../navLinks";
 import "./header.css";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,13 +14,13 @@ function Header() {
 
   return (
     <header className="header">
-      <button type="button" className="user-icon">
+      <Link className="user-icon" to={"/inscription"}>
         <img
           src={profileImage}
-          alt="Accéder au profil utilisateur"
+          alt="Redirige vers connexion ou création de compte"
           className="profile-image"
         />
-      </button>
+      </Link>
 
       <nav className="nav-buttons">{<NavigationLinks />}</nav>
 
