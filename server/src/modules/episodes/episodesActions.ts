@@ -62,7 +62,6 @@ const edit: RequestHandler = async (req, res, next) => {
 const add: RequestHandler = async (req, res, next) => {
   try {
     // Extract the episode data from the request body
-    console.info(req.params.books_id);
     const newepisode = {
       title: req.body.title,
       to_register: req.body.to_register,
@@ -86,8 +85,8 @@ const add: RequestHandler = async (req, res, next) => {
 
 const remove: RequestHandler = async (req, res, next) => {
   try {
-    const adminId = Number(req.params.id);
-    const affectedRows = await episodesRepository.delete(adminId);
+    const episodeId = Number(req.params.id);
+    const affectedRows = await episodesRepository.delete(episodeId);
     if (affectedRows) {
       res.sendStatus(204);
     } else {

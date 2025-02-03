@@ -17,11 +17,11 @@ class EpisodeRepository {
   // The C of CRUD - Create operation
 
   async create(episodeContent: Omit<Episode, "id">) {
-    // Execute the SQL INSERT query to add a new episode to the "episode" table
+    // Execute the SQL INSERT execute to add a new episode to the "episode" table
     const connection = await databaseClient.getConnection();
     try {
       await connection.beginTransaction();
-      const [episode] = await connection.query<Result>(
+      const [episode] = await connection.execute<Result>(
         `
         INSERT INTO episodes
           (title,to_register,type,books_id,is_free)
@@ -41,7 +41,7 @@ class EpisodeRepository {
         throw new Error("Failed insertion in episodes table");
       }
       episodeContent.paragraphs.map(async (p) => {
-        const [paragraphs] = await connection.query<Result>(
+        const [paragraphs] = await connection.execute<Result>(
           `
           INSERT INTO paragraphs
             (content, episodes_id)
@@ -55,7 +55,7 @@ class EpisodeRepository {
         }
       });
 
-      const [illustrations] = await connection.query<Result>(
+      const [illustrations] = await connection.execute<Result>(
         `
         INSERT INTO illustrations
           (url, episodes_id)
@@ -80,7 +80,7 @@ class EpisodeRepository {
   // The Rs of CRUD - Read operations
 
   async read(id: number) {
-    const [rows] = await databaseClient.query<Rows>(
+    const [rows] = await databaseClient.execute<Rows>(
       `
 SELECT 
     e.id AS episode_id,
@@ -98,9 +98,9 @@ SELECT
     ) AS paragraphs
 FROM 
     episodes e
-LEFT JOIN 
+INNER JOIN 
     illustrations i ON e.id = i.episodes_id
-INNER JOIN  -- ✅ Remplacement de LEFT JOIN par INNER JOIN
+INNER JOIN
     paragraphs p ON e.id = p.episodes_id
 WHERE 
     e.id = ?
@@ -113,7 +113,7 @@ GROUP BY
   }
 
   async readAll(id: number) {
-    // Execute the SQL SELECT query to retrieve all Books from the "Book" table
+    // Execute the SQL SELECT execute to retrieve all Books from the "Book" table
     const [rows] = await databaseClient.query<Rows>(
       `
 SELECT 
@@ -157,7 +157,7 @@ GROUP BY
       await connection.beginTransaction();
 
       // Update episodes
-      const [episode] = await connection.query<Result>(
+      const [episode] = await connection.execute<Result>(
         `
         UPDATE episodes
         SET title = ?, to_register = ?, type = ?, books_id = ?, is_free = ?  
@@ -177,7 +177,7 @@ GROUP BY
       }
 
       // Update illustrations
-      const [illustrations] = await connection.query<Result>(
+      const [illustrations] = await connection.execute<Result>(
         `
         UPDATE illustrations
         SET url = ?
@@ -190,7 +190,7 @@ GROUP BY
       }
 
       // Delete paragraphs
-      const [deletedParagraph] = await connection.query<Result>(
+      const [deletedParagraph] = await connection.execute<Result>(
         `
         DELETE FROM paragraphs
         WHERE episodes_id = ? 
@@ -201,7 +201,7 @@ GROUP BY
       // Insert new paragraphs
       await Promise.all(
         episodeContent.paragraphs.map(async (p) => {
-          const [paragraphs] = await connection.query<Result>(
+          const [paragraphs] = await connection.execute<Result>(
             `
             INSERT INTO paragraphs
               (content, episodes_id)
@@ -227,8 +227,7 @@ GROUP BY
   }
 
   async delete(id: number) {
-    console.info(id);
-    const [result] = await databaseClient.query<Result>(
+    const [result] = await databaseClient.execute<Result>(
       `DELETE FROM episodes 
         WHERE id = ?`,
       [id],
