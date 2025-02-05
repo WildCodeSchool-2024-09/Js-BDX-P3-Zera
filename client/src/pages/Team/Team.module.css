@@ -1,0 +1,148 @@
+.teamSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.teamTitle {
+  font-size: var(--title-size);
+  font-family: var(--title-font);
+  text-align: center;
+  margin-bottom: 10rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  letter-spacing: .5rem;
+}
+
+.teamMember {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  height: auto;
+}
+
+.jonathanImage {
+  width: 18rem;
+  margin-top: 5rem;
+  border: 5px solid var(--secondary-color);
+  border-radius: 12rem;
+}
+
+.pierreImage {
+  width: 18rem;
+  border: 5px solid var(--secondary-color);
+  object-fit: cover;
+  border-radius: 12rem;
+}
+
+.devImage {
+  width: 18rem;
+  border-radius: 50%;
+  border: 5px solid var(--secondary-color);
+}
+
+.teamLogoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: .6rem;
+}
+
+.teamLinkedinLogo,
+.teamInstagramLogo {
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.teamLinkedinLogo:hover {
+  transform: scale(1);
+}
+
+.teamInstagramLogo:hover {
+  transform: scale(1);
+}
+
+.teamName {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-family: var(--title-font);
+  letter-spacing: .3rem;
+}
+
+.pseudoTeam {
+  font-family: var(--title-font);
+  letter-spacing: .3rem;
+}
+
+.textTeam {
+  font-family: var(--text-font);
+  font-size: var(--text-size);
+  line-height: var(--line-height);
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 620px) {
+  .teamSection {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: flex-start;
+    gap: 3rem;
+    width: 100%;
+  }
+
+  .teamMember:first-of-type {
+    order: 1;
+    transform: translateY(-33px);
+  }
+
+  .teamMember:nth-of-type(3) {
+    order: 3;
+  }
+
+  .teamMember {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 5rem;
+  }
+
+  .jonathanImage {
+    margin-top: 5rem;
+  }
+
+  .pierreImage {
+    margin-top: 7rem;
+  }
+
+  .devImage {
+    margin-top: 7rem;
+  }
+
+  .textTeam {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .teamLinkedinLogo,
+  .teamInstagramLogo {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .teamLinkedinLogo:hover {
+    transform: scale(1.2);
+  }
+
+  .teamInstagramLogo:hover {
+    transform: scale(1.2);
+  }
+}

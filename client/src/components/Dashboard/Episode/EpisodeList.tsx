@@ -15,60 +15,65 @@ export const EpisodeList = ({
   }));
 
   return (
-    <section className={styles.episodeListContainer}>
-      <h2 className={styles.mainTitle}>Liste des épisodes par livre</h2>
+    <section className={styles.episodeListSection}>
+      <h2 className={styles.episodeListTitle}>Liste des épisodes par livre</h2>
       {episodesByBook.map(
         ({ book, episodes }) =>
           episodes.length > 0 && (
             <article key={book.id} className={styles.bookSection}>
-              <h3 className={styles.bookTitle}>{book.title}</h3>
-              <div className={styles.episodeList}>
-                {episodes.map((episode) => (
-                  <article key={episode.id} className={styles.episodeItem}>
-                    <div className={styles.episodeContent}>
-                      <h4 className={styles.episodeTitle}>{episode.title}</h4>
+              <h3 className={styles.episodeListBookTitle}>{book.title}</h3>
+              {episodes.map((episode) => (
+                <article key={episode.id} className={styles.episodeItem}>
+                  <h4 className={styles.episodeListTitle}>{episode.title}</h4>
+                  {episode.illustration && (
+                    <section className={styles.episodeListImageContainer}>
+                      <h5 className={styles.episodeListImageTitle}>
+                        Illustration
+                      </h5>
+                      <img
+                        src={episode.illustration}
+                        alt={episode.title}
+                        className={styles.episodeListImage}
+                      />
+                    </section>
+                  )}
 
-                      {episode.illustration && (
-                        <div className={styles.imageContainer}>
-                          <h5 className={styles.imageTitle}>Illustration</h5>
-                          <img
-                            src={episode.illustration}
-                            alt={episode.title}
-                            className={styles.episodeImage}
-                          />
-                        </div>
-                      )}
+                  <section className={styles.episodeListInfo}>
+                    <h5 className={styles.episodeListInfoTitle}>Contenue :</h5>
+                    <p className={styles.episodeListInfoText}>
+                      Nombre de paragraphes : {episode.paragraphs.length}
+                    </p>
+                    <p className={styles.episodeListInfoText}>
+                      Nombre de choix : {episode.choices.length}
+                    </p>
+                  </section>
 
-                      <div className={styles.episodeInfo}>
-                        <h5 className={styles.infoTitle}>Informations</h5>
-                        <p className={styles.infoText}>
-                          Nombre de paragraphes : {episode.paragraphs.length}
-                        </p>
-                        <p className={styles.infoText}>
-                          Nombre de choix : {episode.choices.length}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className={styles.episodeActions}>
-                      <button
-                        type="button"
-                        onClick={() => onEdit(episode)}
-                        className={styles.editButton}
-                      >
-                        Modifier
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => onDelete(episode.id)}
-                        className={styles.deleteButton}
-                      >
-                        Supprimer
-                      </button>
-                    </div>
-                  </article>
-                ))}
-              </div>
+                  <div className={styles.episodeListActions}>
+                    <button
+                      type="button"
+                      onClick={() => onEdit(episode)}
+                      className={styles.episodeListEditButton}
+                    >
+                      Modifier
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            "Êtes-vous sûr de vouloir supprimer cet épisode ?",
+                          )
+                        ) {
+                          onDelete(episode.id);
+                        }
+                      }}
+                      className={styles.episodeListDeleteButton}
+                    >
+                      Supprimer
+                    </button>
+                  </div>
+                </article>
+              ))}
             </article>
           ),
       )}

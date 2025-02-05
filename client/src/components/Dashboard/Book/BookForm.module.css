@@ -20,13 +20,18 @@
 }
 
 .textarea {
-  min-height: 120px;
+  min-height: 20rem;
   resize: vertical;
 }
 
 .preview {
-  width: 100px;
-  height: 100px;
+  width: 6.25rem;
+  height: 6.25rem;
   object-fit: cover;
   border-radius: 4px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-around;
 }

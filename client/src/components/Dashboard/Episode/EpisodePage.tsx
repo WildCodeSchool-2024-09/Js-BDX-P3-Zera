@@ -4,6 +4,7 @@ import { EpisodeFormMode } from "../../../types/Episode";
 import type { Episode } from "../../../types/Episode.d.ts";
 import { EpisodeForm } from "./EpisodeForm";
 import { EpisodeList } from "./EpisodeList";
+import styles from "./EpisodePage.module.css";
 
 export const EpisodePage = () => {
   const { episodes, createEpisode, updateEpisode, deleteEpisode } =
@@ -34,16 +35,20 @@ export const EpisodePage = () => {
   };
 
   return (
-    <main>
-      <h1>Gestion des épisodes</h1>
+    <main className={styles.episodePageMain}>
+      <h1 className={styles.titleEpisodePage}>Gestion des épisodes</h1>
 
       {mode === EpisodeFormMode.VIEW ? (
-        <button type="button" onClick={() => setMode(EpisodeFormMode.CREATE)}>
+        <button
+          type="button"
+          className={styles.episodePageCreateButton}
+          onClick={() => setMode(EpisodeFormMode.CREATE)}
+        >
           Créer un nouvel épisode
         </button>
       ) : (
         <section>
-          <h2>
+          <h2 className={styles.titleEpisodePage}>
             {mode === EpisodeFormMode.EDIT
               ? "Modification d'un épisode"
               : "Création d'un épisode"}

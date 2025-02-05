@@ -15,23 +15,31 @@ export const GlossaryList = ({
   const sortedItems = [...items].sort((a, b) => a.word.localeCompare(b.word));
 
   return (
-    <section className={styles.glossaryList}>
+    <section className={styles.glossaryListSection}>
       {sortedItems.map((item) => (
         <article key={item.id} className={styles.glossaryItem}>
-          <h3>{item.word}</h3>
+          <h3 className={styles.glossaryListTitle}>{item.word}</h3>
           <p>{item.definition}</p>
 
           <button
             type="button"
             onClick={() => onEdit(item)}
-            className={styles.button}
+            className={styles.glossaryListAddButton}
           >
             Modifier
           </button>
           <button
             type="button"
-            onClick={() => onDelete(item.id)}
-            className={styles.button}
+            onClick={() => {
+              if (
+                window.confirm(
+                  "Êtes-vous sûr de vouloir supprimer cet élément ?",
+                )
+              ) {
+                onDelete(item.id);
+              }
+            }}
+            className={styles.glossaryListDeleteButton}
           >
             Supprimer
           </button>

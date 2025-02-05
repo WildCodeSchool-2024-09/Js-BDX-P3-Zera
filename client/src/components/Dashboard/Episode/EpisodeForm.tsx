@@ -113,9 +113,9 @@ export const EpisodeForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <section className={styles.formSection}>
-        <label htmlFor="book" className={styles.label}>
+    <form onSubmit={handleSubmit} className={styles.episodeForm}>
+      <section className={styles.episodeSection}>
+        <label htmlFor="book" className={styles.episodeLabel}>
           Livre parent
         </label>
         <select
@@ -123,7 +123,7 @@ export const EpisodeForm = ({
           value={formData.bookId}
           onChange={(e) => handleChange("bookId", e.target.value)}
           required
-          className={styles.select}
+          className={styles.episodeSelect}
         >
           <option value="">Sélectionner un livre</option>
           {books.map((book) => (
@@ -134,8 +134,8 @@ export const EpisodeForm = ({
         </select>
       </section>
 
-      <section className={styles.formSection}>
-        <label htmlFor="title" className={styles.label}>
+      <section className={styles.episodeSection}>
+        <label htmlFor="title" className={styles.episodeLabel}>
           Titre de l'épisode
         </label>
         <input
@@ -144,12 +144,15 @@ export const EpisodeForm = ({
           value={formData.title}
           onChange={(e) => handleChange("title", e.target.value)}
           required
-          className={styles.input}
+          className={styles.episodeInput}
         />
       </section>
 
-      <section className={styles.formSection}>
-        <label htmlFor="illustration" className={styles.label}>
+      <section className={styles.episodeIllustrationSection}>
+        <label
+          htmlFor="illustration"
+          className={styles.episodeIllustrationLabel}
+        >
           Illustration
         </label>
         <input
@@ -157,24 +160,39 @@ export const EpisodeForm = ({
           id="illustration"
           accept="image/*"
           onChange={handleImageChange}
-          className={styles.fileInput}
+          className={styles.episodeFileInput}
         />
         {formData.illustration && (
           <img
             src={formData.illustration}
             alt="Aperçu"
-            className={styles.preview}
+            className={styles.episodeFormPreview}
           />
         )}
+        <button
+          onClick={() => {
+            setFormData((prev) => ({ ...prev, illustration: "" }));
+            const illustrationInput = document.getElementById(
+              "illustration",
+            ) as HTMLInputElement | null;
+            if (illustrationInput) {
+              illustrationInput.value = "";
+            }
+          }}
+          className={styles.episodeDeleteButton}
+          type="button"
+        >
+          Supprimer l'importation
+        </button>
       </section>
 
-      <section className={styles.paragraphsSection}>
-        <h3 className={styles.sectionTitle}>Paragraphes</h3>
+      <section className={styles.paragraphsSectionEpisode}>
+        <h3 className={styles.episodeTitle}>Paragraphes :</h3>
         {formData.paragraphs.map((paragraph) => (
-          <div key={paragraph.id} className={styles.paragraphContainer}>
+          <div key={paragraph.id} className={styles.episodeParagraphContainer}>
             <label
               htmlFor={`paragraph-${paragraph.id}`}
-              className={styles.paragraphLabel}
+              className={styles.episodeParagraphLabel}
             >
               Paragraphe {paragraph.id}
             </label>
@@ -185,7 +203,7 @@ export const EpisodeForm = ({
                 handleParagraphChange(paragraph.id, e.target.value)
               }
               required
-              className={styles.textarea}
+              className={styles.episodeTextArea}
             />
             {paragraph.id > 1 && (
               <button
@@ -199,7 +217,7 @@ export const EpisodeForm = ({
                     removeParagraph(paragraph.id);
                   }
                 }}
-                className={styles.removeButton}
+                className={styles.epidoseRemoveButton}
               >
                 Supprimer
               </button>
@@ -209,16 +227,16 @@ export const EpisodeForm = ({
         <button
           type="button"
           onClick={addParagraph}
-          className={styles.addButton}
+          className={styles.episodeAddButton}
         >
           Ajouter un paragraphe
         </button>
       </section>
 
-      <section className={styles.choicesSection}>
-        <h3 className={styles.sectionTitle}>Choix</h3>
+      <section className={styles.episodeChoicesSection}>
+        <h3 className={styles.episodeTitle}>Choix</h3>
         {formData.choices.map((choice, index) => (
-          <div key={choice.id} className={styles.choiceContainer}>
+          <div key={choice.id} className={styles.episodeChoiceContainer}>
             <input
               type="text"
               value={choice.text}
@@ -226,16 +244,14 @@ export const EpisodeForm = ({
                 handleChoiceChange(index, "text", e.target.value)
               }
               placeholder="Texte du choix"
-              required
-              className={styles.choiceInput}
+              className={styles.episodeChoiceInput}
             />
             <select
               value={choice.nextEpisodeId}
               onChange={(e) =>
                 handleChoiceChange(index, "nextEpisodeId", e.target.value)
               }
-              required
-              className={styles.choiceSelect}
+              className={styles.episodeChoiceSelect}
             >
               <option value="">Sélectionner l'épisode suivant</option>
               {episodes
@@ -250,6 +266,7 @@ export const EpisodeForm = ({
                 ))}
             </select>
             <button
+              className={styles.episodeRemoveButton}
               type="button"
               onClick={() => {
                 if (
@@ -265,19 +282,23 @@ export const EpisodeForm = ({
             </button>
           </div>
         ))}
-        <button type="button" onClick={addChoice} className={styles.addButton}>
+        <button
+          type="button"
+          onClick={addChoice}
+          className={styles.episodeAddButton}
+        >
           Ajouter un choix
         </button>
       </section>
 
-      <div className={styles.formActions}>
-        <button type="submit" className={styles.submitButton}>
+      <div className={styles.episodeFormActions}>
+        <button type="submit" className={styles.episodeSubmitButton}>
           {episode ? "Modifier" : "Créer"}
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className={styles.cancelButton}
+          className={styles.episodeCancelButton}
         >
           Annuler
         </button>

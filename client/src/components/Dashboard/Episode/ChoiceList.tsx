@@ -9,7 +9,7 @@ interface ChoiceListProps {
     value: string,
   ) => void;
   onAdd: () => void;
-  onRemove: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
 const ChoiceList = ({
@@ -17,7 +17,7 @@ const ChoiceList = ({
   episodes,
   onChange,
   onAdd,
-  onRemove,
+  onDelete,
 }: ChoiceListProps) => {
   return (
     <section>
@@ -46,7 +46,18 @@ const ChoiceList = ({
               </option>
             ))}
           </select>
-          <button type="button" onClick={() => onRemove(choice.id)}>
+          <button
+            type="button"
+            onClick={() => {
+              if (
+                window.confirm(
+                  "Êtes-vous sûr de vouloir supprimer cet épisode ?",
+                )
+              ) {
+                onDelete(choice.id);
+              }
+            }}
+          >
             Supprimer
           </button>
         </div>

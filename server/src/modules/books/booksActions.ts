@@ -62,11 +62,11 @@ const add: RequestHandler = async (req, res, next) => {
       resume: req.body.resume,
       illustration: req.body.illustration,
     };
-
     // Create the book
     const insertId = await booksRepository.create(newBooks);
     res.status(201).json({ insertId });
   } catch (err) {
+    console.error("Server error:", err);
     next(err);
   }
 };

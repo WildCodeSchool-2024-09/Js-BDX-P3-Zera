@@ -1,71 +1,85 @@
-import { useState } from "react";
+import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
 import type { BookFormProps } from "../../../types/Book";
 import styles from "./BookForm.module.css";
 
 export const BookForm = ({ book, onSubmit, onCancel }: BookFormProps) => {
-  const [title, setTitle] = useState(book?.title || "");
-  const [summary, setSummary] = useState(book?.summary || "");
-  const [previewUrl, setPreviewUrl] = useState(book?.illustration || "");
+  const [formData, setFormData] = useState({
+    title: book?.title ?? "",
+    resume: book?.resume ?? "",
+    illustration: book?.illustration ?? "",
+  });
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    if (book) {
+      setFormData({
+        title: book.title,
+        resume: book.resume,
+        illustration: book.illustration,
+      });
+    }
+  }, [book]);
+
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPreviewUrl(reader.result as string);
+        setFormData((prev) => ({
+          ...prev,
+          illustration: reader.result as string,
+        }));
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    onSubmit({
-      title,
-      summary,
-      illustration: previewUrl,
-    });
+    onSubmit(formData);
   };
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <section>
-        <label htmlFor="title" className={styles.label}>
-          Titre
-        </label>
+      <section className={styles.formSection}>
+        <label htmlFor="title">Titre</label>
         <input
-          type="text"
           id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          value={formData.title}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, title: e.target.value }))
+          }
           required
           className={styles.input}
         />
       </section>
 
-      <section>
-        <label htmlFor="illustration" className={styles.label}>
-          Illustration
-        </label>
+      <section className={styles.formSection}>
+        <label htmlFor="illustration">Illustration</label>
         <input
+          id="illustration"
           type="file"
           accept="image/*"
           onChange={handleImageChange}
           className={styles.input}
         />
-        {previewUrl && (
-          <img src={previewUrl} alt="Illustration" className={styles.preview} />
+        {formData.illustration && (
+          <img
+            src={formData.illustration}
+            alt="Prévisualisation"
+            className={styles.preview}
+          />
         )}
       </section>
 
-      <section>
-        <label htmlFor="summary" className={styles.label}>
-          Résumé
-        </label>
+      <section className={styles.formSection}>
+        <label htmlFor="resume">Résumé</label>
         <textarea
-          id="summary"
-          value={summary}
-          onChange={(e) => setSummary(e.target.value)}
+          id="resume"
+          value={formData.resume}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, resume: e.target.value }))
+          }
           required
           className={`${styles.input} ${styles.textarea}`}
         />

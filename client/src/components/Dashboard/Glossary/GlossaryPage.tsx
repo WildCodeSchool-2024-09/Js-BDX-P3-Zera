@@ -3,6 +3,7 @@ import { useGlossary } from "../../../contexts/GlossaryContexts";
 import type { GlossaryItem } from "../../../types/Glossary";
 import { GlossaryForm } from "./GlossaryForm";
 import { GlossaryList } from "./GlossaryList";
+import styles from "./GlossaryPage.module.css";
 
 enum GlossaryFormMode {
   VIEW = "view",
@@ -36,8 +37,8 @@ export const GlossaryPage = () => {
   };
 
   return (
-    <main>
-      <h1>Glossaire</h1>
+    <main className={styles.glossaryPageMain}>
+      <h1 className={styles.titleGlossaryPage}>Glossaire</h1>
 
       {mode === GlossaryFormMode.VIEW ? (
         <button type="button" onClick={() => setMode(GlossaryFormMode.CREATE)}>
@@ -45,7 +46,7 @@ export const GlossaryPage = () => {
         </button>
       ) : (
         <section>
-          <h2>
+          <h2 className={styles.titleGlossaryPage}>
             {mode === GlossaryFormMode.EDIT
               ? "Modification d'un mot"
               : "Ajout d'un nouveau mot"}

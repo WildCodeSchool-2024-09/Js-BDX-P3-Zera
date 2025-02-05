@@ -5,6 +5,7 @@
 }
 
 .bookItem {
+  border: solid 1px var(--secondary-color);
   background-color: var(--background-color);
   padding: 1rem;
   border-radius: 4px;
@@ -17,6 +18,18 @@
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 1rem;
+}
+
+.sectionBookList {
+  text-align: center;
+}
+
+.titleBookList {
+  text-align: center;
+}
+
+.buttonBookList {
+  margin: 1rem;
 }
 
 @media screen and (min-width: 768px) {

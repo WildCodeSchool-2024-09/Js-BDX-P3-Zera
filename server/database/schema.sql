@@ -24,10 +24,9 @@ create table contains (
 
 create table books (
   id int unsigned primary key auto_increment not null,
+  title varchar(255) not null,
   resume text not null,
-  illu varchar(255) not null,
-  contains_id int unsigned not null,
-  foreign key(contains_id) references contains(id)
+  illustration LONGTEXT not null
 );
 
 create table books_clients (

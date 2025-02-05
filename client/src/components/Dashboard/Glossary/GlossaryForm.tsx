@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { GlossaryItem } from "../../../types/Glossary";
+import styles from "./GlossaryForm.module.css";
 
 interface GlossaryFormProps {
   item?: GlossaryItem;
@@ -24,30 +25,40 @@ export const GlossaryForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <section>
-        <h2>Information du mot</h2>
-
-        <label htmlFor="word">Mot</label>
+    <form className={styles.glossaryForm} onSubmit={handleSubmit}>
+      <section className={styles.glossarySection}>
+        <label htmlFor="word" className={styles.glossaryLabel}>
+          Mot
+        </label>
         <input
           type="text"
           id="word"
           value={word}
           onChange={(e) => setWord(e.target.value)}
+          className={styles.glossaryWord}
           required
         />
 
-        <label htmlFor="definition">Définition</label>
+        <label htmlFor="definition" className={styles.glossaryLabel}>
+          Définition
+        </label>
         <textarea
           id="definition"
           value={definition}
           onChange={(e) => setDefinition(e.target.value)}
+          className={styles.glossaryDefinition}
           required
         />
       </section>
 
-      <button type="submit">{item ? "Modifier" : "Créer"}</button>
-      <button type="button" onClick={onCancel}>
+      <button type="submit" className={styles.glossarySubmitButton}>
+        {item ? "Modifier" : "Créer"}
+      </button>
+      <button
+        type="button"
+        className={styles.glossaryCancelButton}
+        onClick={onCancel}
+      >
         Annuler
       </button>
     </form>
