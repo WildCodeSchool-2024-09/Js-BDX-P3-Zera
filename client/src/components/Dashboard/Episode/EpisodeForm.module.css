@@ -1,0 +1,110 @@
+.episodeTitle {
+  text-align: center;
+  margin: 1rem;
+}
+
+.episodeInput {
+  width: 100%;
+  height: 2rem;
+}
+
+.episodeLabel {
+  margin: .5rem;
+}
+
+.episodeSection {
+  text-align: center;
+  margin: 1rem;
+  border: solid 1px var(--secondary-color);
+  padding: .5rem;
+}
+
+.episodeParagraphContainer {
+  margin: .5rem;
+}
+
+.episodeTextArea {
+  width: 100%;
+  height: 10rem;
+  padding: 0.8rem;
+  background-color: var(--background-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.episodeIllustrationSection {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  justify-items: center;
+  border: solid 1px var(--secondary-color);
+  text-align: center;
+  margin: 1rem;
+  padding: .5rem;
+}
+
+.episodeDeleteButton {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: .3em;
+  font-size: var(--text-size);
+  font-weight: normal;
+  font-family: var(--text-font);
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.episodeFileInput {
+  width: 100%;
+}
+
+.episodeParagraphContainer {
+  text-align: center;
+}
+
+.paragraphsSectionEpisode {
+  text-align: center;
+}
+
+.episodeChoiceInput {
+  width: 100%;
+  height: 2rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.episodeChoiceContainer {
+  text-align: center;
+}
+
+.episodeChoicesSection {
+  text-align: center;
+  margin: .5rem;
+}
+
+.episodeRemoveButton {
+  margin: 1rem;
+}
+
+.episodeChoiceSelect {
+  width: 100%;
+  height: 2rem;
+}
+
+.episodeSubmitButton,
+.episodeCancelButton {
+  margin: 1rem;
+}
+
+.episodeFormActions {
+  text-align: center;
+  margin: 1rem;
+}
+
+.episodeFormPreview {
+  max-width: 15rem;
+  max-height: 15rem;
+}

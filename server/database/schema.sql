@@ -22,7 +22,7 @@ create table books (
   id int unsigned primary key auto_increment not null,
   title varchar(255) not null,
   resume text not null,
-  illustrations varchar(255) not null
+  illustration LONGTEXT not null
 );
 
 create table books_clients (

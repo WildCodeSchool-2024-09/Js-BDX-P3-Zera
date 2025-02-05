@@ -1,7 +1,6 @@
+import { Link } from "react-router-dom";
 import InputField from "../../components/form/InputField";
 import PasswordInput from "../../components/form/PasswordInput";
-import "../../components/Variables.css";
-import { Link } from "react-router-dom";
 import styles from "./loginForm.module.css";
 
 function LoginForm({

@@ -1,7 +1,6 @@
-import styles from "./forgotPasswordForm.module.css";
-import "../../components/Variables.css";
 import InputField from "../../components/form/InputField";
 import type { ForgotPasswordFormProps } from "../../types/ForgotPasswordProps";
+import styles from "./forgotPasswordForm.module.css";
 
 function ForgotPasswordForm({
   email,
