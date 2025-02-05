@@ -51,7 +51,6 @@ class GlossaryRepository {
 
   // The D of CRUD - Delete operation
   async delete(id: number) {
-    console.info(id);
     const [result] = await databaseClient.query<Result>(
       `DELETE FROM glossary 
         WHERE id = ?`,

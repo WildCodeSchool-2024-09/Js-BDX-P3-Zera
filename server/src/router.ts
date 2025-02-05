@@ -24,6 +24,14 @@ router.post("/api/books", booksActions.add);
 router.put("/api/books/:id", booksActions.edit);
 router.delete("/api/books/:id", booksActions.remove);
 
+import episodesActions from "./modules/episodes/episodesActions";
+
+router.get("/api/books/:books_id/episodes/", episodesActions.browse);
+router.get("/api/books/:books_id/episodes/:id", episodesActions.read);
+router.post("/api/books/:books_id/episodes", episodesActions.add);
+router.put("/api/books/:books_id/episodes/:id", episodesActions.edit);
+router.delete("/api/books/:books_id/episodes/:id", episodesActions.remove);
+
 /* ************************************************************************* */
 
 export default router;

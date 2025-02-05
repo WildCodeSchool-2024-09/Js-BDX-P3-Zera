@@ -15,11 +15,7 @@ create table admins (
   id int unsigned primary key auto_increment not null,
   users_id int unsigned not null,
   foreign key(users_id) references users(id)
-);
-
-create table contains (
-  id int unsigned primary key auto_increment not null,
-  name varchar(255) not null
+  ON DELETE CASCADE
 );
 
 create table books (
@@ -39,7 +35,7 @@ create table books_clients (
   foreign key(clients_id) references clients(id)
 );
 
-create table links (
+create table choices (
   id int unsigned primary key auto_increment not null,
   text text not null,
   path varchar(255) not null
@@ -47,37 +43,38 @@ create table links (
 
 create table episodes (
   id int unsigned primary key auto_increment not null,
-  is_free boolean default false,
+  title varchar(255) not null,
   to_register boolean default false,
+  type varchar(255) not null,
   books_id int unsigned not null,
-  foreign key(books_id) references books(id),
-  contains_id int unsigned not null,
-  foreign key(contains_id) references contains(id)
+  is_free boolean default false,
+  foreign key(books_id) references books(id)
 );
 
-create table episodes_links (
+create table episodes_choices (
   episodes_id int unsigned not null,
   foreign key(episodes_id) references episodes(id),
-  links_id int unsigned not null,
-  foreign key(links_id) references links(id)
+  choices_id int unsigned not null,
+  foreign key(choices_id) references choices(id)
 );
 
-create table illu (
+create table illustrations (
   id int unsigned primary key auto_increment not null,
   url varchar(255) not null,
   episodes_id int unsigned not null,
   foreign key(episodes_id) references episodes(id)
+  ON DELETE CASCADE
 );
-
 
 create table paragraphs (
   id int unsigned primary key auto_increment not null,
   content text not null,
   episodes_id int unsigned not null,
   foreign key(episodes_id) references episodes(id)
+  ON DELETE CASCADE
 );
 
-create table save (
+create table progression (
   date timestamp,
   episodes_id int unsigned not null,
   foreign key(episodes_id) references episodes(id),
