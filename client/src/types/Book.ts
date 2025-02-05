@@ -2,7 +2,7 @@ export interface Book {
   id: string;
   title: string;
   illustration: string;
-  summary: string;
+  resume: string;
 }
 
 export interface BookFormProps {
