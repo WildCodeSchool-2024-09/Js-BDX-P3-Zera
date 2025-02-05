@@ -12,7 +12,7 @@ export interface Choice {
 export interface Episode {
   id: string;
   title: string;
-  bookId: string;
+  books_id: string;
   illustration: string;
   paragraphs: Paragraph[];
   choices: Choice[];
@@ -25,7 +25,7 @@ export enum EpisodeFormMode {
 }
 
 export interface EpisodeFormProps {
-  episode?: Episode;
+  episode: Episode | null;
   onSubmit: (episodeData: Omit<Episode, "id">) => void;
   onCancel: () => void;
 }
@@ -38,8 +38,11 @@ export interface EpisodeListProps {
 
 export type FormData = {
   title: string;
-  bookId: string;
+  books_id: string;
+  type: string;
   illustration: string;
   paragraphs: Paragraph[];
   choices: Choice[];
+  to_register: boolean;
+  is_free: boolean;
 };

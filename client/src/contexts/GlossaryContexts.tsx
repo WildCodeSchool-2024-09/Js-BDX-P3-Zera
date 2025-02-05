@@ -8,9 +8,7 @@ interface GlossaryContextType {
   deleteItem: (id: string) => void;
 }
 
-const GlossaryContext = createContext<GlossaryContextType | undefined>(
-  undefined,
-);
+const GlossaryContext = createContext<GlossaryContextType | null>(null);
 
 export const GlossaryProvider = ({
   children,
@@ -51,7 +49,7 @@ export const GlossaryProvider = ({
 
 export const useGlossary = () => {
   const context = useContext(GlossaryContext);
-  if (context === undefined) {
+  if (context === null) {
     throw new Error("useGlossary must be used within a GlossaryProvider");
   }
   return context;

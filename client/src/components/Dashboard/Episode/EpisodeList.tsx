@@ -11,7 +11,7 @@ export const EpisodeList = ({
 
   const episodesByBook = books.map((book) => ({
     book,
-    episodes: episodes.filter((episode) => episode.bookId === book.id),
+    episodes: episodes.filter((episode) => episode.books_id === book.id),
   }));
 
   return (

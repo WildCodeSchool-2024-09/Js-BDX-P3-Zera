@@ -21,7 +21,7 @@ const migrate = async () => {
     // Create a specific connection to the database
     const database = await mysql.createConnection({
       host: DB_HOST,
-      port: DB_PORT as number | undefined,
+      port: Number(DB_PORT),
       user: DB_USER,
       password: DB_PASSWORD,
       multipleStatements: true, // Allow multiple SQL statements

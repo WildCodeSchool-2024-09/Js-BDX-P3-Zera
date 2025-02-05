@@ -3,7 +3,7 @@ import type { GlossaryItem } from "../../../types/Glossary";
 import styles from "./GlossaryForm.module.css";
 
 interface GlossaryFormProps {
-  item?: GlossaryItem;
+  item: GlossaryItem | null;
   onSubmit: (itemData: Omit<GlossaryItem, "id">) => void;
   onCancel: () => void;
 }

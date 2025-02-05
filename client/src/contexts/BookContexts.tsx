@@ -11,7 +11,7 @@ interface BookContextType {
   error: Error | null;
 }
 
-const BookContext = createContext<BookContextType | undefined>(undefined);
+const BookContext = createContext<BookContextType | null>(null);
 
 export const BookProvider = ({ children }: { children: React.ReactNode }) => {
   const [books, setBooks] = useState<Book[]>([]);
@@ -139,7 +139,7 @@ export const BookProvider = ({ children }: { children: React.ReactNode }) => {
 
 export const useBooks = () => {
   const context = useContext(BookContext);
-  if (context === undefined) {
+  if (context === null) {
     throw new Error("useBooks must be used within a BookProvider");
   }
   return context;

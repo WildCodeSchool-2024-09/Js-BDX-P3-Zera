@@ -10,9 +10,7 @@ export const EpisodePage = () => {
   const { episodes, createEpisode, updateEpisode, deleteEpisode } =
     useEpisode();
   const [mode, setMode] = useState<EpisodeFormMode>(EpisodeFormMode.VIEW);
-  const [selectedEpisode, setSelectedEpisode] = useState<Episode | undefined>(
-    undefined,
-  );
+  const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(null);
 
   const handleSubmit = (episodeData: Omit<Episode, "id">) => {
     if (mode === EpisodeFormMode.EDIT && selectedEpisode) {
@@ -21,7 +19,7 @@ export const EpisodePage = () => {
       createEpisode(episodeData);
     }
     setMode(EpisodeFormMode.VIEW);
-    setSelectedEpisode(undefined);
+    setSelectedEpisode(null);
   };
 
   const handleEdit = (episode: Episode) => {
@@ -31,7 +29,7 @@ export const EpisodePage = () => {
 
   const handleCancel = () => {
     setMode(EpisodeFormMode.VIEW);
-    setSelectedEpisode(undefined);
+    setSelectedEpisode(null);
   };
 
   return (

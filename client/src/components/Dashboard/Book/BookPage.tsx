@@ -3,12 +3,12 @@ import { useBooks } from "../../../contexts/BookContexts";
 import type { Book } from "../../../types/Book";
 import { BookForm } from "./BookForm";
 import { BookList } from "./BookList";
-import styles from "./bookPage.module.css";
+import styles from "./BookPage.module.css";
 
 export const BookPage = () => {
   const { books, createBook, updateBook, deleteBook } = useBooks();
   const [isEditing, setIsEditing] = useState(false);
-  const [selectedBook, setSelectedBook] = useState<Book>();
+  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
   const handleSubmit = (bookData: Omit<Book, "id">) => {
     if (selectedBook) {
@@ -21,20 +21,14 @@ export const BookPage = () => {
 
   const resetForm = () => {
     setIsEditing(false);
-    setSelectedBook(undefined);
+    setSelectedBook(null);
   };
 
   return (
     <main className={styles.bookPageMain}>
       <h1 className={styles.titleBookPage}>Gestion des livres</h1>
 
-      {!isEditing && (
-        <button type="button" onClick={() => setIsEditing(true)}>
-          Ajouter un livre
-        </button>
-      )}
-
-      {isEditing && (
+      {isEditing ? (
         <section>
           <h2 className={styles.titleBookPage}>
             {selectedBook ? "Édition du livre" : "Création d'un livre"}
@@ -45,6 +39,10 @@ export const BookPage = () => {
             onCancel={resetForm}
           />
         </section>
+      ) : (
+        <button type="button" onClick={() => setIsEditing(true)}>
+          Ajouter un livre
+        </button>
       )}
 
       <section>

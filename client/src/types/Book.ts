@@ -6,7 +6,7 @@ export interface Book {
 }
 
 export interface BookFormProps {
-  book?: Book;
+  book: Book | null;
   onSubmit: (bookData: Omit<Book, "id">) => void;
   onCancel?: () => void;
 }
