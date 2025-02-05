@@ -1,5 +1,5 @@
 import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
-import type { BookFormProps } from "../../../types/Book";
+import type { Book, BookFormProps } from "../../../types/Book";
 import styles from "./BookForm.module.css";
 
 export const BookForm = ({ book, onSubmit, onCancel }: BookFormProps) => {
@@ -7,7 +7,7 @@ export const BookForm = ({ book, onSubmit, onCancel }: BookFormProps) => {
     title: book?.title ?? "",
     resume: book?.resume ?? "",
     illustration: book?.illustration ?? "",
-  });
+  } as Omit<Book, "id">);
 
   useEffect(() => {
     if (book) {
