@@ -47,6 +47,15 @@ function NavigationLinks({
           Boutique
         </Link>
       </li>
+      <li>
+        <Link
+          to="/dashboard"
+          className={isMobile ? "menu-link" : "nav-link"}
+          onClick={() => isMobile && closeMenu && closeMenu()}
+        >
+          Dashboard
+        </Link>
+      </li>
     </ul>
   );
 }

@@ -36,7 +36,29 @@ class BooksRepository {
   // Return the first row of the result, which represents the Book
   async readAll() {
     // Execute the SQL SELECT query to retrieve all Books from the "Book" table
-    const [rows] = await databaseClient.query<Rows>("select * from books");
+    const [rows] = await databaseClient.query<Rows>(
+      `select
+        books.*,
+        JSON_ARRAYAGG(
+          JSON_OBJECT(
+            'id', episodes.id,
+            'title', episodes.title,
+            'choices', (
+              select JSON_ARRAYAGG(
+                JSON_OBJECT(
+                  'id', id
+                )
+              )
+              from choices where episodes_source_id = episodes.id
+              group by episodes_source_id
+            )
+          )
+        ) AS episodes
+      from books
+      join episodes on books.id = episodes.books_id
+      group by books_id
+    `,
+    );
 
     // Return the array of Books
     return rows as Books[];

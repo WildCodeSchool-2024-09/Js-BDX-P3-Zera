@@ -3,7 +3,7 @@ export interface TabProps {
   label: string;
   children?: React.ReactNode;
   isActive?: boolean;
-  onSelect?: (id: string) => void;
+  onSelect?: (id: number) => void;
   className?: string;
   onKeyDown?: (event: React.KeyboardEvent) => void;
 }

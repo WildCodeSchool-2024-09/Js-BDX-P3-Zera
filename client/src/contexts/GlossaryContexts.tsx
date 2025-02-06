@@ -4,13 +4,11 @@ import type { GlossaryItem } from "../types/Glossary";
 interface GlossaryContextType {
   glossaryItems: GlossaryItem[];
   createItem: (item: Omit<GlossaryItem, "id">) => void;
-  updateItem: (id: string, item: Omit<GlossaryItem, "id">) => void;
-  deleteItem: (id: string) => void;
+  updateItem: (id: number, item: Omit<GlossaryItem, "id">) => void;
+  deleteItem: (id: number) => void;
 }
 
-const GlossaryContext = createContext<GlossaryContextType | undefined>(
-  undefined,
-);
+const GlossaryContext = createContext<GlossaryContextType | null>(null);
 
 export const GlossaryProvider = ({
   children,
@@ -20,18 +18,18 @@ export const GlossaryProvider = ({
   const createItem = (itemData: Omit<GlossaryItem, "id">) => {
     const newItem = {
       ...itemData,
-      id: crypto.randomUUID(),
+      id: 42,
     };
     setGlossaryItems((prev) => [...prev, newItem]);
   };
 
-  const updateItem = (id: string, itemData: Omit<GlossaryItem, "id">) => {
+  const updateItem = (id: number, itemData: Omit<GlossaryItem, "id">) => {
     setGlossaryItems((prev) =>
       prev.map((item) => (item.id === id ? { ...itemData, id } : item)),
     );
   };
 
-  const deleteItem = (id: string) => {
+  const deleteItem = (id: number) => {
     setGlossaryItems((prev) => prev.filter((item) => item.id !== id));
   };
 
@@ -51,7 +49,7 @@ export const GlossaryProvider = ({
 
 export const useGlossary = () => {
   const context = useContext(GlossaryContext);
-  if (context === undefined) {
+  if (context === null) {
     throw new Error("useGlossary must be used within a GlossaryProvider");
   }
   return context;

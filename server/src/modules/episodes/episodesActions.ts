@@ -1,13 +1,13 @@
 import type { RequestHandler } from "express";
 
 // Import access to data
+import choicesRepository from "../choices/choicesRepository";
 import episodesRepository from "./episodesRepository";
 
 // The B of BREAD - Browse (Read All) operation
 const browse: RequestHandler = async (req, res, next) => {
   try {
-    const booksId = Number(req.params.books_id);
-    const episodes = await episodesRepository.readAll(booksId);
+    const episodes = await episodesRepository.readAll();
     res.json(episodes);
   } catch (err) {
     next(err);
@@ -37,17 +37,17 @@ const read: RequestHandler = async (req, res, next) => {
 const edit: RequestHandler = async (req, res, next) => {
   try {
     const episodeId = +req.params.id;
-    const updatedEpsiodes = {
+    const updatedEpisode = {
       id: episodeId,
       title: req.body.title,
       to_register: req.body.to_register,
       type: req.body.type,
-      books_id: +req.params.books_id,
+      books_id: +req.body.books_id,
       is_free: req.body.is_free,
       paragraphs: req.body.paragraphs,
-      illustrations: req.body.illustrations,
+      illustration: req.body.illustration,
     };
-    const affectedRows = await episodesRepository.update(updatedEpsiodes);
+    const affectedRows = await episodesRepository.update(updatedEpisode);
     if (affectedRows) {
       res.sendStatus(204);
     } else {
@@ -66,14 +66,31 @@ const add: RequestHandler = async (req, res, next) => {
       title: req.body.title,
       to_register: req.body.to_register,
       type: req.body.type,
-      books_id: +req.params.books_id,
+      books_id: +req.body.books_id,
       is_free: req.body.is_free,
       paragraphs: req.body.paragraphs,
-      illustrations: req.body.illustrations,
+      illustration: req.body.illustration,
     };
 
     // Create the episode
     const insertId = await episodesRepository.create(newepisode);
+
+    await Promise.all(
+      req.body.choices.map(
+        async (choiceData: {
+          nextEpisodeId: string;
+          text: string;
+        }) => {
+          const choice = {
+            episodes_source_id: insertId,
+            episodes_target_id: +choiceData.nextEpisodeId,
+            text: choiceData.text,
+          };
+
+          return choicesRepository.create(choice);
+        },
+      ),
+    );
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted episode
     res.status(201).json({ insertId });

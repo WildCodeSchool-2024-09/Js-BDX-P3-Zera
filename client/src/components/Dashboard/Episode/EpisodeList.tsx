@@ -11,7 +11,7 @@ export const EpisodeList = ({
 
   const episodesByBook = books.map((book) => ({
     book,
-    episodes: episodes.filter((episode) => episode.bookId === book.id),
+    episodes: episodes.filter((episode) => episode.books_id === book.id),
   }));
 
   return (
@@ -44,7 +44,7 @@ export const EpisodeList = ({
                       Nombre de paragraphes : {episode.paragraphs.length}
                     </p>
                     <p className={styles.episodeListInfoText}>
-                      Nombre de choix : {episode.choices.length}
+                      Nombre de choix : {episode.choices?.length}
                     </p>
                   </section>
 

@@ -5,13 +5,13 @@ import type { Book } from "../types/Book";
 interface BookContextType {
   books: Book[];
   createBook: (book: Omit<Book, "id">) => Promise<void>;
-  updateBook: (id: string, book: Omit<Book, "id">) => Promise<void>;
-  deleteBook: (id: string) => Promise<void>;
+  updateBook: (id: number, book: Omit<Book, "id">) => Promise<void>;
+  deleteBook: (id: number) => Promise<void>;
   isLoading: boolean;
   error: Error | null;
 }
 
-const BookContext = createContext<BookContextType | undefined>(undefined);
+const BookContext = createContext<BookContextType | null>(null);
 
 export const BookProvider = ({ children }: { children: React.ReactNode }) => {
   const [books, setBooks] = useState<Book[]>([]);
@@ -70,7 +70,7 @@ export const BookProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
   // Mise à jour d'un livre
-  const updateBook = async (id: string, bookData: Omit<Book, "id">) => {
+  const updateBook = async (id: number, bookData: Omit<Book, "id">) => {
     setIsLoading(true);
     try {
       const response = await fetch(
@@ -101,7 +101,7 @@ export const BookProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   // Suppression d'un livre
-  const deleteBook = async (id: string) => {
+  const deleteBook = async (id: number) => {
     setIsLoading(true);
     try {
       const response = await fetch(
@@ -139,7 +139,7 @@ export const BookProvider = ({ children }: { children: React.ReactNode }) => {
 
 export const useBooks = () => {
   const context = useContext(BookContext);
-  if (context === undefined) {
+  if (context === null) {
     throw new Error("useBooks must be used within a BookProvider");
   }
   return context;

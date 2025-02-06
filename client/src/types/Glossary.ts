@@ -1,5 +1,5 @@
 export interface GlossaryItem {
-  id: string;
+  id: number;
   word: string;
   definition: string;
 }

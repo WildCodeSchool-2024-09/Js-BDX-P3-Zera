@@ -10,7 +10,7 @@ type Episode = {
   books_id: number;
   is_free: boolean;
   paragraphs: string[];
-  illustrations: string;
+  illustration: string;
 };
 
 class EpisodeRepository {
@@ -62,7 +62,7 @@ class EpisodeRepository {
         VALUES 
           (?,?)
         `,
-        [episodeContent.illustrations, episodeId],
+        [episodeContent.illustration, episodeId],
       );
       if (!illustrations.insertId) {
         throw new Error("Failed insertion in illustrations table");
@@ -83,7 +83,7 @@ class EpisodeRepository {
     const [rows] = await databaseClient.execute<Rows>(
       `
 SELECT 
-    e.id AS episode_id,
+    e.id,
     e.title,
     e.to_register,
     e.type,
@@ -112,12 +112,12 @@ GROUP BY
     return rows;
   }
 
-  async readAll(id: number) {
+  async readAll() {
     // Execute the SQL SELECT execute to retrieve all Books from the "Book" table
     const [rows] = await databaseClient.query<Rows>(
       `
 SELECT 
-    e.id AS episode_id,
+    e.id,
     e.title,
     e.to_register,
     e.type,
@@ -136,13 +136,10 @@ INNER JOIN
     illustrations i ON e.id = i.episodes_id
 INNER JOIN 
     paragraphs p ON e.id = p.episodes_id
-WHERE 
-    e.books_id = ?
 GROUP BY 
     e.id, e.title, e.to_register, e.type, e.books_id, e.is_free, i.url;
 
       `,
-      [id],
     );
 
     return rows as Episode[];
@@ -183,7 +180,7 @@ GROUP BY
         SET url = ?
         WHERE episodes_id = ?
         `,
-        [episodeContent.illustrations, episodeContent.id],
+        [episodeContent.illustration, episodeContent.id],
       );
       if (!illustrations.affectedRows) {
         throw new Error("No rows updated in illustrations table");

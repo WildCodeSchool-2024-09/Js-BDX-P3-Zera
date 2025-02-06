@@ -18,11 +18,14 @@ export const EpisodeForm = ({
   const { episodes } = useEpisode();
 
   const [formData, setFormData] = useState<FormData>({
-    title: episode?.title || "",
-    bookId: episode?.bookId || "",
+    title: episode?.title ?? "",
+    books_id: episode?.books_id.toString() ?? "",
+    type: "SF",
     illustration: episode?.illustration || "",
     paragraphs: episode?.paragraphs || [{ id: 1, content: "" }],
     choices: episode?.choices || [],
+    to_register: false,
+    is_free: false,
   });
 
   const handleChange = (field: keyof FormData, value: string | Paragraph[]) => {
@@ -83,7 +86,7 @@ export const EpisodeForm = ({
           ? {
               ...choice,
               [field]: value,
-              id: choice.id || Date.now().toString(),
+              id: choice.id || Date.now(),
             }
           : choice,
       ),
@@ -95,7 +98,7 @@ export const EpisodeForm = ({
       ...prev,
       choices: [
         ...prev.choices,
-        { id: Date.now().toString(), text: "", nextEpisodeId: "" },
+        { id: Date.now(), text: "", nextEpisodeId: "" },
       ],
     }));
   };
@@ -120,8 +123,8 @@ export const EpisodeForm = ({
         </label>
         <select
           id="book"
-          value={formData.bookId}
-          onChange={(e) => handleChange("bookId", e.target.value)}
+          value={formData.books_id}
+          onChange={(e) => handleChange("books_id", e.target.value)}
           required
           className={styles.episodeSelect}
         >
@@ -257,7 +260,7 @@ export const EpisodeForm = ({
               {episodes
                 .filter(
                   (ep) =>
-                    ep.bookId === formData.bookId && ep.id !== episode?.id,
+                    ep.books_id === +formData.books_id && ep.id !== episode?.id,
                 )
                 .map((ep) => (
                   <option key={ep.id} value={ep.id}>

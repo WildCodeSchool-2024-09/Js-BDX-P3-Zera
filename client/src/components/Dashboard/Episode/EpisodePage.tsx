@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEpisode } from "../../../contexts/EpisodeContexts";
 import { EpisodeFormMode } from "../../../types/Episode";
-import type { Episode } from "../../../types/Episode.d.ts";
+import type { Episode, FormData } from "../../../types/Episode.d.ts";
 import { EpisodeForm } from "./EpisodeForm";
 import { EpisodeList } from "./EpisodeList";
 import styles from "./EpisodePage.module.css";
@@ -10,18 +10,16 @@ export const EpisodePage = () => {
   const { episodes, createEpisode, updateEpisode, deleteEpisode } =
     useEpisode();
   const [mode, setMode] = useState<EpisodeFormMode>(EpisodeFormMode.VIEW);
-  const [selectedEpisode, setSelectedEpisode] = useState<Episode | undefined>(
-    undefined,
-  );
+  const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(null);
 
-  const handleSubmit = (episodeData: Omit<Episode, "id">) => {
+  const handleSubmit = (episodeData: FormData) => {
     if (mode === EpisodeFormMode.EDIT && selectedEpisode) {
       updateEpisode(selectedEpisode.id, episodeData);
     } else {
       createEpisode(episodeData);
     }
     setMode(EpisodeFormMode.VIEW);
-    setSelectedEpisode(undefined);
+    setSelectedEpisode(null);
   };
 
   const handleEdit = (episode: Episode) => {
@@ -31,7 +29,7 @@ export const EpisodePage = () => {
 
   const handleCancel = () => {
     setMode(EpisodeFormMode.VIEW);
-    setSelectedEpisode(undefined);
+    setSelectedEpisode(null);
   };
 
   return (
