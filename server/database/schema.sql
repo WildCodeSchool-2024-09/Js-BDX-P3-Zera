@@ -77,3 +77,9 @@ create table progression (
   clients_id int unsigned not null,
   foreign key(clients_id) references clients(id)
 );
+
+CREATE TABLE glossary (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  word VARCHAR(255) NOT NULL,
+  definition TEXT NOT NULL
+);
