@@ -83,7 +83,7 @@ class EpisodeRepository {
     const [rows] = await databaseClient.execute<Rows>(
       `
 SELECT 
-    e.id AS episode_id,
+    e.id,
     e.title,
     e.to_register,
     e.type,
@@ -117,7 +117,7 @@ GROUP BY
     const [rows] = await databaseClient.query<Rows>(
       `
 SELECT 
-    e.id AS episode_id,
+    e.id,
     e.title,
     e.to_register,
     e.type,

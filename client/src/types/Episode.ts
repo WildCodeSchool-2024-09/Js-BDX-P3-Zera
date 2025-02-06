@@ -4,15 +4,15 @@ export interface Paragraph {
 }
 
 export interface Choice {
-  id: string;
+  id: number;
   text: string;
   nextEpisodeId: string;
 }
 
 export interface Episode {
-  id: string;
+  id: number;
   title: string;
-  books_id: string;
+  books_id: number;
   illustration: string;
   paragraphs: Paragraph[];
   choices: Choice[];
@@ -22,18 +22,6 @@ export enum EpisodeFormMode {
   VIEW = "view",
   CREATE = "create",
   EDIT = "edit",
-}
-
-export interface EpisodeFormProps {
-  episode: Episode | null;
-  onSubmit: (episodeData: Omit<Episode, "id">) => void;
-  onCancel: () => void;
-}
-
-export interface EpisodeListProps {
-  episodes: Episode[];
-  onEdit: (episode: Episode) => void;
-  onDelete: (id: string) => void;
 }
 
 export type FormData = {
@@ -46,3 +34,15 @@ export type FormData = {
   to_register: boolean;
   is_free: boolean;
 };
+
+export interface EpisodeFormProps {
+  episode: Episode | null;
+  onSubmit: (episodeData: FormData) => void;
+  onCancel: () => void;
+}
+
+export interface EpisodeListProps {
+  episodes: Episode[];
+  onEdit: (episode: Episode) => void;
+  onDelete: (id: number) => void;
+}

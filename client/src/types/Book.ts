@@ -1,5 +1,5 @@
 export interface Book {
-  id: string;
+  id: number;
   title: string;
   illustration: string;
   resume: string;
@@ -14,7 +14,7 @@ export interface BookFormProps {
 export interface BookListProps {
   books: Book[];
   onEdit: (book: Book) => void;
-  onDelete: (id: string) => void;
+  onDelete: (id: number) => void;
 }
 
 export interface BookPageProps {

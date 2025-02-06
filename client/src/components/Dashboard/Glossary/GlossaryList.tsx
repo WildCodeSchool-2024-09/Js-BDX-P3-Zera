@@ -4,7 +4,7 @@ import styles from "./GlossaryList.module.css";
 interface GlossaryListProps {
   items: GlossaryItem[];
   onEdit: (item: GlossaryItem) => void;
-  onDelete: (id: string) => void;
+  onDelete: (id: number) => void;
 }
 
 export const GlossaryList = ({

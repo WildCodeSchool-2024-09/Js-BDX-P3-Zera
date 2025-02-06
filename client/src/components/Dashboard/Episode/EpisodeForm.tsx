@@ -18,8 +18,8 @@ export const EpisodeForm = ({
   const { episodes } = useEpisode();
 
   const [formData, setFormData] = useState<FormData>({
-    title: episode?.title || "",
-    books_id: episode?.books_id || "",
+    title: episode?.title ?? "",
+    books_id: episode?.books_id.toString() ?? "",
     type: "SF",
     illustration: episode?.illustration || "",
     paragraphs: episode?.paragraphs || [{ id: 1, content: "" }],
@@ -86,7 +86,7 @@ export const EpisodeForm = ({
           ? {
               ...choice,
               [field]: value,
-              id: choice.id || Date.now().toString(),
+              id: choice.id || Date.now(),
             }
           : choice,
       ),
@@ -98,7 +98,7 @@ export const EpisodeForm = ({
       ...prev,
       choices: [
         ...prev.choices,
-        { id: Date.now().toString(), text: "", nextEpisodeId: "" },
+        { id: Date.now(), text: "", nextEpisodeId: "" },
       ],
     }));
   };
@@ -260,7 +260,7 @@ export const EpisodeForm = ({
               {episodes
                 .filter(
                   (ep) =>
-                    ep.books_id === formData.books_id && ep.id !== episode?.id,
+                    ep.books_id === +formData.books_id && ep.id !== episode?.id,
                 )
                 .map((ep) => (
                   <option key={ep.id} value={ep.id}>

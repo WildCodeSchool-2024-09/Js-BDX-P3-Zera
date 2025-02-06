@@ -13,21 +13,21 @@ export const ChoiceForm = ({
   onChange,
 }: ChoiceFormProps) => {
   const [currentChoice, setCurrentChoice] = useState<Choice>({
-    id: Date.now().toString(),
+    id: Date.now(),
     text: "",
     nextEpisodeId: "",
   });
 
   const handleAddChoice = () => {
-    onChange([...choices, { ...currentChoice, id: Date.now().toString() }]);
+    onChange([...choices, { ...currentChoice, id: Date.now() }]);
     setCurrentChoice({
-      id: Date.now().toString(),
+      id: Date.now(),
       text: "",
       nextEpisodeId: "",
     });
   };
 
-  const handleUpdateChoice = (id: string, updatedChoice: Partial<Choice>) => {
+  const handleUpdateChoice = (id: number, updatedChoice: Partial<Choice>) => {
     onChange(
       choices.map((choice) =>
         choice.id === id ? { ...choice, ...updatedChoice } : choice,
@@ -35,7 +35,7 @@ export const ChoiceForm = ({
     );
   };
 
-  const handleRemoveChoice = (id: string) => {
+  const handleRemoveChoice = (id: number) => {
     onChange(choices.filter((choice) => choice.id !== id));
   };
 

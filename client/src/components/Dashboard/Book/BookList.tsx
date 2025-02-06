@@ -8,7 +8,7 @@ const BookCard = ({
 }: {
   book: Book;
   onEdit: (book: Book) => void;
-  onDelete: (id: string) => void;
+  onDelete: (id: number) => void;
 }) => (
   <article className={styles.bookItem}>
     <section className={styles.sectionBookList}>

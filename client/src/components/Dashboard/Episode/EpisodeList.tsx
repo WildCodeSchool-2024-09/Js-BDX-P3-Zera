@@ -44,7 +44,7 @@ export const EpisodeList = ({
                       Nombre de paragraphes : {episode.paragraphs.length}
                     </p>
                     <p className={styles.episodeListInfoText}>
-                      Nombre de choix : {episode.choices.length}
+                      Nombre de choix : {episode.choices?.length}
                     </p>
                   </section>
 

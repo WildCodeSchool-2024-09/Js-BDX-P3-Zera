@@ -5,8 +5,8 @@ import type { Book } from "../types/Book";
 interface BookContextType {
   books: Book[];
   createBook: (book: Omit<Book, "id">) => Promise<void>;
-  updateBook: (id: string, book: Omit<Book, "id">) => Promise<void>;
-  deleteBook: (id: string) => Promise<void>;
+  updateBook: (id: number, book: Omit<Book, "id">) => Promise<void>;
+  deleteBook: (id: number) => Promise<void>;
   isLoading: boolean;
   error: Error | null;
 }
@@ -70,7 +70,7 @@ export const BookProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
   // Mise à jour d'un livre
-  const updateBook = async (id: string, bookData: Omit<Book, "id">) => {
+  const updateBook = async (id: number, bookData: Omit<Book, "id">) => {
     setIsLoading(true);
     try {
       const response = await fetch(
@@ -101,7 +101,7 @@ export const BookProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   // Suppression d'un livre
-  const deleteBook = async (id: string) => {
+  const deleteBook = async (id: number) => {
     setIsLoading(true);
     try {
       const response = await fetch(

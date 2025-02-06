@@ -35,12 +35,6 @@ create table books_clients (
   foreign key(clients_id) references clients(id)
 );
 
-create table choices (
-  id int unsigned primary key auto_increment not null,
-  text text not null,
-  path varchar(255) not null
-); 
-
 create table episodes (
   id int unsigned primary key auto_increment not null,
   title varchar(255) not null,
@@ -51,12 +45,14 @@ create table episodes (
   foreign key(books_id) references books(id)
 );
 
-create table episodes_choices (
-  episodes_id int unsigned not null,
-  foreign key(episodes_id) references episodes(id),
-  choices_id int unsigned not null,
-  foreign key(choices_id) references choices(id)
-);
+create table choices (
+  id int unsigned primary key auto_increment not null,
+  text text not null,
+  episodes_source_id int unsigned not null,
+  foreign key(episodes_source_id) references episodes(id),
+  episodes_target_id int unsigned not null,
+  foreign key(episodes_target_id) references episodes(id)
+); 
 
 create table illustrations (
   id int unsigned primary key auto_increment not null,

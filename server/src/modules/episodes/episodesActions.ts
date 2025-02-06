@@ -1,6 +1,7 @@
 import type { RequestHandler } from "express";
 
 // Import access to data
+import choicesRepository from "../choices/choicesRepository";
 import episodesRepository from "./episodesRepository";
 
 // The B of BREAD - Browse (Read All) operation
@@ -73,6 +74,23 @@ const add: RequestHandler = async (req, res, next) => {
 
     // Create the episode
     const insertId = await episodesRepository.create(newepisode);
+
+    await Promise.all(
+      req.body.choices.map(
+        async (choiceData: {
+          nextEpisodeId: string;
+          text: string;
+        }) => {
+          const choice = {
+            episodes_source_id: insertId,
+            episodes_target_id: +choiceData.nextEpisodeId,
+            text: choiceData.text,
+          };
+
+          return choicesRepository.create(choice);
+        },
+      ),
+    );
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted episode
     res.status(201).json({ insertId });

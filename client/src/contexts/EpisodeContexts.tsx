@@ -1,11 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import type { Episode } from "../types/Episode";
+import type { Episode, FormData } from "../types/Episode";
 
 interface EpisodeContextType {
   episodes: Episode[];
-  createEpisode: (episode: Omit<Episode, "id">) => void;
-  updateEpisode: (id: string, episode: Omit<Episode, "id">) => void;
-  deleteEpisode: (id: string) => void;
+  createEpisode: (episode: FormData) => void;
+  updateEpisode: (id: number, episode: FormData) => void;
+  deleteEpisode: (id: number) => void;
 }
 
 const EpisodeContext = createContext<EpisodeContextType | null>(null);
@@ -40,7 +40,7 @@ export const EpisodeProvider = ({
     fetchBooks();
   }, []);
 
-  const createEpisode = async (episodeData: Omit<Episode, "id">) => {
+  const createEpisode = async (episodeData: FormData) => {
     setIsLoading(true);
     try {
       const response = await fetch(
@@ -57,7 +57,11 @@ export const EpisodeProvider = ({
       if (!response.ok) throw new Error("Erreur lors de la création du livre");
 
       const data = await response.json();
-      const newEpisode = { ...episodeData, id: data.insertId };
+      const newEpisode: Episode = {
+        ...episodeData,
+        books_id: +episodeData.books_id,
+        id: data.insertId,
+      };
       setEpisodes((prev) => [...prev, newEpisode]);
     } catch (err) {
       setError(
@@ -69,15 +73,17 @@ export const EpisodeProvider = ({
     }
   };
 
-  const updateEpisode = (id: string, episodeData: Omit<Episode, "id">) => {
+  const updateEpisode = (id: number, episodeData: FormData) => {
     setEpisodes((prev) =>
       prev.map((episode) =>
-        episode.id === id ? { ...episodeData, id } : episode,
+        episode.id === id
+          ? { ...episodeData, books_id: +episodeData.books_id, id }
+          : episode,
       ),
     );
   };
 
-  const deleteEpisode = (id: string) => {
+  const deleteEpisode = (id: number) => {
     setEpisodes((prev) => prev.filter((episode) => episode.id !== id));
   };
 
