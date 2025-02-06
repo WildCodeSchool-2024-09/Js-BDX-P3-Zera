@@ -1,0 +1,14 @@
+.glossaryPageMain {
+  text-align: center;
+}
+
+.glossaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.titleGlossaryPage {
+  text-align: center;
+  margin: 1rem;
+}

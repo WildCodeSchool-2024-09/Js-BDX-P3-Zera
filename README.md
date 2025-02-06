@@ -44,7 +44,7 @@ Il est pré-configuré avec un ensemble d'outils pour aider les étudiants à pr
 
 ## Table des Matières
 
-- [zera](#name)
+- [zera](#zera)
   - [Table des Matières](#table-des-matières)
   - [Utilisateurs Windows](#utilisateurs-windows)
   - [Installation \& Utilisation](#installation--utilisation)
@@ -141,7 +141,7 @@ import mysql from "mysql2/promise";
 
 const client = mysql.createPool({
   host: DB_HOST,
-  port: DB_PORT as number | undefined,
+  port: DB_PORT as number | null,
   user: DB_USER,
   password: DB_PASSWORD,
   database: DB_NAME,

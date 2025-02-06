@@ -1,0 +1,9 @@
+.liDashboard {
+  list-style: none;
+}
+
+.ulDashboard {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1rem;
+}
