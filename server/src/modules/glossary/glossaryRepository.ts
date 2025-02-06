@@ -3,7 +3,7 @@ import type { Result, Rows } from "../../../database/client";
 
 type Glossary = {
   id: number;
-  title: string;
+  word: string;
   definition: string;
 };
 
@@ -13,11 +13,11 @@ class GlossaryRepository {
     const [createGlossary] = await databaseClient.query<Result>(
       `
             INSERT INTO  
-                glossary (title, definition)
+                glossary (word, definition)
             VALUES 
                 (?,?)
           `,
-      [glossary.title, glossary.definition],
+      [glossary.word, glossary.definition],
     );
     return createGlossary.insertId;
   }
@@ -41,10 +41,10 @@ class GlossaryRepository {
     const [result] = await databaseClient.query<Result>(
       `
         UPDATE glossary 
-        SET title = ?, definition = ? 
+        SET word = ?, definition = ? 
         WHERE id = ?
       `,
-      [glossary.title, glossary.definition, glossary.id],
+      [glossary.word, glossary.definition, glossary.id],
     );
     return result.affectedRows > 0;
   }
