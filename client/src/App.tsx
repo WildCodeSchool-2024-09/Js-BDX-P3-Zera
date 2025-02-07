@@ -1,9 +1,8 @@
-import "./styles/Global.css";
 import "./styles/Variables.css";
+import "./styles/Global.css";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
-import "./App.css";
 
 function App() {
   return (

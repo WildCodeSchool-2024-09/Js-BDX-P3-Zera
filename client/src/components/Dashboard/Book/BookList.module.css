@@ -6,7 +6,7 @@
 
 .bookItem {
   border: solid 1px var(--secondary-color);
-  background-color: var(--background-color);
+  background-color: var(--bg-primary);
   padding: 1rem;
   border-radius: 4px;
   text-align: left;
