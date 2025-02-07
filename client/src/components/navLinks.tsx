@@ -31,11 +31,11 @@ function NavigationLinks({
       </li>
       <li>
         <Link
-          to="/charger"
+          to="/team"
           className={isMobile ? "menu-link" : "nav-link"}
           onClick={() => isMobile && closeMenu && closeMenu()}
         >
-          Charger
+          Team
         </Link>
       </li>
       <li>

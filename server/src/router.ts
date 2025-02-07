@@ -33,6 +33,14 @@ router.post("/api/episodes", episodesActions.add);
 router.put("/api/episodes/:id", episodesActions.edit);
 router.delete("/api/episodes/:id", episodesActions.remove);
 
+import glossaryActions from "./modules/glossary/glossaryActions";
+
+router.get("/api/glossary", glossaryActions.browse);
+router.get("/api/glossary/:id", glossaryActions.read);
+router.post("/api/glossary", glossaryActions.add);
+router.put("/api/glossary/:id", glossaryActions.edit);
+router.delete("/api/glossary/:id", glossaryActions.remove);
+
 /* ************************************************************************* */
 
 export default router;

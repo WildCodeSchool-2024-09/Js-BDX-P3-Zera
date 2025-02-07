@@ -3,7 +3,7 @@ body {
   justify-content: center;
   align-items: center;
   color: var(--text-color);
-  background-color: var(--background-color);
+  background-color: var(--bg-primary);
 }
 
 h1 {
@@ -54,6 +54,6 @@ a {
 
 @media only screen and (max-width: 600px) {
   body {
-    background-color: var(--background-color);
+    background-color: var(--bg-primary);
   }
 }

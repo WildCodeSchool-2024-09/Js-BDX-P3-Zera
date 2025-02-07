@@ -12,15 +12,16 @@ enum GlossaryFormMode {
 }
 
 export const GlossaryPage = () => {
-  const { glossaryItems, createItem, updateItem, deleteItem } = useGlossary();
+  const { glossaryItems, createGlossary, updateGlossary, deleteGlossary } =
+    useGlossary();
   const [mode, setMode] = useState<GlossaryFormMode>(GlossaryFormMode.VIEW);
   const [editingItem, setEditingItem] = useState<GlossaryItem | null>(null);
 
   const handleSubmit = (itemData: Omit<GlossaryItem, "id">) => {
     if (mode === GlossaryFormMode.EDIT && editingItem) {
-      updateItem(editingItem.id, itemData);
+      updateGlossary(editingItem.id, itemData);
     } else {
-      createItem(itemData);
+      createGlossary(itemData);
     }
     setMode(GlossaryFormMode.VIEW);
     setEditingItem(null);
@@ -62,7 +63,7 @@ export const GlossaryPage = () => {
       <GlossaryList
         items={glossaryItems}
         onEdit={handleEdit}
-        onDelete={deleteItem}
+        onDelete={deleteGlossary}
       />
     </main>
   );

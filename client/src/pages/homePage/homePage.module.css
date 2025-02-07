@@ -27,7 +27,7 @@
 
 .paragraph {
   font-size: 1rem;
-  text-align: justify;
+  text-align: start;
   line-height: 1.6;
   font-family: var(--text-font);
   color: var(--text-color);
