@@ -114,14 +114,12 @@ export default function LecturePage() {
   return (
     <main className={styles.mainLecture}>
       {episode.illustration && (
-        <div className={styles.illustrationContainer}>
-          <img
-            className={styles.illustrationBook}
-            src={episode.illustration.url}
-            alt={`Illustration pour ${episode.title}`}
-            loading="lazy"
-          />
-        </div>
+        <img
+          className={styles.illustrationBook}
+          src={episode.illustration.url}
+          alt={`Illustration pour ${episode.title}`}
+          loading="lazy"
+        />
       )}
 
       <section className={styles.lecture}>
