@@ -30,6 +30,7 @@ router.get("/api/episodes/:id", episodesActions.read);
 router.post("/api/episodes", episodesActions.add);
 router.put("/api/episodes/:id", episodesActions.edit);
 router.delete("/api/episodes/:id", episodesActions.remove);
+router.get("/api/episodes/:id/illustration", episodesActions.getIllustration);
 
 import glossaryActions from "./modules/glossary/glossaryActions";
 
