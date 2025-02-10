@@ -24,7 +24,7 @@ class ClientRepository {
             VALUES 
                 (?, ?, ?)
           `,
-          [client.email, hashedPassword, hashedPassword],
+        [client.email, hashedPassword, hashedPassword],
       );
 
       if (!users.insertId) {
@@ -78,15 +78,15 @@ class ClientRepository {
        FROM users
        INNER JOIN clients ON clients.users_id = users.id
        WHERE users.email = ?`,
-      [email]
+      [email],
     );
-    
+
     if (!rows[0]) return null;
-    
+
     return {
       id: rows[0].client_id,
       email: rows[0].email,
-      password: rows[0].password
+      password: rows[0].password,
     } as Client;
   }
 
@@ -102,7 +102,7 @@ class ClientRepository {
         WHERE 
             c.id = ?
       `,
-      [clients.email, await argon2.hash(clients.password), clients.id]
+      [clients.email, await argon2.hash(clients.password), clients.id],
     );
     return result.affectedRows;
   }

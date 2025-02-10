@@ -87,13 +87,13 @@ const login: RequestHandler = async (req, res, next) => {
 
     if (!user) {
       res.status(404).json({ error: "Utilisateur non trouvé" });
-      return; 
+      return;
     }
 
     const isMatch = await argon2.verify(user.password, password);
     if (!isMatch) {
       res.status(401).json({ error: "Mot de passe incorrect" });
-      return; 
+      return;
     }
 
     res.status(200).json({ message: "Connexion réussie", userId: user.id });
