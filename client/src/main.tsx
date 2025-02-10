@@ -11,6 +11,7 @@ import Team from "./pages/Team/Team";
 import DashboardPage from "./pages/dashboard/DashboardPage";
 import ForgotPasswordPage from "./pages/forgotPasswordPage/forgotPasswordPage";
 import HomePage from "./pages/homePage/Homepage";
+import LecturePage from "./pages/lecturePage/LecturePage";
 import LoginPage from "./pages/login/logingPage";
 import SignUpPage from "./pages/signupForm/SignUpPage";
 import { AppProvider } from "./providers/AppProvider";
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/team",
         element: <Team />,
+      },
+      {
+        path: "/lecture",
+        element: <LecturePage />,
       },
       {
         path: "/dashboard",
