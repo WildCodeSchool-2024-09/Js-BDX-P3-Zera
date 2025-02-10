@@ -1,3 +1,4 @@
+import argon2 from "argon2";
 import type { RequestHandler } from "express";
 import clientsRepository from "./clientRepository";
 
@@ -34,6 +35,10 @@ const edit: RequestHandler = async (req, res, next) => {
       email: req.body.email,
       password: req.body.password,
     };
+    if (req.body.password) {
+      updatedClient.password = await argon2.hash(req.body.password);
+    }
+
     const affectedRows = await clientsRepository.update(updatedClient);
     if (affectedRows) {
       res.sendStatus(204);
@@ -48,9 +53,10 @@ const edit: RequestHandler = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add: RequestHandler = async (req, res, next) => {
   try {
+    const hashedPassword = await argon2.hash(req.body.password);
     const newClient = {
       email: req.body.email,
-      password: req.body.password,
+      password: hashedPassword,
     };
     const insertId = await clientsRepository.create(newClient);
     res.status(201).json({ insertId });
@@ -74,4 +80,25 @@ const remove: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, edit, remove };
+const login: RequestHandler = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    const user = await clientsRepository.findByEmail(email);
+
+    if (!user) {
+      res.status(404).json({ error: "Utilisateur non trouvé" });
+      return;
+    }
+
+    const isMatch = await argon2.verify(user.password, password);
+    if (!isMatch) {
+      res.status(401).json({ error: "Mot de passe incorrect" });
+      return;
+    }
+
+    res.status(200).json({ message: "Connexion réussie", userId: user.id });
+  } catch (err) {
+    next(err);
+  }
+};
+export default { browse, read, add, edit, remove, login };

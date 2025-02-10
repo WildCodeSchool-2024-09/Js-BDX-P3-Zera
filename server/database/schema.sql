@@ -1,7 +1,8 @@
 create table users (
   id int unsigned primary key auto_increment not null,
   email varchar(255) not null unique,
-  password varchar(64) not null
+  password varchar(255) not null,
+  hashed_password varchar(255) not null
 );
 
 create table clients (
