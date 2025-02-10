@@ -7,7 +7,7 @@ const browse: RequestHandler = async (req, res, next) => {
     const glossary = await glossaryRepository.readAll();
     res.json(glossary);
   } catch (err) {
-    next(err); // Pass errors to the error-handling middleware
+    next(err);
   }
 };
 
@@ -29,8 +29,8 @@ const read: RequestHandler = async (req, res, next) => {
 const edit: RequestHandler = async (req, res, next) => {
   try {
     const updatedGlossary = {
-      id: Number(req.params.id), // ID from the URL
-      title: req.body.title, // Updated data from the request body
+      id: Number(req.params.id),
+      word: req.body.word,
       definition: req.body.definition,
     };
     const affectedRows = await glossaryRepository.update(updatedGlossary);
@@ -48,7 +48,7 @@ const edit: RequestHandler = async (req, res, next) => {
 const add: RequestHandler = async (req, res, next) => {
   try {
     const newGlossary = {
-      title: req.body.title,
+      word: req.body.word,
       definition: req.body.definition,
     };
     const insertId = await glossaryRepository.create(newGlossary);
@@ -64,7 +64,7 @@ const remove: RequestHandler = async (req, res, next) => {
     if (affectedRows) {
       res.sendStatus(204);
     } else {
-      res.sendStatus(404); // user not found
+      res.sendStatus(404);
     }
   } catch (err) {
     next(err);

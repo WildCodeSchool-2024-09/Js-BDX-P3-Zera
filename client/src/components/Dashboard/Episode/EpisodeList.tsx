@@ -70,7 +70,6 @@ export const EpisodeList = ({
                           Nombre de choix : {episode.choices?.length}
                         </p>
                       </section>
-
                       <section className={styles.episodeListActions}>
                         <button
                           type="button"
