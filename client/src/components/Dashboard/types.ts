@@ -26,7 +26,7 @@ export interface Choice {
   id: number;
   text: string;
   path: string;
-  nextEpisodeId?: number; // Add this line
+  nextEpisodeId: number; // Add this line
 }
 
 export interface Book {

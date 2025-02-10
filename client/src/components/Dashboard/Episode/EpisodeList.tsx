@@ -39,7 +39,6 @@ export const EpisodeList = ({
                   {book.title} ({episodes.length} épisodes)
                 </h3>
               </header>
-
               {activeBookId === book.id && (
                 <section className={styles.episodeGrid}>
                   {episodes.map((episode) => (
@@ -71,7 +70,6 @@ export const EpisodeList = ({
                           Nombre de choix : {episode.choices?.length}
                         </p>
                       </section>
-
                       <section className={styles.episodeListActions}>
                         <button
                           type="button"

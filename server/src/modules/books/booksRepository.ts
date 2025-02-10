@@ -27,7 +27,40 @@ class BooksRepository {
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific Book by its ID
     const [rows] = await databaseClient.query<Rows>(
-      "select * from books where id = ?",
+      `select
+        books.*,
+        JSON_ARRAYAGG(
+          JSON_OBJECT(
+            'id', episodes.id,
+            'title', episodes.title,
+            'choices', (
+              select JSON_ARRAYAGG(
+                JSON_OBJECT(
+                  'id', id,
+                  'text', text,
+                  'nextEpisodeId', episodes_target_id
+                )
+              )
+              from choices where episodes_source_id = episodes.id
+              group by episodes_source_id
+            ),
+            'paragraphs', (
+              select JSON_ARRAYAGG(
+                JSON_OBJECT(
+                  'id', id,
+                  'content', content
+                )
+              )
+              from paragraphs where episodes_id = episodes.id
+              group by episodes_id
+            )
+          )
+        ) AS episodes
+      from books
+      join episodes on books.id = episodes.books_id
+      where books.id = ?
+      group by books_id
+    `,
       [id],
     );
     return rows[0] as Books;
@@ -51,6 +84,16 @@ class BooksRepository {
               )
               from choices where episodes_source_id = episodes.id
               group by episodes_source_id
+            ),
+            'paragraphs', (
+              select JSON_ARRAYAGG(
+                JSON_OBJECT(
+                  'id', id,
+                  'content', content
+                )
+              )
+              from paragraphs where episodes_id = episodes.id
+              group by episodes_id
             )
           )
         ) AS episodes
