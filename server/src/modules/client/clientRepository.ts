@@ -1,3 +1,4 @@
+import argon2 from "argon2";
 import databaseClient from "../../../database/client";
 import type { Result, Rows } from "../../../database/client";
 
@@ -13,14 +14,17 @@ class ClientRepository {
     const connection = await databaseClient.getConnection();
     try {
       await connection.beginTransaction();
+
+      const hashedPassword = await argon2.hash(client.password);
+
       const [users] = await connection.query<Result>(
         `
             INSERT INTO  
-                users (email, password)
+                users (email, password, hashed_password)
             VALUES 
-                (?, ?)
+                (?, ?, ?)
           `,
-        [client.email, client.password],
+          [client.email, hashedPassword, hashedPassword],
       );
 
       if (!users.insertId) {
@@ -68,17 +72,37 @@ class ClientRepository {
     return rows as Client[];
   }
 
+  async findByEmail(email: string): Promise<Client | null> {
+    const [rows] = await databaseClient.query<Rows>(
+      `SELECT users.id, users.email, users.password, clients.id as client_id
+       FROM users
+       INNER JOIN clients ON clients.users_id = users.id
+       WHERE users.email = ?`,
+      [email]
+    );
+    
+    if (!rows[0]) return null;
+    
+    return {
+      id: rows[0].client_id,
+      email: rows[0].email,
+      password: rows[0].password
+    } as Client;
+  }
+
   // The U of CRUD - Update operation
   async update(clients: Client) {
     const [result] = await databaseClient.query<Result>(
       `
-        UPDATE users
+        UPDATE users u
+        JOIN clients c ON c.users_id = u.id
         SET 
-            email = ?
+            u.email = ?,
+            u.password = ?
         WHERE 
-            id = (SELECT users_id FROM clients WHERE id = ?)
-        `,
-      [clients.email, clients.id],
+            c.id = ?
+      `,
+      [clients.email, await argon2.hash(clients.password), clients.id]
     );
     return result.affectedRows;
   }

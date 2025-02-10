@@ -80,4 +80,25 @@ const remove: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, edit, remove };
+const login: RequestHandler = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    const user = await clientsRepository.findByEmail(email);
+
+    if (!user) {
+      res.status(404).json({ error: "Utilisateur non trouvé" });
+      return; 
+    }
+
+    const isMatch = await argon2.verify(user.password, password);
+    if (!isMatch) {
+      res.status(401).json({ error: "Mot de passe incorrect" });
+      return; 
+    }
+
+    res.status(200).json({ message: "Connexion réussie", userId: user.id });
+  } catch (err) {
+    next(err);
+  }
+};
+export default { browse, read, add, edit, remove, login };

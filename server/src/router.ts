@@ -7,7 +7,7 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 // Users routes
-router.post("/api/users", clientActions.add);
+router.post("/api/login", clientActions.login);
 
 /* ************************************************************************* */
 
