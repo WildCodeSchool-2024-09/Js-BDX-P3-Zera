@@ -113,15 +113,18 @@ export default function LecturePage() {
 
   return (
     <main className={styles.mainLecture}>
-      {episode.illustration && (
-        <img
-          className={styles.illustrationBook}
-          src={episode.illustration.url}
-          alt={`Illustration pour ${episode.title}`}
-          loading="lazy"
-        />
-      )}
+      <img
+        className={styles.illustrationBook}
+        src="/src/assets/images/herobook.png"
+        alt={`Illustration pour ${episode.title}`}
+        onLoad={async (event) => {
+          const dataUrl = await fetch(
+            `${import.meta.env.VITE_API_URL}/api/episodes/${episodeId}/illustration`,
+          ).then((response) => response.text());
 
+          (event.target as HTMLImageElement).src = dataUrl;
+        }}
+      />
       <section className={styles.lecture}>
         <a
           className={`${styles.scrollButton} ${

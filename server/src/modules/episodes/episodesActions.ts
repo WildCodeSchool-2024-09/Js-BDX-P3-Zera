@@ -34,6 +34,22 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
+const getIllustration: RequestHandler = async (req, res, next) => {
+  try {
+    const episodeId = Number(req.params.id);
+    const illustration = await episodesRepository.getIllustration(episodeId);
+
+    if (illustration == null) {
+      res.sendStatus(404);
+    } else {
+      res.contentType("application/dataurl");
+      res.send(illustration.url);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const edit: RequestHandler = async (req, res, next) => {
   try {
     const episodeId = +req.params.id;
@@ -114,4 +130,4 @@ const remove: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, edit, remove };
+export default { browse, read, getIllustration, add, edit, remove };

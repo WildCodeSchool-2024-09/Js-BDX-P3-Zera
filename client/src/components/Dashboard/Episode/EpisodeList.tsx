@@ -46,18 +46,23 @@ export const EpisodeList = ({
                       <h4 className={styles.episodeListTitle}>
                         {episode.title}
                       </h4>
-                      {episode.illustration && (
-                        <section className={styles.episodeListImageContainer}>
-                          <h5 className={styles.episodeListImageTitle}>
-                            Illustration
-                          </h5>
-                          <img
-                            src={episode.illustration}
-                            alt={episode.title}
-                            className={styles.episodeListImage}
-                          />
-                        </section>
-                      )}
+                      <section className={styles.episodeListImageContainer}>
+                        <h5 className={styles.episodeListImageTitle}>
+                          Illustration
+                        </h5>
+                        <img
+                          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                          alt={episode.title}
+                          onLoad={async (event) => {
+                            const dataUrl = await fetch(
+                              `${import.meta.env.VITE_API_URL}/api/episodes/${episode.id}/illustration`,
+                            ).then((response) => response.text());
+
+                            (event.target as HTMLImageElement).src = dataUrl;
+                          }}
+                          className={styles.episodeListImage}
+                        />
+                      </section>
 
                       <section className={styles.episodeListInfo}>
                         <h5 className={styles.episodeListInfoTitle}>

@@ -89,7 +89,6 @@ SELECT
     e.type,
     e.books_id,
     e.is_free,
-    i.url AS illustration_url,
     JSON_ARRAYAGG(
         JSON_OBJECT(
             'paragraph_id', p.id,
@@ -98,22 +97,31 @@ SELECT
     ) AS paragraphs
 FROM 
     episodes e
-INNER JOIN 
-    illustrations i ON e.id = i.episodes_id
 INNER JOIN
     paragraphs p ON e.id = p.episodes_id
 WHERE 
     e.id = ?
 GROUP BY 
-    e.id, e.title, e.to_register, e.type, e.books_id, e.is_free, i.url;
+    e.id, e.title, e.to_register, e.type, e.books_id, e.is_free;
       `,
       [id],
     );
     return rows;
   }
 
+  async getIllustration(id: number) {
+    const [rows] = await databaseClient.execute<Rows>(
+      `
+      SELECT illustrations.url
+      FROM illustrations
+      WHERE episodes_id = ?;
+      `,
+      [id],
+    );
+    return rows[0];
+  }
+
   async readAll() {
-    // Execute the SQL SELECT execute to retrieve all Books from the "Book" table
     const [rows] = await databaseClient.query<Rows>(
       `
 SELECT 
@@ -123,7 +131,6 @@ SELECT
     e.type,
     e.books_id,
     e.is_free,
-    i.url AS illustration_url,
     JSON_ARRAYAGG(
         JSON_OBJECT(
             'id', p.id,
@@ -133,11 +140,9 @@ SELECT
 FROM 
     episodes e
 INNER JOIN 
-    illustrations i ON e.id = i.episodes_id
-INNER JOIN 
     paragraphs p ON e.id = p.episodes_id
 GROUP BY 
-    e.id, e.title, e.to_register, e.type, e.books_id, e.is_free, i.url;
+    e.id, e.title, e.to_register, e.type, e.books_id, e.is_free;
 
       `,
     );
