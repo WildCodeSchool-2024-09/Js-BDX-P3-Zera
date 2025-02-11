@@ -126,8 +126,8 @@ SELECT
     i.url AS illustration_url,
     JSON_ARRAYAGG(
         JSON_OBJECT(
-            'paragraph_id', p.id,
-            'paragraph_content', p.content
+            'id', p.id,
+            'content', JSON_UNQUOTE(JSON_EXTRACT(p.content, '$.content'))
         )
     ) AS paragraphs
 FROM 

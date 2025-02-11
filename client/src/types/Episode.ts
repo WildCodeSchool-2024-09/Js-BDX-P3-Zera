@@ -14,8 +14,14 @@ export interface Episode {
   title: string;
   books_id: number;
   illustration: string;
-  paragraphs: Paragraph[];
+  paragraphs: {
+    id: number;
+    content: string;
+  }[];
   choices: Choice[];
+  to_register: boolean;
+  is_free: boolean;
+  type: string;
 }
 
 export enum EpisodeFormMode {
@@ -33,6 +39,10 @@ export type FormData = {
   choices: Choice[];
   to_register: boolean;
   is_free: boolean;
+};
+
+export type SubmissionData = Omit<FormData, "paragraphs"> & {
+  paragraphs: string[];
 };
 
 export interface EpisodeFormProps {

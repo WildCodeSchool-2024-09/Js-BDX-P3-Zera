@@ -108,3 +108,23 @@
   max-width: 15rem;
   max-height: 15rem;
 }
+
+.episodeCheckboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.episodeCheckboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.episodeCheckbox {
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+}

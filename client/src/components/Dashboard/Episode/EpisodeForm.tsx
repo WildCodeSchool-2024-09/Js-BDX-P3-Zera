@@ -5,7 +5,6 @@ import type {
   Choice,
   EpisodeFormProps,
   FormData,
-  Paragraph,
 } from "../../../types/Episode";
 import styles from "./EpisodeForm.module.css";
 
@@ -22,17 +21,48 @@ export const EpisodeForm = ({
     books_id: episode?.books_id.toString() ?? "",
     type: "SF",
     illustration: episode?.illustration || "",
-    paragraphs: episode?.paragraphs || [{ id: 1, content: "" }],
+    paragraphs: episode?.paragraphs
+      ? episode.paragraphs.map((p) => {
+          let parsedContent = p.content;
+          if (typeof p.content === "string") {
+            try {
+              const parsed = JSON.parse(p.content);
+              parsedContent = parsed.content;
+            } catch (e) {
+              parsedContent = p.content;
+            }
+          }
+
+          return {
+            id: typeof p.id === "number" ? p.id : 1,
+            content: parsedContent || "",
+          };
+        })
+      : [{ id: 1, content: "" }],
     choices: episode?.choices || [],
-    to_register: false,
-    is_free: false,
+    to_register: episode?.to_register ?? false,
+    is_free: episode?.is_free ?? false,
   });
 
-  const handleChange = (field: keyof FormData, value: string | Paragraph[]) => {
-    setFormData((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
+  const handleChange = (field: keyof FormData, value: string | boolean) => {
+    if (field === "to_register" && value === true) {
+      setFormData((prev) => ({
+        ...prev,
+        [field]: value,
+        is_free: false,
+      }));
+    } else if (field === "is_free" && value === true) {
+      setFormData((prev) => ({
+        ...prev,
+        [field]: value,
+        to_register: false,
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [field]: value,
+      }));
+    }
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,12 +77,14 @@ export const EpisodeForm = ({
   };
 
   const handleParagraphChange = (id: number, content: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      paragraphs: prev.paragraphs.map((p) =>
-        p.id === id ? { ...p, content } : p,
-      ),
-    }));
+    if (id && content !== undefined) {
+      setFormData((prev) => ({
+        ...prev,
+        paragraphs: prev.paragraphs.map((p) =>
+          p.id === id ? { ...p, content, id } : p,
+        ),
+      }));
+    }
   };
 
   const addParagraph = () => {
@@ -149,6 +181,53 @@ export const EpisodeForm = ({
           required
           className={styles.episodeInput}
         />
+      </section>
+
+      <section className={styles.episodeSection}>
+        <label htmlFor="type" className={styles.episodeLabel}>
+          Type d'épisode
+        </label>
+        <select
+          id="type"
+          value={formData.type}
+          onChange={(e) => handleChange("type", e.target.value)}
+          required
+          className={styles.episodeSelect}
+        >
+          <option value="SF">Science Fiction</option>
+          <option value="WESTERN">Western</option>
+        </select>
+      </section>
+
+      <section className={styles.episodeSection}>
+        <label htmlFor="availability-options" className={styles.episodeLabel}>
+          Options de disponibilité
+        </label>
+        <div className={styles.episodeCheckboxGroup}>
+          <label className={styles.episodeCheckboxLabel}>
+            <input
+              type="checkbox"
+              checked={formData.to_register}
+              onChange={(e) =>
+                handleChange("to_register", e.target.checked.toString())
+              }
+              className={styles.episodeCheckbox}
+            />
+            Disponible uniquement pour les utilisateurs enregistrés
+          </label>
+
+          <label className={styles.episodeCheckboxLabel}>
+            <input
+              type="checkbox"
+              checked={formData.is_free}
+              onChange={(e) =>
+                handleChange("is_free", e.target.checked.toString())
+              }
+              className={styles.episodeCheckbox}
+            />
+            Gratuit pour tous
+          </label>
+        </div>
       </section>
 
       <section className={styles.episodeIllustrationSection}>

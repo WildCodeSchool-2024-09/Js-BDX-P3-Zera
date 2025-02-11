@@ -73,20 +73,64 @@ export const EpisodeProvider = ({
     }
   };
 
-  const updateEpisode = (id: number, episodeData: FormData) => {
-    setEpisodes((prev) =>
-      prev.map((episode) =>
-        episode.id === id
-          ? { ...episodeData, books_id: +episodeData.books_id, id }
-          : episode,
-      ),
-    );
+  const updateEpisode = async (id: number, episodeData: FormData) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/episodes/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(episodeData),
+        },
+      );
+
+      if (!response.ok)
+        throw new Error("Erreur lors de la mise à jour de l'épisode");
+
+      setEpisodes((prev) =>
+        prev.map((episode) =>
+          episode.id === id
+            ? { ...episodeData, books_id: +episodeData.books_id, id }
+            : episode,
+        ),
+      );
+    } catch (err) {
+      setError(
+        err instanceof Error ? err : new Error("Une erreur est survenue"),
+      );
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const deleteEpisode = (id: number) => {
-    setEpisodes((prev) => prev.filter((episode) => episode.id !== id));
-  };
+  const deleteEpisode = async (id: number) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/episodes/${id}`,
+        {
+          method: "DELETE",
+        },
+      );
 
+      if (!response.ok) {
+        throw new Error("Erreur lors de la suppression de l'épisode");
+      }
+
+      setEpisodes((prev) => prev.filter((episode) => episode.id !== id));
+    } catch (err) {
+      setError(
+        err instanceof Error ? err : new Error("Une erreur est survenue"),
+      );
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const value = {
     episodes,
     createEpisode,
