@@ -9,8 +9,11 @@ function ForgotPasswordForm({
 }: ForgotPasswordFormProps) {
   return (
     <>
-      <h1>Mot de passe oublié</h1>
+      <h1 className={styles.titleForgotPassword}>Mot de passe oublié</h1>
       <form onSubmit={onSubmit} className={styles.forgotPasswordForm}>
+        <p className={styles.forgotParagraph}>
+          Entrez votre adresse email pour recevoir un lien de réinitialisation.
+        </p>
         <InputField
           id="email"
           label="Email *"

@@ -23,5 +23,5 @@
 }
 
 .inputField::placeholder {
-  color: var(--text-color);
+  color: var(--bg-primary);
 }
