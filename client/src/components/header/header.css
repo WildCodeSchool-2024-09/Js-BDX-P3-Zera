@@ -18,6 +18,11 @@
   left: 1rem;
 }
 
+.logo {
+  height: 5rem;
+  width: 10rem;
+}
+
 .nav-list {
   display: none;
 }
@@ -80,7 +85,7 @@
   padding: 0.5rem 1rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1064px) {
   .nav-buttons {
     position: static;
     left: auto;

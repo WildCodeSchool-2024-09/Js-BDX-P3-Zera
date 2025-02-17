@@ -21,6 +21,13 @@ function Header() {
           className="profile-image"
         />
       </Link>
+      <Link to={"/"}>
+        <img
+          className="logo"
+          src="src/assets/images/Perdu dans Zera Small.png"
+          alt=""
+        />
+      </Link>
 
       <nav className="nav-buttons">{<NavigationLinks />}</nav>
 

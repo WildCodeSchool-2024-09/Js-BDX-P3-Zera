@@ -10,6 +10,7 @@
   padding: 1rem;
   border-radius: 4px;
   text-align: left;
+  font-family: var(--text-font);
 }
 
 .bookImage {
@@ -26,6 +27,7 @@
 
 .titleBookList {
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .buttonBookList {

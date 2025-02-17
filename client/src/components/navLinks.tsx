@@ -22,29 +22,11 @@ function NavigationLinks({
       </li>
       <li>
         <Link
-          to="/profil"
-          className={isMobile ? "menu-link" : "nav-link"}
-          onClick={() => isMobile && closeMenu && closeMenu()}
-        >
-          Profil
-        </Link>
-      </li>
-      <li>
-        <Link
           to="/team"
           className={isMobile ? "menu-link" : "nav-link"}
           onClick={() => isMobile && closeMenu && closeMenu()}
         >
           Team
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/boutique"
-          className={isMobile ? "menu-link" : "nav-link"}
-          onClick={() => isMobile && closeMenu && closeMenu()}
-        >
-          Boutique
         </Link>
       </li>
       <li>

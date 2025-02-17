@@ -7,7 +7,7 @@
 
 .teamTitle {
   font-size: var(--title-size);
-  font-family: var(--title-font);
+  font-family: var(--text-font);
   text-align: center;
   margin-bottom: 10rem;
   position: absolute;
@@ -71,12 +71,12 @@
 .teamName {
   margin-bottom: 1rem;
   margin-top: 1rem;
-  font-family: var(--title-font);
+  font-family: var(--text-font);
   letter-spacing: .3rem;
 }
 
 .pseudoTeam {
-  font-family: var(--title-font);
+  font-family: var(--text-font);
   letter-spacing: .3rem;
 }
 
