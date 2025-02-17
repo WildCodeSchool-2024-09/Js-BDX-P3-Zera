@@ -21,8 +21,8 @@ function LoginPage() {
       onEmailChange={handleEmailChange}
       onPasswordChange={handlePasswordChange}
       onSubmit={handleSubmit}
-      forgotPasswordLink="/forgot-password"
-      createAccountLink="/signup"
+      forgotPasswordLink="/mot-de-passe-oublie"
+      createAccountLink="/inscription"
     />
   );
 }

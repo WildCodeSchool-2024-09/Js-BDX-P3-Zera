@@ -27,7 +27,7 @@ export function useLoginForm() {
     try {
       await authService.login(email, password);
       // Redirection après connexion réussie
-      navigate("/dashboard");
+      navigate("/");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Une erreur est survenue");
     } finally {
@@ -40,7 +40,7 @@ export function useLoginForm() {
   };
 
   const handleCreateAccountClick = () => {
-    navigate("/signup");
+    navigate("/inscription");
   };
 
   return {
