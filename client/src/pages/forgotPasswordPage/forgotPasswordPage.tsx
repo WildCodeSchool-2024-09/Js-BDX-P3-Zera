@@ -6,9 +6,6 @@ function ForgotPasswordPage() {
 
   return (
     <>
-      <p>
-        Entrez votre adresse email pour recevoir un lien de réinitialisation.
-      </p>
       <ForgotPasswordForm
         email={email}
         onEmailChange={handleEmailChange}
