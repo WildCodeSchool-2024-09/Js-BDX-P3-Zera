@@ -13,6 +13,7 @@ episodeListSection {
   margin-bottom: 1rem;
   border-radius: 4px;
   transition: background-color 0.2s;
+  font-family: var(--text-font);
 }
 
 .bookHeader:hover {
@@ -55,6 +56,7 @@ episodeListSection {
   padding: 1rem;
   border-radius: 8px;
   transition: transform 0.2s ease;
+  font-family: var(--text-font);
 }
 
 .episodeItem:hover {

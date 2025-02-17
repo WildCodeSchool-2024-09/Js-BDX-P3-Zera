@@ -14,7 +14,7 @@ const BookCard = ({
     <section className={styles.sectionBookList}>
       <h2 className={styles.titleBookList}>{book.title}</h2>
       <section>
-        <h3>Illustration</h3>
+        <h3 className={styles.titleBookList}>Illustration</h3>
         <img
           src={book.illustration}
           alt={book.title}
