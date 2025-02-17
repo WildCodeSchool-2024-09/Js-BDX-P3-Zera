@@ -40,7 +40,7 @@ export function useLoginForm() {
   };
 
   const handleCreateAccountClick = () => {
-    navigate("/signup");
+    navigate("/inscription");
   };
 
   return {
