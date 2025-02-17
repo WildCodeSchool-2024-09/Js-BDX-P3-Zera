@@ -15,18 +15,15 @@ class ClientRepository {
     try {
       await connection.beginTransaction();
 
-      const hashedPassword = await argon2.hash(client.password);
-
       const [users] = await connection.query<Result>(
         `
             INSERT INTO  
-                users (email, password, hashed_password)
+                users (email, password)
             VALUES 
-                (?, ?, ?)
+                (?, ?)
           `,
-        [client.email, hashedPassword, hashedPassword],
+        [client.email, client.password],
       );
-
       if (!users.insertId) {
         throw new Error("fail insert into user table");
       }
@@ -74,19 +71,24 @@ class ClientRepository {
 
   async findByEmail(email: string): Promise<Client | null> {
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT users.id, users.email, users.password, clients.id as client_id
-       FROM users
-       INNER JOIN clients ON clients.users_id = users.id
-       WHERE users.email = ?`,
+      `SELECT 
+        users.id,
+        users.email,
+        users.password,
+        clients.id as client_id
+      FROM users
+      INNER JOIN clients ON clients.users_id = users.id
+      WHERE users.email = ?`,
       [email],
     );
 
-    if (!rows[0]) return null;
+    if (rows.length === 0) return null;
 
+    const user = rows[0];
     return {
-      id: rows[0].client_id,
-      email: rows[0].email,
-      password: rows[0].password,
+      id: user.client_id,
+      email: user.email,
+      password: user.password,
     } as Client;
   }
 

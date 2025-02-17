@@ -8,4 +8,6 @@ interface SignupFormProps {
   onPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onConfirmPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent) => void;
+  error: string;
+  isLoading: boolean;
 }

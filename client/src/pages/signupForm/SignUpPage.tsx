@@ -1,12 +1,14 @@
-import SignupForm from "./signupForm";
-import { useSignupForm } from "./useSignupForm";
+import SignupForm from "../signupForm/signupForm";
+import { useSignupForm } from "../signupForm/useSignupForm";
 
-export default function SignUpPage() {
+function SignupPage() {
   const {
     email,
     confirmEmail,
     password,
     confirmPassword,
+    error,
+    isLoading,
     handleEmailChange,
     handleConfirmEmailChange,
     handlePasswordChange,
@@ -20,6 +22,8 @@ export default function SignUpPage() {
       confirmEmail={confirmEmail}
       password={password}
       confirmPassword={confirmPassword}
+      error={error}
+      isLoading={isLoading}
       onEmailChange={handleEmailChange}
       onConfirmEmailChange={handleConfirmEmailChange}
       onPasswordChange={handlePasswordChange}
@@ -28,3 +32,5 @@ export default function SignUpPage() {
     />
   );
 }
+
+export default SignupPage;

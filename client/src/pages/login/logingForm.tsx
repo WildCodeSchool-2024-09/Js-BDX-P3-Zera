@@ -6,6 +6,8 @@ import styles from "./loginForm.module.css";
 function LoginForm({
   email,
   password,
+  error,
+  isLoading,
   onEmailChange,
   onPasswordChange,
   onSubmit,
@@ -16,6 +18,7 @@ function LoginForm({
     <article className={styles.card}>
       <h1>Connexion</h1>
       <form onSubmit={onSubmit} className={styles.formContent}>
+        {error && <div className={styles.error}>{error}</div>}
         <InputField
           id="email"
           value={email}
@@ -31,8 +34,11 @@ function LoginForm({
           onChange={onPasswordChange}
           label="Mot de passe *"
           placeholder="Entrez votre mot de passe"
+          required
         />
-        <button type="submit">Se connecter</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Connexion en cours..." : "Se connecter"}
+        </button>
         <nav className={styles.formNav}>
           <Link to={forgotPasswordLink} className={styles.link}>
             Mot de passe oublié

@@ -7,6 +7,8 @@ function SignupForm({
   confirmEmail,
   password,
   confirmPassword,
+  error,
+  isLoading,
   onEmailChange,
   onConfirmEmailChange,
   onPasswordChange,
@@ -17,6 +19,7 @@ function SignupForm({
     <>
       <h1>Inscription</h1>
       <form onSubmit={onSubmit} className={styles.signupForm}>
+        {error && <div className={styles.error}>{error}</div>}
         <InputField
           id="email"
           label="Email *"
@@ -35,7 +38,6 @@ function SignupForm({
           placeholder="Confirmez votre email"
           required
         />
-
         <PasswordInput
           id="password"
           label="Mot de passe *"
@@ -52,8 +54,8 @@ function SignupForm({
           placeholder="Confirmez votre mot de passe"
           required
         />
-        <button type="submit" className={styles.button}>
-          S'inscrire
+        <button type="submit" className={styles.button} disabled={isLoading}>
+          {isLoading ? "Inscription en cours..." : "S'inscrire"}
         </button>
       </form>
     </>
