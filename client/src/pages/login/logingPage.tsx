@@ -1,10 +1,12 @@
-import LoginForm from "./logingForm";
-import { useLoginForm } from "./useLogingForm";
+import LoginForm from "../login/logingForm";
+import { useLoginForm } from "../login/useLogingForm";
 
 function LoginPage() {
   const {
     email,
     password,
+    error,
+    isLoading,
     handleEmailChange,
     handlePasswordChange,
     handleSubmit,
@@ -14,11 +16,13 @@ function LoginPage() {
     <LoginForm
       email={email}
       password={password}
+      error={error}
+      isLoading={isLoading}
       onEmailChange={handleEmailChange}
       onPasswordChange={handlePasswordChange}
       onSubmit={handleSubmit}
-      forgotPasswordLink="/mot-de-passe-oublie"
-      createAccountLink="/inscription"
+      forgotPasswordLink="/forgot-password"
+      createAccountLink="/signup"
     />
   );
 }

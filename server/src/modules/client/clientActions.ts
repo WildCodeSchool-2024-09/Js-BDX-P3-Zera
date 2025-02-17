@@ -53,6 +53,10 @@ const edit: RequestHandler = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add: RequestHandler = async (req, res, next) => {
   try {
+    if (!req.body.email || !req.body.password) {
+      res.status(400).json({ error: "Email et mot de passe requis" });
+      return;
+    }
     const hashedPassword = await argon2.hash(req.body.password);
     const newClient = {
       email: req.body.email,
@@ -83,6 +87,14 @@ const remove: RequestHandler = async (req, res, next) => {
 const login: RequestHandler = async (req, res, next) => {
   try {
     const { email, password } = req.body;
+
+    // Vérifier si l'email et le mot de passe sont fournis
+    if (!email || !password) {
+      res.status(400).json({ error: "Email et mot de passe requis" });
+      return;
+    }
+
+    // Rechercher l'utilisateur par email
     const user = await clientsRepository.findByEmail(email);
 
     if (!user) {
@@ -90,13 +102,20 @@ const login: RequestHandler = async (req, res, next) => {
       return;
     }
 
-    const isMatch = await argon2.verify(user.password, password);
-    if (!isMatch) {
+    // Vérifier le mot de passe
+    const isPasswordValid = await argon2.verify(user.password, password);
+
+    if (!isPasswordValid) {
       res.status(401).json({ error: "Mot de passe incorrect" });
       return;
     }
 
-    res.status(200).json({ message: "Connexion réussie", userId: user.id });
+    // Si tout est OK, retourner les informations de l'utilisateur (sans le mot de passe)
+    res.status(200).json({
+      id: user.id,
+      email: user.email,
+      message: "Connexion réussie",
+    });
   } catch (err) {
     next(err);
   }
